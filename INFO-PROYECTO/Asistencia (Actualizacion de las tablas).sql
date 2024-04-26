@@ -17,6 +17,10 @@
 
  create table Ficha(
  Numero_Ficha int primary key not null,
+ Jornada_Ficha varchar(100) not null,
+ Fecha_inicio varchar(100) not null,
+ Fecha_fin varchar(100) not null,
+ Tipo_Ficha varchar(100) not null,
  idAdministrador int foreign key references Administrador 
  )
 
@@ -28,7 +32,7 @@
  Tipo_Documento varchar(100) not null,
  Numero_Documento varchar(100) not null, 
  Contraseña varchar(100) not null,
- Estado bit default 1 not null, 
+ Estado varchar(100) not null, 
  Numero_Ficha int foreign key references Ficha,
  idAdministrador int foreign key references Administrador,
  idSoporte int foreign key references Soporte_asistencia
