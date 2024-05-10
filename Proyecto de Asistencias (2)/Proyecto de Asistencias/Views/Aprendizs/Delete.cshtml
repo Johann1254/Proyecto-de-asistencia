@@ -6,13 +6,14 @@
 
 <h2>Eliminar</h2>
 
+<link href="~/Content/Botones_y_textos.css" rel="stylesheet" />
 
 <div>
-    
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Nombres_Aprenidiz)
+            <a class="nombre">Nombres</a>
         </dt>
 
         <dd>
@@ -20,7 +21,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Apellidos_Aprendiz)
+            <a class="nombre">Apellidos</a>
         </dt>
 
         <dd>
@@ -28,7 +29,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Email_Aprenidiz)
+            <a class="nombre">Email</a>
         </dt>
 
         <dd>
@@ -36,7 +37,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Tipo_Documento)
+            <a class="nombre">Tipo de documento</a>
         </dt>
 
         <dd>
@@ -44,7 +45,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Numero_Documento)
+            <a class="nombre">Numero de documento</a>
         </dt>
 
         <dd>
@@ -52,7 +53,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Contraseña)
+            <a class="nombre">Contraseña</a>
         </dt>
 
         <dd>
@@ -60,7 +61,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Estado)
+            <a class="nombre">Estado</a>
         </dt>
 
         <dd>
@@ -68,30 +69,31 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Administrador.Nombre_Administrador)
+            <a class="nombre">Identificacion admin</a>
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Administrador.Nombre_Administrador)
+            @Html.DisplayFor(model => model.Administrador.idAdministrador)
         </dd>
 
 
         <dt>
-            @Html.DisplayNameFor(model => model.Ficha.Jornada_Ficha)
+           <a class="nombre"> Ficha</a>
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Ficha.Jornada_Ficha)
+            @Html.DisplayFor(model => model.Ficha.Numero_Ficha)
         </dd>
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-            @Html.ActionLink("Volver", "Index")
+            <input type="submit" value="Eliminar" class="btn-Eliminar" />
+            <input type="button" class="input-volver" value="Volver" onclick="location.href='@Url.Action("Index")'" />
         </div>
     }
 </div>
