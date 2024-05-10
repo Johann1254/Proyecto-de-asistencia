@@ -13,16 +13,16 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nombre_Programa)
+               Nombre
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Duracion_Programa)
+                Duracion
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Administrador.Nombre_Administrador)
+                Identificacion admin
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Ficha.Jornada_Ficha)
+              Jornada
             </th>
             <th>OPERACIONES</th>
         </tr>
@@ -37,7 +37,7 @@
                     @Html.DisplayFor(modelItem => item.Duracion_Programa)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Administrador.Nombre_Administrador)
+                    @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Ficha.Jornada_Ficha)

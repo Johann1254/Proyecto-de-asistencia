@@ -5,13 +5,13 @@
 }
 
 <h2>Detalles</h2>
-
+<link href="~/Content/Botones_y_textos.css" rel="stylesheet" />
 <div>
-   
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Nombre_Programa)
+            <a class="nombre">Nombre</a>
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Duracion_Programa)
+            <a class="nombre">Duracion</a>
         </dt>
 
         <dd>
@@ -27,24 +27,25 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Administrador.Nombre_Administrador)
+            <a class="nombre">Identificacion admin</a>
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Administrador.Nombre_Administrador)
+            @Html.DisplayFor(model => model.Administrador.idAdministrador)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Ficha.Jornada_Ficha)
+            <a class="nombre">Numero de ficha</a>
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Ficha.Jornada_Ficha)
+            @Html.DisplayFor(model => model.Ficha.Numero_Ficha)
         </dd>
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.idPrograma }, new { @class = "btn btn-warning" }) |
-    @Html.ActionLink("Volver", "Index")
-</p>
+<div class="col-md-offset-2 col-md-10">
+    <input type="button" class="btn-Editar" value="Editar" onclick="location.href='@Url.Action("Edit", new { id = Model.idPrograma })'" />
+    <input type="button" class="input-volver" value="Volver" onclick="location.href='@Url.Action("Index")'" />
+
+</div>

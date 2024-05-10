@@ -5,11 +5,11 @@
 }
 
 <h2>Editar</h2>
-
+<link href="~/Content/Botones_y_textos.css" rel="stylesheet" />
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
 
         <hr />
@@ -17,7 +17,7 @@
         @Html.HiddenFor(model => model.idPrograma)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Nombre_Programa, htmlAttributes: new { @class = "control-label col-md-2" })
+            <a class="nombre">Nombre</a>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Nombre_Programa, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Nombre_Programa, "", new { @class = "text-danger" })
@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Duracion_Programa, htmlAttributes: new { @class = "control-label col-md-2" })
+            <a class="nombre">Duracion</a>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Duracion_Programa, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Duracion_Programa, "", new { @class = "text-danger" })
@@ -33,7 +33,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Numero_Ficha, "Numero_Ficha", htmlAttributes: new { @class = "control-label col-md-2" })
+            <a class="nombre">Numero de ficha</a>
             <div class="col-md-10">
                 @Html.DropDownList("Numero_Ficha", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Numero_Ficha, "", new { @class = "text-danger" })
@@ -41,21 +41,20 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.idAdministrador, "idAdministrador", htmlAttributes: new { @class = "control-label col-md-2" })
+            <a class="nombre">Identificacion admin</a>
             <div class="col-md-10">
                 @Html.DropDownList("idAdministrador", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.idAdministrador, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
+        <br />
+        <div class="form-group button-container">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-primary" />
+                <input type="submit" value="Guardar" class="btn-guardar" />
+                <input type="button" class="input-volver" value="Volver" onclick="location.href='@Url.Action("Index")'" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Volver", "Index")
-</div>
+
