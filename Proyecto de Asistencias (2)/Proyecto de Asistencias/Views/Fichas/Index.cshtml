@@ -13,19 +13,19 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Jornada_Ficha)
+               Jornada
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Fecha_inicio)
+               Fecha inicio
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Fecha_fin)
+               Fecha fin
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Tipo_Ficha)
+                Tipo ficha
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Administrador.Nombre_Administrador)
+                Identificacion admin
             </th>
             <th>OPERACIONES</th>
         </tr>
@@ -46,7 +46,7 @@
                     @Html.DisplayFor(modelItem => item.Tipo_Ficha)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Administrador.Nombre_Administrador)
+                    @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
                 </td>
                 <td>
                     @Html.ActionLink("Editar", "Edit", new { id = item.Numero_Ficha }, new { @class = "btn btn-warning" }) |
