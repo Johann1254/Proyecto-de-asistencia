@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34601.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyecto de Asistencias", "Proyecto de Asistencias.csproj", "{1954A826-7B81-44C2-B527-546B8F5327C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libreria de conexion", "..\Libreria de conexion\Libreria de conexion.csproj", "{5E4259F3-148B-4C74-A513-A44AC5CEAA78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1954A826-7B81-44C2-B527-546B8F5327C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1954A826-7B81-44C2-B527-546B8F5327C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1954A826-7B81-44C2-B527-546B8F5327C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1954A826-7B81-44C2-B527-546B8F5327C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E4259F3-148B-4C74-A513-A44AC5CEAA78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E4259F3-148B-4C74-A513-A44AC5CEAA78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E4259F3-148B-4C74-A513-A44AC5CEAA78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E4259F3-148B-4C74-A513-A44AC5CEAA78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B4660E54-00E6-430C-BABB-AE5AB9E78104}
+	EndGlobalSection
+EndGlobal

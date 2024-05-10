@@ -1,0 +1,92 @@
+﻿@model Libreria_de_conexion.Aprendiz
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombres_Aprenidiz)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombres_Aprenidiz)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellidos_Aprendiz)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellidos_Aprendiz)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email_Aprenidiz)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email_Aprenidiz)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo_Documento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo_Documento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Numero_Documento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numero_Documento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contraseña)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contraseña)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Administrador.Nombre_Administrador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Administrador.Nombre_Administrador)
+        </dd>
+
+        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ficha.Jornada_Ficha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ficha.Jornada_Ficha)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idAprendiz }, new { @class = "btn btn-" }) |
+    @Html.ActionLink("Volver", "Index")
+</p>

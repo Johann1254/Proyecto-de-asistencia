@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Libreria_de_conexion.Programa_Formacion>
+
+@{
+    ViewBag.Title = "Programa de Formacion";
+}
+
+<h2>Programa de Formacion</h2>
+<link href="~/Content/Estilo_tablas.css" rel="stylesheet" />
+<p>
+    @Html.ActionLink("Nuevo programa", "Create", "", new { @class = "btn btn-success" })
+</p>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre_Programa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duracion_Programa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Administrador.Nombre_Administrador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ficha.Jornada_Ficha)
+            </th>
+            <th>OPERACIONES</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre_Programa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duracion_Programa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Administrador.Nombre_Administrador)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ficha.Jornada_Ficha)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idPrograma }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.idPrograma }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idPrograma }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

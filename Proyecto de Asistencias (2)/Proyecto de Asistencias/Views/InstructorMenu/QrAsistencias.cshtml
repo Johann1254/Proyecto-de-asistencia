@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Qr de Asistencias</title>
+    <link href="~/CSS/CSSvistasInstructor.css" rel="stylesheet" />
+    <link href="~/CSS/cssQRAsistencia.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Instructor Jesus Marzal Barboza</h1>
+            <h4>Detalles de QR</h4>
+        </div>
+        <div class="form-container">
+            <!-- <div class="form-field">
+                <label for="qr-code">QR de Asistencia</label>
+                <input type="text" id="qr-code" placeholder="Ingrese el código de asistencia">
+            </div> -->
+            <div class="form-field">
+                <label for="date">Fecha</label>
+                <input type="date" id="date" value="dd/mm/aaaa">
+            </div>
+            <div class="form-field">
+                <label for="environment">Ingrese el numero de la Ficha</label>
+                <input type="text" id="environment" placeholder="Ingrese el número de la Ficha">
+            </div>
+            @*<button class="btn">Enviar</button>*@
+            <button class="button">Generar QR</button>
+        </div>
+    </div>
+</body>
+</html>

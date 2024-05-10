@@ -1,0 +1,80 @@
+﻿@model Libreria_de_conexion.Instructor
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3></h3>
+<div>
+    <link href="~/Content/Botones_y_textos.css" rel="stylesheet" />
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <a class="nombre">Nombres</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Instructor)
+        </dd>
+
+        <dt>
+            <a class="nombre">Apellidos</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido_Instructor)
+        </dd>
+
+        <dt>
+            <a class="nombre">Email</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email_Instructor)
+        </dd>
+
+        <dt>
+            <a class="nombre">Contraseña</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contraseña_Instructor)
+        </dd>
+
+        <dt>
+            <a class="nombre">Qr asistencias</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imagen_Qr)
+        </dd>
+
+        <dt>
+            <a class="nombre">Identificacion admin</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Administrador.idAdministrador)
+        </dd>
+
+        <dt>
+            <a class="nombre">Ficha</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ficha.Numero_Ficha)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn-Eliminar" /> 
+            <input type="button" class="input-volver" value="Volver" onclick="location.href='@Url.Action("Index")'" />
+        </div>
+    }
+</div>

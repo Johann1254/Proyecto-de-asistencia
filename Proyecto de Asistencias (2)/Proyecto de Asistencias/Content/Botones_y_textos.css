@@ -1,0 +1,59 @@
+﻿.button-container {
+    display: flex;
+    justify-content: space-between; /* Ajusta el espacio entre los botones */
+}
+
+.btn-guardar {
+    border-radius: 5px;
+    background-color: #3DAF04;
+    border: unset;
+    color: white;
+    height: 33px;
+    font-weight: 500;
+}
+.btn-Editar {
+    border-radius: 5px;
+    background-color: #6c757d;
+    border: unset;
+    color: white;
+    height: 33px;
+}
+.btn-Eliminar {
+    border-radius: 5px;
+    background-color: #ff0000;
+    border: unset;
+    color: white;
+    height: 33px;
+    font-weight: 500;
+}
+.input-volver {
+    border-radius: 5px;
+    background-color: #E8E8E8;
+    border: unset;
+    color: black;
+    height: 33px;
+}
+
+.btn-Editar, .input-volver {
+    display: inline-block;
+    margin-right: 10px; /* Ajusta el espacio entre los botones */
+}
+
+.btn-guardar, .input-volver {
+    display: inline-block;
+    margin-right: 10px; /* Ajusta el espacio entre los botones */
+}
+.btn-Eliminar, .input-volver {
+    display: inline-block;
+    margin-right: 10px; /* Ajusta el espacio entre los botones */
+}
+
+.nombre {
+    font-family: 'Century Gothic';
+    font-weight: 1000;
+    
+}
+.nombre:hover{
+    color:black;
+
+}

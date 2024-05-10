@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Libreria_de_conexion.Competencia>
+
+@{
+    ViewBag.Title = "Competencias";
+}
+
+<h2>Competencias</h2>
+<link href="~/Content/Estilo_tablas.css" rel="stylesheet" />
+<p>
+    @Html.ActionLink("Nueva competencia", "Create","", new { @class = "btn btn-success" })
+</p>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre_Competencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo_Competencias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duracion_Competencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Administrador.Nombre_Administrador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Programa_Formacion.Nombre_Programa)
+            </th>
+            <th>OPERACIONES</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre_Competencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tipo_Competencias)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duracion_Competencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Administrador.Nombre_Administrador)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Programa_Formacion.Nombre_Programa)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idCompetencia }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.idCompetencia }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idCompetencia }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

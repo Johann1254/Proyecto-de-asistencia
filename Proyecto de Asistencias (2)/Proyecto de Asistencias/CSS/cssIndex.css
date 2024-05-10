@@ -1,0 +1,117 @@
+﻿
+/* Make the page responsive */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Add green top and bottom borders */
+body {
+    border-top: 100px solid #3DAF04;
+    border-bottom: 100px solid #3DAF04;
+    width: auto;
+}
+
+.container {
+    max-width: auto;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: auto;
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+    .header h1 {
+        margin: 0;
+    }
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.form-field {
+    margin: 10px;
+    width: calc(50% - 20px);
+}
+
+    .form-field label {
+        display: block;
+        margin-bottom: 10px;
+        justify-content: center;
+    }
+
+    .form-field input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: center;
+    }
+
+.button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto;
+}
+
+    .button:hover {
+        background-color: white;
+        color: green;
+        border-color: green;
+    }
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+    .form-field {
+        width: auto;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        margin: 20px auto;
+        width: auto;
+    }
+}
+
+.boton-opciones { /*Boton de opciones*/
+    width: auto;
+    height: auto;
+    position: relative;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 20px;
+    display: flex;
+    gap: 0 1rem;
+    justify-content: center;
+}
+
+#archivo {
+    display: flex;
+    margin: 0 auto 20px;
+    width: auto;
+}

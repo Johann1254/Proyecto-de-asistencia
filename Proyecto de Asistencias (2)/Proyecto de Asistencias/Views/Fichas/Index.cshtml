@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Libreria_de_conexion.Ficha>
+
+@{
+    ViewBag.Title = "Fichas";
+}
+
+<h2>Fichas</h2>
+<link href="~/Content/Estilo_tablas.css" rel="stylesheet" />
+<p>
+    @Html.ActionLink("Nueva Ficha", "Create", "",new { @class = "btn btn-success" })
+</p>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Jornada_Ficha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_inicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_fin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo_Ficha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Administrador.Nombre_Administrador)
+            </th>
+            <th>OPERACIONES</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jornada_Ficha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_inicio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_fin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tipo_Ficha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Administrador.Nombre_Administrador)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Numero_Ficha }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Numero_Ficha }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Numero_Ficha }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

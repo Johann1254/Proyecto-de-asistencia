@@ -1,0 +1,67 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Consultarinasistencias</title>
+    <link href="~/CSS/EstiloConsultarI.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="Top">
+        <h1 id="titulo">Inasistencias</h1>
+    </div>
+    <br />
+    <h1 id="titulo2">Listado de inasistencias</h1>
+    <div class="table-container">
+        <div class="cuadrado">
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Fecha</th>
+                    <th>Ficha</th>
+                    <th>Ambiente</th>
+                    <th>Malaa mia </th>
+                </tr>
+                <tr>
+                    <td>Juan</td>
+                    <td>Pérez</td>
+                    <td>2024-05-03</td>
+                    <td>2693606</td>
+                    <td>ADSO 1</td>
+                    <td>Holaa</td>
+                </tr>
+                <!-- Puedes añadir más filas según sea necesario -->
+            </table>
+        </div>
+    </div>
+    <div id="botones">
+        <div class="soporte">
+            <button onclick="redirectTo('Archivosoporte')">Subir archivo de soporte</button>
+        </div>
+        <br />
+        <div class="volver">
+            <button class="boton-transicion" onclick="redirectTo('Index')">Volver</button>
+        </div>
+    </div>
+
+    <footer id="Bot"> Proyecto asistencia © </footer>
+</body>
+</html>
+<script>
+    function redirectTo(url) {
+        // Agrega una clase de transición al cuerpo del documento
+        document.body.classList.add('transicion-salida');
+
+        // Espera un momento antes de redirigir
+        setTimeout(function () {
+            window.location.href = url;
+        }, 500); // Ajusta el tiempo según tu preferencia
+    }
+</script>

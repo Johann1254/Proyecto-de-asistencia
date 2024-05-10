@@ -1,0 +1,286 @@
+﻿/*Codigo css del Menu principal*/
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+.Menu-Instructor { /*Titulo menu de opcioes*/
+    color: #3DAF04; 
+    text-align: center; 
+    margin-top: 20px; 
+}
+.name-user { /*Instructor*/
+    color: black;  
+    position:absolute; 
+    margin-top: -50px; 
+    left: 50px; 
+}
+.salir{ /*Boton salir del menu*/
+    border-radius: 10px; 
+    background-color: #3DAF04; 
+    border-color: transparent; 
+    margin-left: 50px; 
+    bottom: auto; 
+    margin-top: 150px; 
+    min-height: 40px; 
+    min-width: 100px; 
+    
+}
+.salir:hover{
+    background-color: white; 
+    border-color: #3DAF04; 
+    cursor: pointer; 
+}
+.barraTop { /*Barra verde superior*/
+    background-color: #3DAF04; 
+    width: 100%; 
+    height: 100px; 
+    position :relative; 
+ 
+}
+.barraBot { /*Barra verde inferior*/
+    background-color: #3DAF04;
+    width: 100%;
+    height: 100px;
+    position: fixed; 
+    bottom: 0; 
+    left: 0; 
+ 
+}
+.boton-opciones { /*Boton de opciones*/
+    width: auto; 
+    height: auto;
+    position: relative; 
+    margin-left: 100px; 
+    margin-right: 100px; 
+    margin-top: 20px; 
+    display: flex; 
+    gap: 0 1rem; 
+    justify-content: center;   
+}
+
+.btn{ /*Botones*/
+    width: auto; 
+    min-height: 40px; 
+    padding: 3px 6px;
+    border-radius: 5px; 
+    border: none; 
+    justify-content: center;  
+    cursor: pointer; 
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+/*Css de la vista Asistencias*/
+.titulo-Asistencias {
+    color: #3DAF04;
+    text-align: center;
+    margin-top: 20px;
+}
+.menu-inasistencias {
+    color: #3DAF04;
+    text-align: center;
+    margin-top: 20px;
+}
+.menu-fichas {
+    color: #3DAF04;
+    text-align: center;
+    margin-top: 20px;
+}
+.menu-crearusuarios {
+    color: #3DAF04;
+    text-align: center;
+    margin-top: 20px;
+}
+.generar {
+    width: auto;
+    min-height: 40px;
+    padding: 3px 6px;
+    border-radius: 5px;
+    border: none;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: -15px; 
+}
+.titulo {
+    color: #3DAF04;
+    text-align: center;
+    margin-top: 20px;
+}
+.siguiente {
+    border-radius: 10px;
+    background-color: #3DAF04;
+    border-color: transparent;
+    margin-left: 160px;
+    bottom: auto;
+    margin-top: 250px;
+    min-height: 40px;
+    min-width: 100px;
+    cursor: pointer;
+    position: absolute;
+    right: 60px;
+}
+.regresar {
+    border-radius: 10px;
+    background-color: #3DAF04;
+    border-color: transparent;
+    margin-left: 250px;
+    bottom: auto;
+    margin-top: -200px;
+    min-height: 40px;
+    min-width: 100px;
+    cursor: pointer;
+    position: absolute; 
+   
+}
+.regresar:hover{
+    background-color: white; 
+    border-color: #3DAF04; 
+    cursor: pointer;
+}
+.listado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+/*.cuadrado {
+    border: 2px solid green;
+    width: 950px;
+    height: 350px;
+    margin-top: -200px;
+    margin-left: 60px;
+    margin-right: 60px;
+}*/
+/*Vista listado Programa*/
+.regresar_ {
+    border-radius: 10px;
+    background-color: #3DAF04;
+    border-color: transparent;
+    margin-left: 250px;
+    bottom: auto;
+    margin-top: 450px;
+    min-height: 40px;
+    min-width: 100px;
+    cursor: pointer;
+    position: absolute;
+}
+/*Vista de consultar Competencias*/
+.regresarC {
+    border-radius: 10px;
+    background-color: #3DAF04;
+    border-color: transparent;
+    margin-left: 150px;
+    bottom: auto;
+    margin-top: -220px;
+    min-height: 40px;
+    min-width: 100px;
+    cursor: pointer;
+    position: absolute;
+}
+.regresarC:hover{
+    background-color: white; 
+    border-color: #3DAF04; 
+    cursor: pointer;
+}
+.siguienteC {
+    border-radius: 10px;
+    background-color: #3DAF04;
+    border-color: transparent;
+    margin-left: 160px;
+    bottom: auto;
+    margin-top: -220px;
+    min-height: 40px;
+    min-width: 100px;
+    cursor: pointer;
+    position: absolute;
+    right: 60px;
+}
+
+/*Vista de consultar fichas*/
+.regresarF {
+    border-radius: 10px;
+    background-color: #3DAF04;
+    border-color: transparent;
+    margin-left: 150px;
+    bottom: auto;
+    margin-top: -220px;
+    min-height: 40px;
+    min-width: 100px;
+    cursor: pointer;
+    position: absolute;
+}
+.regresarF:hover{
+    background-color: white; 
+    border-color: #3DAF04; 
+    cursor: pointer;
+}
+.siguienteF {
+    border-radius: 10px;
+    background-color: #3DAF04;
+    border-color: transparent;
+    margin-left: 160px;
+    bottom: auto;
+    margin-top: -220px;
+    min-height: 40px;
+    min-width: 100px;
+    cursor: pointer;
+    position: absolute;
+    right: 60px;
+}
+/*Vista QR Asistencias*/
+.btnQR {
+    border-radius: 10px;
+    background-color: #3DAF04;
+    border-color: transparent;
+    margin-left: 10px;
+    bottom: auto;
+    margin-top: -415px;
+    min-height: 40px;
+    min-width: 100px;
+    cursor: pointer;
+    position: absolute;
+}
+.cuadradoQR {
+    border: 2px solid green;
+    width: 200px;
+    height: 200px;
+    margin-top: -400px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+/*Vista de Reporte*/
+.reporte {
+    width: auto;
+    min-height: 40px;
+    padding: 3px 6px;
+    border-radius: 5px;
+    border: none;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #3DAF04;
+    border-color: transparent;
+}
+.name{
+    color: white; 
+    position: absolute;
+    left: 47px; 
+    margin-top: -30px;
+}
+
+/*Vista Inasistencia Aprendiz*/
+.tomar-inasistencia {
+    border-radius: 10px;
+    background-color: #3DAF04;
+    border-color: transparent;
+    margin-left: 160px;
+    margin-top: -200px;
+    min-height: 40px;
+    min-width: 150px;
+    cursor: pointer;
+    position: absolute;
+    right: 60px;
+}
+

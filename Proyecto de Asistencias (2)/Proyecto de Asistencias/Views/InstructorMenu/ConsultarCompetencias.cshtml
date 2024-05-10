@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ConsultarCompetencias</title>
+    <link href="~/CSS/CSSvistasInstructor.css" rel="stylesheet" />
+    <link href="~/CSS/cssQRAsistencia.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Instructor Jesus Marzal Barboza</h1>
+            <h4>Consultar Competencias</h4>
+        </div>
+        <div class="form-container">
+
+            <div class="form-field">
+                <label for="nombre-competencia">Nombre de la Competencia</label>
+                <input type="text" id="nombre-competencia" class="nombre-competencia" placeholder="Ingrese el nombre de la competencia">
+
+            </div>
+            <button class="btn" onclick="location.href = ''">Mostrar Competencia</button>
+            @*<div class="listado">
+                    <div class="cuadrado"></div>
+                </div>*@
+        </div>
+        @*<div class="footer">
+                <button class="button regresarC">Regresar</button>
+                <button class="button siguienteC" onclick="location.href = 'InasistenciasAprendiz'">Siguiente</button>
+            </div>*@
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Inasistencias</title>
+    <link href="~/CSS/EstiloArchivo.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="Top">
+        <h1 id="titulo">Inasistencias</h1>
+    </div>
+    <br />
+    <h1 id="titulo2">Listado de inasistencias</h1>
+    <div class="table-container">
+        <table class="custom-table">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Fecha</th>
+
+            </tr>
+            <tr>
+                <td>Johan</td>
+                <td>Avendaño</td>
+                <td>04/05/2024</td>
+            </tr>
+        </table>
+    </div>
+    <div id="botones">
+        <div class="seleccionaraprendiz">
+            <button onclick="redirectTo('SubirArchivo')">Seleccionar inasistencias</button>
+        </div>
+        <div class="volver">
+            <button onclick="redirectTo('Consultarinasistencias')">Regresar</button>
+        </div>
+    </div>
+
+    <footer id="Bot"> Proyecto asistencia © </footer>
+</body>
+</html>
+<script>
+    function redirectTo(url) {
+        // Agrega una clase de transición al cuerpo del documento
+        document.body.classList.add('transicion-salida');
+
+        // Espera un momento antes de redirigir
+        setTimeout(function () {
+            window.location.href = url;
+        }, 500); // Ajusta el tiempo según tu preferencia
+    }
+</script>

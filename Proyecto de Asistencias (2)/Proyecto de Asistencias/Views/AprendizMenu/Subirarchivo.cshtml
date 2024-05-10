@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    @*<link href="~/Content/Estilos de las vistas de Aprendiz/EstiloSubir.css" rel="stylesheet" />*@
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubirArchivo</title>
+    <link href="~/CSS/cssIndex.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Archivo de soporte de inasistencia</h1>
+            <h2>Subir Archivo</h2>
+        </div>
+        <div class="form-container">
+
+            <form class="" action="" method="POST" enctype="multipart/form-data">
+                <div class="form-field">
+                    <label for="archivo">Seleccione un archivo:</label>
+                    <input type="file" id="archivo" name="archivo">
+                </div>
+                <div class="form-field">
+                    <input type="submit" value="Subir Archivo" class="button">
+                </div>
+            </form>
+        </div>
+
+        <div class="volver">
+            <button class="button boton-transicion" onclick="redirectTo('Archivosoporte')">Volver</button>
+        </div>
+
+    </div>
+
+
+    @*<footer id="Bot"> Proyecto asistencia © </footer>*@
+</body>
+</html>
+<script>
+    function redirectTo(url) {
+        // Agrega una clase de transición al cuerpo del documento
+        document.body.classList.add('transicion-salida');
+
+        // Espera un momento antes de redirigir
+        setTimeout(function () {
+            window.location.href = url;
+        }, 500); // Ajusta el tiempo según tu preferencia
+    }
+</script>
