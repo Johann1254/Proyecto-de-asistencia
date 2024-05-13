@@ -6,13 +6,13 @@
 
 <h2>Eliminar</h2>
 
-
+<link href="~/Content/Botones_y_textos.css" rel="stylesheet" />
 <div>
     
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Nombre_Competencia)
+            <a class="nombre">Nombre</a>
         </dt>
 
         <dd>
@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Tipo_Competencias)
+            <a class="nombre">Tipo</a>
         </dt>
 
         <dd>
@@ -28,7 +28,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Duracion_Competencia)
+            <a class="nombre">Duracion</a>
         </dt>
 
         <dd>
@@ -36,19 +36,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Administrador.Nombre_Administrador)
+            <a class="nombre">Identificacion admin</a>
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Administrador.Nombre_Administrador)
+            @Html.DisplayFor(model => model.Administrador.idAdministrador)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Programa_Formacion.Nombre_Programa)
+            <a class="nombre">Id programa</a>
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Programa_Formacion.Nombre_Programa)
+            @Html.DisplayFor(model => model.Programa_Formacion.idPrograma)
         </dd>
 
     </dl>
@@ -56,9 +56,9 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-            @Html.ActionLink("Volver", "Index")
+       <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn-Eliminar" />
+            <input type="button" class="input-volver" value="Volver" onclick="location.href='@Url.Action("Index")'" />
         </div>
     }
 </div>

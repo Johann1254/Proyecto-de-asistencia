@@ -22,7 +22,7 @@
                Fecha fin
             </th>
             <th>
-                Tipo ficha
+                Tipo de ficha
             </th>
             <th>
                 Identificacion admin
@@ -49,7 +49,7 @@
                     @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
                 </td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.Numero_Ficha }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Numero_Ficha }, new { @class = "btn btn-secondary" }) |
                     @Html.ActionLink("Detalles", "Details", new { id = item.Numero_Ficha }, new { @class = "btn btn-primary" }) |
                     @Html.ActionLink("Eliminar", "Delete", new { id = item.Numero_Ficha }, new { @class = "btn btn-danger" })
                 </td>

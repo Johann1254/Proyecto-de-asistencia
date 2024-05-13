@@ -148,7 +148,7 @@ option {
     position: fixed;
 }
 .barra-abajo {
-  
+    
     background-color: #3DAF04;
     color: white;
     padding: 26px;
@@ -157,4 +157,5 @@ option {
     position: fixed;
     bottom: 0;
     width: 100%;
+    
 }

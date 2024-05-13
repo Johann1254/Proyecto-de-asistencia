@@ -39,8 +39,8 @@ namespace Proyecto_de_Asistencias.Controllers
         // GET: Competencias/Create
         public ActionResult Create()
         {
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador");
-            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa");
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador");
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "idPrograma");
             return View();
         }
 
@@ -58,8 +58,8 @@ namespace Proyecto_de_Asistencias.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", competencia.idAdministrador);
-            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa", competencia.idPrograma);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", competencia.idAdministrador);
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "idPrograma", competencia.idPrograma);
             return View(competencia);
         }
 
@@ -75,8 +75,8 @@ namespace Proyecto_de_Asistencias.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", competencia.idAdministrador);
-            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa", competencia.idPrograma);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", competencia.idAdministrador);
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "idPrograma", competencia.idPrograma);
             return View(competencia);
         }
 
@@ -93,8 +93,8 @@ namespace Proyecto_de_Asistencias.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", competencia.idAdministrador);
-            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa", competencia.idPrograma);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", competencia.idAdministrador);
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "idPrograma", competencia.idPrograma);
             return View(competencia);
         }
 

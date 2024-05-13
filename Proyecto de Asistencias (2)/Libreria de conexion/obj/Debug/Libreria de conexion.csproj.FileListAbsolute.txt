@@ -46,3 +46,15 @@ C:\Users\USER\Downloads\PYA\Proyecto de Asistencias (2)\Libreria de conexion\obj
 C:\Users\USER\Downloads\PYA\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria de conexion.csproj.CopyComplete
 C:\Users\USER\Downloads\PYA\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria de conexion.dll
 C:\Users\USER\Downloads\PYA\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria de conexion.pdb
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\Libreria de conexion.dll.config
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\Libreria de conexion.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\Libreria de conexion.pdb
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\EntityFramework.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\EntityFramework.xml
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria de conexion.csproj.AssemblyReference.cache
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria de conexion.csproj.CoreCompileInputs.cache
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria de conexion.csproj.CopyComplete
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria de conexion.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria de conexion.pdb

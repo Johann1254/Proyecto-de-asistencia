@@ -13,19 +13,19 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nombre_Competencia)
+              Nombre
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Tipo_Competencias)
+               Tipo
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Duracion_Competencia)
+                Duracion
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Administrador.Nombre_Administrador)
+              Identificacion admin
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Programa_Formacion.Nombre_Programa)
+               Id programa
             </th>
             <th>OPERACIONES</th>
         </tr>
@@ -43,13 +43,13 @@
                     @Html.DisplayFor(modelItem => item.Duracion_Competencia)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Administrador.Nombre_Administrador)
+                    @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Programa_Formacion.Nombre_Programa)
+                    @Html.DisplayFor(modelItem => item.Programa_Formacion.idPrograma)
                 </td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.idCompetencia }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idCompetencia }, new { @class = "btn btn-secondary" }) |
                     @Html.ActionLink("Detalles", "Details", new { id = item.idCompetencia }, new { @class = "btn btn-primary" }) |
                     @Html.ActionLink("Eliminar", "Delete", new { id = item.idCompetencia }, new { @class = "btn btn-danger" })
                 </td>
