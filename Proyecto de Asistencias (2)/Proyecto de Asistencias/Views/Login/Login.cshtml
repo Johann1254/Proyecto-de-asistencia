@@ -46,6 +46,13 @@
                             <button type="submit">Ingresar</button>
 
                         </div>
+                        @if (ViewData["Mensaje"] != null)
+                        {
+                            <div class="alert alert-warning mi-clase" role="alert">
+                                @ViewData["Mensaje"]
+                            </div>
+
+                        }
 
 
 

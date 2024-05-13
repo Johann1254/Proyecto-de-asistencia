@@ -159,3 +159,11 @@ option {
     width: 100%;
     
 }
+.mi-clase {
+    position: absolute;
+    top: 526px;
+    right: 109px;
+    color: black;
+    font-family: 'Century Gothic';
+    font-weight: 1000;
+}

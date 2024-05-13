@@ -36,15 +36,21 @@ namespace Proyecto_de_Asistencias.Controllers
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    if (reader.Read())
+                    if (reader.HasRows)
                     {
+                        reader.Read();
                         tipoUsuario = reader.GetString(0);
+                        if (tipoUsuario == "0")
+                        {
+                            ViewData["Mensaje"] = "USUARIO NO EXISTENTE";
+                            return View("Login");
+                        }
                         idUsuario = reader.GetInt32(1);
                     }
                     else
                     {
-                        ViewData["mensaje"] = "Usuario no encontrado";
-                        return View();
+                        ViewData["Mensaje"] = "Error: La consulta no devolvió los datos esperados.";
+                        return View("Login");
                     }
                 }
             }
