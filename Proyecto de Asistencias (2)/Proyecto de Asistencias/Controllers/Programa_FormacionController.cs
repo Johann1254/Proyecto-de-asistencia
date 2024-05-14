@@ -7,9 +7,12 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Libreria_de_conexion;
+using Proyecto_de_Asistencias.Sesion;
 
 namespace Proyecto_de_Asistencias.Controllers
 {
+    [Validar_sesion]
+
     public class Programa_FormacionController : Controller
     {
         private AsistenciaEntities db = new AsistenciaEntities();

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using Proyecto_de_Asistencias.Sesion;
 namespace Proyecto_de_Asistencias.Controllers
 {
-    [ValidarAcceso]
+    [Validar_sesion]
     public class HomeController : Controller
     {
         public ActionResult Index()
