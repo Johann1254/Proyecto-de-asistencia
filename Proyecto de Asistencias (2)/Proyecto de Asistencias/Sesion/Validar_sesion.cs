@@ -10,7 +10,7 @@ namespace Proyecto_de_Asistencias.Sesion
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (HttpContext.Current.Session["Administrador"] == null && HttpContext.Current.Session["Aprendiz"] == null && HttpContext.Current.Session["Instructor"] == null)
+            if (HttpContext.Current.Session["Administrador"]==null && HttpContext.Current.Session["Aprendiz"] == null && HttpContext.Current.Session["Instructor"] == null)
             {
                 filterContext.Result = new RedirectResult("~/Login/Login");
             }

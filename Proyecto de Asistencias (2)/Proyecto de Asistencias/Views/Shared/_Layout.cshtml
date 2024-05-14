@@ -29,7 +29,7 @@
                     
                     <li><a class="dropdown-item" href="@Url.Action("Index","Home")">Administrador</a></li>
                     <li><hr class="dropdown-divider" /></li>
-                    <li><a class="dropdown-item" href="@Url.Action("Login","Login")">Cerrar sesion</a></li>
+                    <li><a class="dropdown-item"@Html.ActionLink("Cerrar sesion", "CerrarSesion", "Home")></a></li>
                 </ul>
             </li>
         </ul>
