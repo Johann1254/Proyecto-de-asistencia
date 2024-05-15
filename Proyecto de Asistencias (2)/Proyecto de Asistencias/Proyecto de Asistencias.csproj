@@ -181,6 +181,7 @@
     <Content Include="CSS\cssIndex.css" />
     <Content Include="CSS\cssQRAsistencia.css" />
     <Content Include="CSS\CSSvistasInstructor.css" />
+    <Content Include="CSS\Dashboard.css" />
     <Content Include="CSS\EstiloArchivo.css" />
     <Content Include="CSS\EstiloConsultarA.css" />
     <Content Include="CSS\EstiloConsultarI.css" />

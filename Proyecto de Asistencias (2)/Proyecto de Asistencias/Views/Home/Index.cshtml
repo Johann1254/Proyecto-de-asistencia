@@ -1,6 +1,61 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<h1 class="nombre">BIENVENIDO ADMIN</h1>
+<style>
+    .nombre{
+        text-align:center;
+    }
+</style>
+<link href="~/CSS/Dashboard.css" rel="stylesheet" />
+<main class="main-container">
+    <div class="main-title">
+        
+    </div>
 
+    <div class="main-cards">
 
+        <div class="card">
+            <div class="card-inner">
+                <p class="card-inner">INSTRUCTORES</p>
+                <i class="fas fa-user-tie fa-2x"></i>
+            </div>
+            <span id="Instructores">@ViewBag.Total_Instructores</span>
+        </div>
+
+        <div class="card">
+            <div class="card-inner">
+                <p class="card-inner">APRENDICES</p>
+                <i class="fas fa-solid fa-users fa-2x"></i>
+            </div>
+            <span id="Aprendices">@ViewBag.Total_Aprendices</span>
+        </div>
+
+        <div class="card">
+            <div class="card-inner">
+                <p class="card-inner">FICHAS</p>
+                <i class="fas fa-regular fa-address-book fa-2x"></i>
+            </div>
+            <span id="Fichas">@ViewBag.Total_Fichas </span>
+        </div>
+
+        <div class="card">
+            <div class="card-inner">
+                <p class="card-inner">PROGRAMAS</p>
+                <i class="fas fa-table fa-2x" ></i>
+            </div>
+            <span id="Programas">@ViewBag.Total_Programas</span>
+        </div> 
+        
+        <div class="card">
+            <div class="card-inner">
+                <p class="card-inner">COMPETENCIAS</p>
+                <i class="fas fa-solid fa-list-ul fa-2x"></i>
+            </div>
+            <span id="Competencias">@ViewBag.Total_Competencias</span>
+        </div>
+
+    </div>
+
+</main>
 

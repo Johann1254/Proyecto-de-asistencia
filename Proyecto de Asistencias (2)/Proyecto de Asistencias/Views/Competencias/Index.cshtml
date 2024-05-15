@@ -4,7 +4,12 @@
     ViewBag.Title = "Competencias";
 }
 
-<h2>Competencias</h2>
+<h2 class="nombre">Competencias</h2>
+<style>
+    .nombre {
+        text-align: center;
+    }
+</style>
 <link href="~/Content/Estilo_tablas.css" rel="stylesheet" />
 <p>
     @Html.ActionLink("Nueva competencia", "Create","", new { @class = "btn btn-success" })

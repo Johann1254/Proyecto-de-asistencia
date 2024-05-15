@@ -4,7 +4,12 @@
     ViewBag.Title = "Fichas";
 }
 
-<h2>Fichas</h2>
+<h2 class="nombre">Fichas</h2>
+<style>
+    .nombre {
+        text-align: center;
+    }
+</style>
 <link href="~/Content/Estilo_tablas.css" rel="stylesheet" />
 <p>
     @Html.ActionLink("Nueva Ficha", "Create", "",new { @class = "btn btn-success" })
