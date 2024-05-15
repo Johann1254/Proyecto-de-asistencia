@@ -14,7 +14,7 @@ namespace Proyecto_de_Asistencias.Controllers
         public ActionResult Index()
         {
             int Instructores;
-            string Conexion = "data source=JAMB\\SQLEXPRESS;initial catalog=Asistencia;integrated security=True;multipleactiveresultsets=True;";
+            string Conexion = "data source=DESKTOP-LSQ95PM;initial catalog=Asistencia;integrated security=True;multipleactiveresultsets=True;";
 
             using (SqlConnection connection = new SqlConnection(Conexion))
             {

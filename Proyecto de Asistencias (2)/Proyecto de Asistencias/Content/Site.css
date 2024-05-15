@@ -18,12 +18,13 @@
 
 .nombre {
     color: black;
-    font-family: 'Century Gothic';
-    font-weight: 1000;
+    font-family: 'Poppins',sans-serif;
+    font-weight: bold;
 }
 
 .extension {
     color: green;
+    font-family: 'Poppins',sans-serif;
 }
 
 :root {

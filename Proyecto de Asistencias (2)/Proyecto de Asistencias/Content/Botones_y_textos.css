@@ -48,11 +48,7 @@
     margin-right: 10px; /* Ajusta el espacio entre los botones */
 }
 
-.nombre {
-    font-family: 'Century Gothic';
-    font-weight: 1000;
-    
-}
+
 .nombre:hover{
     color:black;
 

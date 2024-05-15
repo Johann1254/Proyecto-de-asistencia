@@ -3,16 +3,22 @@
 @{
     ViewBag.Title = "Instructor";
 }
-
-<h2 class="nombre">INSTRUCTOR</h2>
+<br />
+<h2 class="welcome">Instructor</h2>
+<br />
 <style>
-    .nombre {
+    .welcome {
         text-align: center;
+        padding: 10px;
+        background-color: #3DAF04;
+        border-radius: 15px;
+        color: white;
+        font-family: 'Poppins',sans-serif;
     }
 </style>
 <link href="~/Content/Estilo_tablas.css"rel="stylesheet"/>
 <p>
-    @Html.ActionLink("Nuevo Instructor", "Create", "",new { @class="btn btn-success"})
+    @Html.ActionLink("Nuevo Instructor", "Create", "",new { @class="btn-nuevo"})
 </p>
 <div class="table-responsive">
     <table class="table">
@@ -56,7 +62,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Contraseña_Instructor)
                 </td>
-                <td>
+                <td style="overflow-x: scroll; max-width :100px " class="columna_qr">
                     @Html.DisplayFor(modelItem => item.Imagen_Qr)
                 </td>
                 <td>
@@ -66,9 +72,9 @@
                     @Html.DisplayFor(modelItem => item.Ficha.Numero_Ficha)
                 </td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.idInstructor }, new { @class = "btn btn-secondary" }) |
-                    @Html.ActionLink("Detalles", "Details", new { id = item.idInstructor }, new { @class = "btn btn-primary" }) |
-                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idInstructor }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idInstructor }, new { @class = "btn-editar" }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.idInstructor }, new { @class = "btn-detalles" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idInstructor }, new { @class = "btn-eliminar" })
                 </td>
             </tr>
         }

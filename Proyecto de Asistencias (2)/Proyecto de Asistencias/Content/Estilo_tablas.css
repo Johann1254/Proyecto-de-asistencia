@@ -1,4 +1,6 @@
-﻿.table {
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.table {
     width: 100%;
     border-collapse: collapse;
     
@@ -22,6 +24,83 @@
         background-color: #333333;
         color: white;
         text-align: center;
+        position:sticky;
+        top: 0; 
+        z-index: 1; 
         
     }
+.table-responsive{
+    overflow:scroll;
+    width: auto; 
+    height: 650px; 
+}
+.colunma_qr{
+
+    width:10px;
+    height:10px;
+}
+.btn-editar {
+    padding-top: 7px;
+    border: 1px solid orange ;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    width: 80px;
+    height: 40px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-editar:hover{
+    color: black; 
    
+}
+.btn-nuevo{
+    display:inline-block;
+    background-color: #3DAF04 ;
+    color: white ;
+    width: 150px; 
+    height: 45px; 
+    border-radius: 10px; 
+    text-align: center; 
+    padding-top: 11px; 
+    font-family: 'Poppins', sans-serif; 
+}
+
+.btn-nuevo:hover{
+    display: inline-block; 
+    color: green; 
+    padding-top: 9px; 
+    border: 2.5px solid green; 
+    background-color: white; 
+}
+.btn-detalles {
+    padding-top: 7px;
+    border: 1px solid rgb(10 85 177);
+    display: inline-block;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    width: 80px;
+    height: 40px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-detalles:hover {
+    color: black;
+}
+.btn-eliminar {
+    padding-top: 7px;
+    border: 1px solid red;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    width: 80px;
+    height: 40px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-eliminar:hover {
+    color: black;
+}
