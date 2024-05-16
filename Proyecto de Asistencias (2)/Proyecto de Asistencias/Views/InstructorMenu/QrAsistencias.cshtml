@@ -3,14 +3,13 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Qr de Asistencias</title>
     <link href="~/CSS/CSSvistasInstructor.css" rel="stylesheet" />
     <link href="~/CSS/cssQRAsistencia.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -19,21 +18,45 @@
             <h4>Detalles de QR</h4>
         </div>
         <div class="form-container">
-            <!-- <div class="form-field">
-                <label for="qr-code">QR de Asistencia</label>
-                <input type="text" id="qr-code" placeholder="Ingrese el código de asistencia">
-            </div> -->
             <div class="form-field">
                 <label for="date">Fecha</label>
-                <input type="date" id="date" value="dd/mm/aaaa">
+                <input type="date" id="date">
             </div>
             <div class="form-field">
                 <label for="environment">Ingrese el numero de la Ficha</label>
                 <input type="text" id="environment" placeholder="Ingrese el número de la Ficha">
             </div>
-            @*<button class="btn">Enviar</button>*@
-            <button class="button">Generar QR</button>
+            <button class="button" onclick="generarQR()">Generar QR</button>
+        </div>
+        <div id="qr-container" class="qr-container" style="display:none;">
+            <h4>Código QR Generado:</h4>
+            <img id="qr-image" src="" alt="Código QR">
         </div>
     </div>
+
+    <script type="text/javascript">
+        function generarQR() {
+            var fecha = document.getElementById('date').value;
+            var ficha = document.getElementById('environment').value;
+
+            if (fecha === '' || ficha === '') {
+                alert('Por favor, ingrese todos los datos.');
+                return;
+            }
+
+            $.ajax({
+                url: '@Url.Action("ObtenerCodigoQR", "InstructorMenu")',
+                type: 'GET',
+                data: { fecha: fecha, ficha: ficha },
+                success: function (data) {
+                    $('#qr-image').attr('src', 'data:image/png;base64,' + data);
+                    $('#qr-container').show();
+                },
+                error: function () {
+                    alert('Error al generar el código QR.');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
