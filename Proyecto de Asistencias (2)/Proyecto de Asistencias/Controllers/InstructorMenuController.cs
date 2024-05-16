@@ -73,6 +73,10 @@ namespace Proyecto_de_Asistencias.Controllers
         {
             return View();
         }
+        public ActionResult FormularioAsistencias()
+        {
+            return View(); 
+        }
     }
 
    

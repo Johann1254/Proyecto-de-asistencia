@@ -1,0 +1,64 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* Style the form container */
+.form-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #34C759; /* Green border */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the form title */
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #34C759; /* Green color */
+}
+
+/* Style the form fields */
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input, select {
+    width: calc(100% - 22px); /* Ajuste para centrar los inputs */
+    height: 40px;
+    margin: 0 auto 20px; /* Ajuste para centrar los inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block; /* Asegura que los inputs estén en una línea */
+}
+
+    input:focus, select:focus {
+        border-color: #34C759;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Cambiar el borde a verde cuando se hace clic en el input */
+    input[type="text"]:focus, input[type="date"]:focus, select:focus {
+        border-color: #0de64e;
+    }
+
+/* Style the submit button */
+button[type="submit"] {
+    background-color: #34C759;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block; /* Asegura que el botón esté en una línea */
+    margin: 0 auto; /* Ajuste para centrar el botón */
+}
+
+    button[type="submit"]:hover {
+        background-color: #2E865F;
+    }

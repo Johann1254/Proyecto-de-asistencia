@@ -65,7 +65,6 @@ C:\Users\USER\Documents\GitHub\Proyecto-de-asistencia\Proyecto de Asistencias (2
 C:\Users\USER\Documents\GitHub\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\USER\Documents\GitHub\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\EntityFramework.xml
 C:\Users\USER\Documents\GitHub\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\USER\Documents\GitHub\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria de conexion.csproj.AssemblyReference.cache
 C:\Users\USER\Documents\GitHub\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria de conexion.csproj.CoreCompileInputs.cache
 C:\Users\USER\Documents\GitHub\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria de conexion.csproj.CopyComplete
 C:\Users\USER\Documents\GitHub\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria de conexion.dll

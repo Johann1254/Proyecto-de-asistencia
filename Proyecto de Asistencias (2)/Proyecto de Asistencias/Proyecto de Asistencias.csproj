@@ -179,6 +179,7 @@
     <Content Include="Content\v4-shims.css" />
     <Content Include="Content\v4-shims.min.css" />
     <Content Include="CSS\Botonesprincipales_tablas.css" />
+    <Content Include="CSS\CssFormulario.css" />
     <Content Include="CSS\cssIndex.css" />
     <Content Include="CSS\cssQRAsistencia.css" />
     <Content Include="CSS\CSSvistasInstructor.css" />
@@ -318,6 +319,7 @@
     <Content Include="Views\InstructorMenu\InasistenciasAprendiz.cshtml" />
     <Content Include="Views\InstructorMenu\ConsultarProgramas.cshtml" />
     <Content Include="Views\InstructorMenu\ConsultarCompetencias.cshtml" />
+    <Content Include="Views\InstructorMenu\FormularioAsistencias.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
