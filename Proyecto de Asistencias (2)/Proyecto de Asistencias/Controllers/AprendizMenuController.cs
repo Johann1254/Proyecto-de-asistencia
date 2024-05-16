@@ -15,5 +15,21 @@ namespace Proyecto_de_Asistencias.Controllers
         {
             return View();
         }
+        public ActionResult Subirarchivo()
+        {
+            return View(); 
+        }
+        public ActionResult Consultarasistencias()
+        {
+            return View(); 
+        }
+        public ActionResult Consultarinasistencias()
+        {
+            return View(); 
+        }
+        public ActionResult Archivosoporte()
+        {
+            return View(); 
+        }
     }
 }
