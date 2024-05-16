@@ -1,0 +1,77 @@
+﻿.btn-editar,.btn-detalles,.btn-eliminar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.btn-editar {
+    padding-top: 7px;
+    border: 1px solid #3DAF04;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    width: 80px;
+    height: 40px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+    .btn-editar:hover {
+        color: black;
+    }
+
+.btn-nuevo {
+    display: inline-block;
+    background-color: #3DAF04;
+    color: white;
+    width: 175px;
+    height: 45px;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 11px;
+    font-family: 'Poppins', sans-serif;
+}
+
+    .btn-nuevo:hover {
+        display: inline-block;
+        color: green;
+        padding-top: 9px;
+        border: 2.5px solid green;
+        background-color: white;
+    }
+
+.btn-detalles {
+    padding-top: 7px;
+    border: 1px solid #3DAF04;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    width: 80px;
+    height: 40px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+    .btn-detalles:hover {
+        color: black;
+    }
+
+.btn-eliminar {
+    padding-top: 7px;
+    border: 1px solid #3DAF04;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    width: 80px;
+    height: 40px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+    .btn-eliminar:hover {
+        color: black;
+    }
+

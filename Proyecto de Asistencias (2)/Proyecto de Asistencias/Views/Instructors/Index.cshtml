@@ -6,6 +6,8 @@
 <br />
 <h2 class="welcome">Instructor</h2>
 <br />
+<link href="~/Content/Estilo_tablas.css" rel="stylesheet" />
+<link href="~/CSS/Botonesprincipales_tablas.css" rel="stylesheet" />
 <style>
     .welcome {
         text-align: center;
@@ -16,9 +18,8 @@
         font-family: 'Poppins',sans-serif;
     }
 </style>
-<link href="~/Content/Estilo_tablas.css"rel="stylesheet"/>
 <p>
-    @Html.ActionLink("Nuevo Instructor", "Create", "",new { @class="btn-nuevo"})
+    @Html.ActionLink("Nuevo Instructor", "Create", "", new { @class = "btn-nuevo" })
 </p>
 <div class="table-responsive">
     <table class="table">
@@ -72,8 +73,8 @@
                     @Html.DisplayFor(modelItem => item.Ficha.Numero_Ficha)
                 </td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.idInstructor }, new { @class = "btn-editar" }) |
-                    @Html.ActionLink("Detalles", "Details", new { id = item.idInstructor }, new { @class = "btn-detalles" }) |
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idInstructor }, new { @class = "btn-editar" }) 
+                    @Html.ActionLink("Detalles", "Details", new { id = item.idInstructor }, new { @class = "btn-detalles" }) 
                     @Html.ActionLink("Eliminar", "Delete", new { id = item.idInstructor }, new { @class = "btn-eliminar" })
                 </td>
             </tr>

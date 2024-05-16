@@ -17,8 +17,9 @@
     }
 </style>
 <link href="~/Content/Estilo_tablas.css" rel="stylesheet" />
+<link href="~/CSS/Botonesprincipales_tablas.css" rel="stylesheet" />
 <p>
-    @Html.ActionLink("Nueva competencia", "Create","", new { @class = "btn btn-success" })
+    @Html.ActionLink("Nueva competencia", "Create","", new { @class = "btn-nuevo" })
 </p>
 <div class="table-responsive">
     <table class="table">
@@ -60,9 +61,9 @@
                     @Html.DisplayFor(modelItem => item.Programa_Formacion.idPrograma)
                 </td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.idCompetencia }, new { @class = "btn btn-secondary" }) |
-                    @Html.ActionLink("Detalles", "Details", new { id = item.idCompetencia }, new { @class = "btn btn-primary" }) |
-                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idCompetencia }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idCompetencia }, new { @class = "btn-editar" }) 
+                    @Html.ActionLink("Detalles", "Details", new { id = item.idCompetencia }, new { @class = "btn-detalles" }) 
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idCompetencia }, new { @class = "btn-eliminar" })
                 </td>
             </tr>
         }

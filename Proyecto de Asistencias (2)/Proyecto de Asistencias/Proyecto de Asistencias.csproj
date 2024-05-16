@@ -178,6 +178,7 @@
     <Content Include="Content\svg-with-js.min.css" />
     <Content Include="Content\v4-shims.css" />
     <Content Include="Content\v4-shims.min.css" />
+    <Content Include="CSS\Botonesprincipales_tablas.css" />
     <Content Include="CSS\cssIndex.css" />
     <Content Include="CSS\cssQRAsistencia.css" />
     <Content Include="CSS\CSSvistasInstructor.css" />
