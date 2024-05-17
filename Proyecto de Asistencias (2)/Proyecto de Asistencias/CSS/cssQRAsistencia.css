@@ -7,20 +7,23 @@
 }
 
 body {
+ 
     font-family: 'Poppins', sans-serif;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
+    
 }
 
 /* Add green top and bottom borders */
-body {
+/*body {
     border-top: 100px  solid #3DAF04; 
     border-bottom: 100px solid #3DAF04;
     
-}
+}*/
+
 
 .container {
     max-width: 500px;
@@ -28,8 +31,7 @@ body {
     padding: 20px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);   
 }
 
 .header {
@@ -72,6 +74,8 @@ body {
     border-color: transparent;
     border-radius: 5px;
     cursor: pointer;
+    width: auto; 
+    max-width: auto; 
 }
 
     .button:hover {
@@ -139,4 +143,24 @@ th {
 td, th {
     width: auto;
     border-radius: 5px;
+}
+.top{
+   padding: 3rem 2rem; 
+    background-color: #3DAF04; 
+}
+.top h1{
+    text-align: center; 
+    font-size: 30px; 
+    max-height: auto; 
+    width: 100%; 
+}
+footer {
+    background-color: #3DAF04; 
+    padding: 3rem 2rem; 
+    text-align: center; 
+  
+}
+footer p{
+    margin: 10px; 
+    font-size: 20px; 
 }
