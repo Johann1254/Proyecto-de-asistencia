@@ -94,7 +94,7 @@ namespace Proyecto_de_Asistencias.Controllers
             QRCode qrCode = new QRCode(qrCodeData);
 
             // Crear Bitmap del código QR
-            Bitmap qrCodeImage = qrCode.GetGraphic(20);
+            Bitmap qrCodeImage = qrCode.GetGraphic(5);
 
             // Convertir Bitmap a arreglo de bytes
             using (MemoryStream stream = new MemoryStream())

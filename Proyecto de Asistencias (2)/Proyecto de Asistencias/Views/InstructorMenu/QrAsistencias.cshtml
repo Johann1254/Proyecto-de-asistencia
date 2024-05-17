@@ -35,6 +35,22 @@
     </div>
 
     <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Obtener la fecha actual
+            var today = new Date();
+            var day = String(today.getDate()).padStart(2, '0');
+            var month = String(today.getMonth() + 1).padStart(2, '0'); // Enero es 0
+            var year = today.getFullYear();
+
+            var currentDate = year + '-' + month + '-' + day;
+
+            // Establecer la fecha mínima y máxima del campo de fecha a la fecha actual
+            var dateInput = document.getElementById('date');
+            dateInput.setAttribute('min', currentDate);
+            dateInput.setAttribute('max', currentDate);
+            dateInput.setAttribute('value', currentDate);
+        });
+
         function generarQR() {
             var fecha = document.getElementById('date').value;
             var ficha = document.getElementById('environment').value;
@@ -45,7 +61,7 @@
             }
 
             $.ajax({
-                url: '@Url.Action("ObtenerCodigoQR", "InstructorMenu")',
+                url: '@Url.Action("ObtenerCodigoQR", "TuControlador")',
                 type: 'GET',
                 data: { fecha: fecha, ficha: ficha },
                 success: function (data) {
