@@ -73,7 +73,7 @@
                 type: 'GET',
                 data: { fecha: fecha, fichaId: fichaId },
                 success: function (data) {
-                    $('#qr-image').attr('src', 'data:image/png;base64,' + data);
+                    $('#qr-image').attr('src', `data:image/png;base64,${data}`);
                     $('#qr-container').show();
                 },
                 error: function () {
