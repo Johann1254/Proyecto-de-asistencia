@@ -25,6 +25,9 @@
     <table class="table">
         <tr>
             <th>
+                Numero de ficha
+            </th>
+            <th>
                Jornada
             </th>
             <th>
@@ -45,6 +48,9 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Numero_Ficha)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Jornada_Ficha)
                 </td>

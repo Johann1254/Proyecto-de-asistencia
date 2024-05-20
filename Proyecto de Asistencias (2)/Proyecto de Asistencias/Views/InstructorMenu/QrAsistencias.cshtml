@@ -17,17 +17,25 @@
             <h1>Instructor Jesus Marzal Barboza</h1>
             <h4>Detalles de QR</h4>
         </div>
-        <div class="form-container">
-            <div class="form-field">
-                <label for="date">Fecha</label>
-                <input type="date" id="date">
+            <div class="form-container">
+                <div class="form-field">
+                    <label for="date">Fecha</label>
+                    <input type="date" id="date">
+                </div>
+                <div class="form-field">
+                    <label for="ficha">Seleccione el número de la Ficha</label>
+                    <select id="ficha" class="form-control">
+                        @foreach (var item in ViewBag.Fichas)
+                        {
+                        <option value="@item.Value">@item.Text</option>
+}
+                    </select>
+                </div>
+                <button class="button" onclick="generarQR()">Generar QR</button>
             </div>
-            <div class="form-field">
-                <label for="environment">Ingrese el numero de la Ficha</label>
-                <input type="text" id="environment" placeholder="Ingrese el número de la Ficha">
-            </div>
-            <button class="button" onclick="generarQR()">Generar QR</button>
-        </div>
+        <br />
+        <br />
+
         <div id="qr-container" class="qr-container" style="display:none;">
             <h4>Código QR Generado:</h4>
             <img id="qr-image" src="" alt="Código QR">
@@ -53,17 +61,17 @@
 
         function generarQR() {
             var fecha = document.getElementById('date').value;
-            var ficha = document.getElementById('environment').value;
+            var fichaId = document.getElementById('ficha').value;
 
-            if (fecha === '' || ficha === '') {
+            if (fecha === '' || fichaId === '') {
                 alert('Por favor, ingrese todos los datos.');
                 return;
             }
 
             $.ajax({
-                url: '@Url.Action("ObtenerCodigoQR", "TuControlador")',
+                url: '@Url.Action("ObtenerCodigoQR", "InstructorMenu")',
                 type: 'GET',
-                data: { fecha: fecha, ficha: ficha },
+                data: { fecha: fecha, fichaId: fichaId },
                 success: function (data) {
                     $('#qr-image').attr('src', 'data:image/png;base64,' + data);
                     $('#qr-container').show();

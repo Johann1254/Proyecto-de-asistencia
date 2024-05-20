@@ -11,7 +11,7 @@ namespace Proyecto_de_Asistencias.Controllers
 {
     public class LoginController : Controller
     {
-        AsistenciaEntities Ae = new AsistenciaEntities();
+        
         string cadena = "data source = DESKTOP-UI13C50\\SQLEXPRESS; initial catalog = Asistencia; integrated security = true; multipleactiveresultsets=true;";
         // GET: Login
         public ActionResult Login()
