@@ -146,7 +146,7 @@ td, th {
 }
 .top{
    padding: 3rem 2rem; 
-    background-color: #3DAF04; 
+   background-color: #3DAF04; 
 }
 .top h1{
     text-align: center; 
@@ -154,10 +154,12 @@ td, th {
     max-height: auto; 
     width: 100%; 
 }
-footer {
+.bot {
     background-color: #3DAF04; 
-    padding: 3rem 2rem; 
     text-align: center; 
+    width: 100%; 
+    position: fixed; 
+    bottom:0; 
   
 }
 footer p{
