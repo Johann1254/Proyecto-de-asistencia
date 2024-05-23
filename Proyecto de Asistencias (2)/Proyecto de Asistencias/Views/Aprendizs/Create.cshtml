@@ -63,12 +63,13 @@
         </div>
 
         <div class="form-group">
-         <a class="nombre"> Estado</a>
+            <a class="nombre"> Estado</a>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.Estado, new SelectList(new List<string>(){"Activo", "Inactivo"}), new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
             </div>
         </div>
+
 
         <div class="form-group">
            <a class="nombre">Ficha</a>
