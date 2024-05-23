@@ -7,11 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Libreria_de_conexion;
-using Proyecto_de_Asistencias.Sesion;
+
 namespace Proyecto_de_Asistencias.Controllers
 {
-    [Validar_sesion]
-
     public class CompetenciasController : Controller
     {
         private AsistenciaEntities db = new AsistenciaEntities();
@@ -19,7 +17,7 @@ namespace Proyecto_de_Asistencias.Controllers
         // GET: Competencias
         public ActionResult Index()
         {
-            var competencia = db.Competencia.Include(c => c.Administrador).Include(c => c.Programa_Formacion);
+            var competencia = db.Competencia.Include(c => c.Administrador).Include(c => c.Instructor).Include(c => c.Programa_Formacion);
             return View(competencia.ToList());
         }
 
@@ -41,8 +39,9 @@ namespace Proyecto_de_Asistencias.Controllers
         // GET: Competencias/Create
         public ActionResult Create()
         {
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador");
-            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "idPrograma");
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador");
+            ViewBag.idInstructor = new SelectList(db.Instructor, "idInstructor", "Nombre_Instructor");
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa");
             return View();
         }
 
@@ -51,7 +50,7 @@ namespace Proyecto_de_Asistencias.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idCompetencia,Nombre_Competencia,Tipo_Competencias,Duracion_Competencia,idAdministrador,idPrograma")] Competencia competencia)
+        public ActionResult Create([Bind(Include = "idCompetencia,Nombre_Competencia,Tipo_Competencias,Duracion_Competencia,idAdministrador,idPrograma,idInstructor")] Competencia competencia)
         {
             if (ModelState.IsValid)
             {
@@ -60,8 +59,9 @@ namespace Proyecto_de_Asistencias.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", competencia.idAdministrador);
-            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "idPrograma", competencia.idPrograma);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", competencia.idAdministrador);
+            ViewBag.idInstructor = new SelectList(db.Instructor, "idInstructor", "Nombre_Instructor", competencia.idInstructor);
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa", competencia.idPrograma);
             return View(competencia);
         }
 
@@ -77,8 +77,9 @@ namespace Proyecto_de_Asistencias.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", competencia.idAdministrador);
-            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "idPrograma", competencia.idPrograma);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", competencia.idAdministrador);
+            ViewBag.idInstructor = new SelectList(db.Instructor, "idInstructor", "Nombre_Instructor", competencia.idInstructor);
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa", competencia.idPrograma);
             return View(competencia);
         }
 
@@ -87,7 +88,7 @@ namespace Proyecto_de_Asistencias.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idCompetencia,Nombre_Competencia,Tipo_Competencias,Duracion_Competencia,idAdministrador,idPrograma")] Competencia competencia)
+        public ActionResult Edit([Bind(Include = "idCompetencia,Nombre_Competencia,Tipo_Competencias,Duracion_Competencia,idAdministrador,idPrograma,idInstructor")] Competencia competencia)
         {
             if (ModelState.IsValid)
             {
@@ -95,8 +96,9 @@ namespace Proyecto_de_Asistencias.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", competencia.idAdministrador);
-            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "idPrograma", competencia.idPrograma);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", competencia.idAdministrador);
+            ViewBag.idInstructor = new SelectList(db.Instructor, "idInstructor", "Nombre_Instructor", competencia.idInstructor);
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa", competencia.idPrograma);
             return View(competencia);
         }
 

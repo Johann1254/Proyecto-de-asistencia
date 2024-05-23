@@ -1,99 +1,104 @@
 ﻿@model Libreria_de_conexion.Aprendiz
 
 @{
-    ViewBag.Title = "Delete";
+    Layout = null;
 }
 
-<h2>Eliminar</h2>
+<!DOCTYPE html>
 
-<link href="~/Content/Botones_y_textos.css" rel="stylesheet" />
-
-<div>
-
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            <a class="nombre">Nombres</a>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nombres_Aprenidiz)
-        </dd>
-
-        <dt>
-            <a class="nombre">Apellidos</a>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Apellidos_Aprendiz)
-        </dd>
-
-        <dt>
-            <a class="nombre">Email</a>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email_Aprenidiz)
-        </dd>
-
-        <dt>
-            <a class="nombre">Tipo de documento</a>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tipo_Documento)
-        </dd>
-
-        <dt>
-            <a class="nombre">Numero de documento</a>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Numero_Documento)
-        </dd>
-
-        <dt>
-            <a class="nombre">Contraseña</a>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Contraseña)
-        </dd>
-
-        <dt>
-            <a class="nombre">Estado</a>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
-
-        <dt>
-            <a class="nombre">Identificacion admin</a>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Administrador.idAdministrador)
-        </dd>
-
-
-        <dt>
-           <a class="nombre"> Ficha</a>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ficha.Numero_Ficha)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Eliminar" class="btn-Eliminar" />
-            <input type="button" class="input-volver" value="Volver" onclick="location.href='@Url.Action("Index")'" />
-        </div>
-    }
-</div>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Aprendiz</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombres_Aprenidiz)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Nombres_Aprenidiz)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Apellidos_Aprendiz)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Apellidos_Aprendiz)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Email_Aprenidiz)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Email_Aprenidiz)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Tipo_Documento)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Tipo_Documento)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Numero_Documento)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Numero_Documento)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Contraseña)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Contraseña)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Estado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Estado)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Administrador.Nombre_Administrador)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Administrador.Nombre_Administrador)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Ficha.Jornada_Ficha)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Ficha.Jornada_Ficha)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

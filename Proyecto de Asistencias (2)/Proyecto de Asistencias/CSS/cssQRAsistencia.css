@@ -7,14 +7,11 @@
 }
 
 body {
- 
     font-family: 'Poppins', sans-serif;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
     margin: 0;
-    
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Add green top and bottom borders */
@@ -155,14 +152,21 @@ td, th {
     width: 100%; 
 }
 .bot {
-    background-color: #3DAF04; 
+    background-color: #3DAF04;
     text-align: center; 
-    width: 100%; 
-    position: fixed; 
-    bottom:0; 
-  
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0; 
 }
 footer p{
     margin: 10px; 
     font-size: 20px; 
+}
+/*Estilo para cuando la ventana tenga 800px de ancho*/
+@media (min-height: 800px){
+    .bot{
+        height: 10rem; 
+    }
 }

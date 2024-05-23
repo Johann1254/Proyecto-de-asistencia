@@ -1,61 +1,74 @@
 ﻿@model Libreria_de_conexion.Ficha
 
 @{
-    ViewBag.Title = "Details";
+    Layout = null;
 }
 
-<h2>Detalles</h2>
+<!DOCTYPE html>
 
-<div>
-    <link href="~/Content/Botones_y_textos.css" rel="stylesheet" />
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            <a class="nombre">Jornada</a>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Jornada_Ficha)
-        </dd>
-
-        <dt>
-            <a class="nombre">Fecha inicio</a>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Fecha_inicio)
-        </dd>
-
-        <dt>
-            <a class="nombre">Fecha fin</a>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Fecha_fin)
-        </dd>
-
-        <dt>
-            <a class="nombre">Tipo de ficha</a>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tipo_Ficha)
-        </dd>
-
-        <dt>
-            <a class="nombre">Identificacion admin</a>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Administrador.idAdministrador)
-        </dd>
-
-    </dl>
-</div>
-<div class="form-group button-container">
-    <div class="col-md-offset-2 col-md-10">
-        <input type="button" class="btn-Editar" value="Editar" onclick="location.href='@Url.Action("Edit", new { id = Model.Numero_Ficha })'" />
-        <input type="button" class="input-volver" value="Volver" onclick="location.href='@Url.Action("Index")'" />
-
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Ficha</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Jornada_Ficha)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Jornada_Ficha)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Fecha_inicio)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Fecha_inicio)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Fecha_fin)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Fecha_fin)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Tipo_Ficha)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Tipo_Ficha)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Administrador.Nombre_Administrador)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Administrador.Nombre_Administrador)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Programa_Formacion.Nombre_Programa)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Programa_Formacion.Nombre_Programa)
+            </dd>
+    
+        </dl>
     </div>
-</div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Numero_Ficha }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

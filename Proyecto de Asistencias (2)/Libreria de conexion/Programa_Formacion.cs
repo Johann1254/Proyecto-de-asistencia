@@ -18,17 +18,18 @@ namespace Libreria_de_conexion
         public Programa_Formacion()
         {
             this.Competencia = new HashSet<Competencia>();
+            this.Ficha = new HashSet<Ficha>();
         }
     
         public int idPrograma { get; set; }
         public string Nombre_Programa { get; set; }
         public string Duracion_Programa { get; set; }
-        public Nullable<int> Numero_Ficha { get; set; }
         public Nullable<int> idAdministrador { get; set; }
     
         public virtual Administrador Administrador { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Competencia> Competencia { get; set; }
-        public virtual Ficha Ficha { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Ficha> Ficha { get; set; }
     }
 }

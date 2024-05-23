@@ -7,12 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Libreria_de_conexion;
-using Proyecto_de_Asistencias.Sesion;
 
 namespace Proyecto_de_Asistencias.Controllers
 {
-    [Validar_sesion]
-
     public class Programa_FormacionController : Controller
     {
         private AsistenciaEntities db = new AsistenciaEntities();
@@ -20,7 +17,7 @@ namespace Proyecto_de_Asistencias.Controllers
         // GET: Programa_Formacion
         public ActionResult Index()
         {
-            var programa_Formacion = db.Programa_Formacion.Include(p => p.Administrador).Include(p => p.Ficha);
+            var programa_Formacion = db.Programa_Formacion.Include(p => p.Administrador);
             return View(programa_Formacion.ToList());
         }
 
@@ -42,8 +39,7 @@ namespace Proyecto_de_Asistencias.Controllers
         // GET: Programa_Formacion/Create
         public ActionResult Create()
         {
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador");
-            ViewBag.Numero_Ficha = new SelectList(db.Ficha, "Numero_Ficha", "Numero_Ficha");
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador");
             return View();
         }
 
@@ -52,7 +48,7 @@ namespace Proyecto_de_Asistencias.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idPrograma,Nombre_Programa,Duracion_Programa,Numero_Ficha,idAdministrador")] Programa_Formacion programa_Formacion)
+        public ActionResult Create([Bind(Include = "idPrograma,Nombre_Programa,Duracion_Programa,idAdministrador")] Programa_Formacion programa_Formacion)
         {
             if (ModelState.IsValid)
             {
@@ -61,8 +57,7 @@ namespace Proyecto_de_Asistencias.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", programa_Formacion.idAdministrador);
-            ViewBag.Numero_Ficha = new SelectList(db.Ficha, "Numero_Ficha", "Numero_Ficha", programa_Formacion.Numero_Ficha);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", programa_Formacion.idAdministrador);
             return View(programa_Formacion);
         }
 
@@ -78,8 +73,7 @@ namespace Proyecto_de_Asistencias.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", programa_Formacion.idAdministrador);
-            ViewBag.Numero_Ficha = new SelectList(db.Ficha, "Numero_Ficha", "Numero_Ficha", programa_Formacion.Numero_Ficha);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", programa_Formacion.idAdministrador);
             return View(programa_Formacion);
         }
 
@@ -88,7 +82,7 @@ namespace Proyecto_de_Asistencias.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idPrograma,Nombre_Programa,Duracion_Programa,Numero_Ficha,idAdministrador")] Programa_Formacion programa_Formacion)
+        public ActionResult Edit([Bind(Include = "idPrograma,Nombre_Programa,Duracion_Programa,idAdministrador")] Programa_Formacion programa_Formacion)
         {
             if (ModelState.IsValid)
             {
@@ -96,8 +90,7 @@ namespace Proyecto_de_Asistencias.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", programa_Formacion.idAdministrador);
-            ViewBag.Numero_Ficha = new SelectList(db.Ficha, "Numero_Ficha", "Numero_Ficha", programa_Formacion.Numero_Ficha);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", programa_Formacion.idAdministrador);
             return View(programa_Formacion);
         }
 

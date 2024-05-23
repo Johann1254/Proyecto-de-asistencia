@@ -1,66 +1,74 @@
 ﻿@model IEnumerable<Libreria_de_conexion.Programa_Formacion>
 
 @{
-    ViewBag.Title = "Programa de Formacion";
+    ViewBag.title = "Programa"; 
 }
-<br />
-<h2 class="welcome">Programa de Formacion</h2>
-<br />
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/CSS/Botonesprincipales_tablas.css" rel="stylesheet" />
+    <link href="~/Content/Estilo_tablas.css" rel="stylesheet" />
+</head>
+
 <style>
     .welcome {
         text-align: center;
         padding: 10px;
+        padding-top: 10px;
         background-color: #3DAF04;
         border-radius: 15px;
         color: white;
-        font-family: 'Poppins',sans-serif;
+        font-family: 'Poppins', sans-serif;
     }
 </style>
-<link href="~/Content/Estilo_tablas.css" rel="stylesheet" />
-<link href="~/CSS/Botonesprincipales_tablas.css" rel="stylesheet" />
-<p>
-    @Html.ActionLink("Nuevo programa", "Create", "", new { @class = "btn-nuevo" })
-</p>
-<div class="table-responsive">
-    <table class="table">
-        <tr>
-            <th>
-               Nombre
-            </th>
-            <th>
-                Duracion
-            </th>
-            <th>
-                Identificacion admin
-            </th>
-            <th>
-              Jornada
-            </th>
-            <th>OPERACIONES</th>
-        </tr>
+<body>
+    <br />
+    <h2 class="welcome">Programas de Formacion</h2>
+    <p>
+        @Html.ActionLink("Nuevo Programa", "Create", "", new { @class = "btn-nuevo" })
+    </p>
+    <div class="table-responsive">
 
-        @foreach (var item in Model)
-        {
+
+        <table class="table">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nombre_Programa)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Duracion_Programa)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Ficha.Jornada_Ficha)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.idPrograma }, new { @class = "btn-editar" }) 
-                    @Html.ActionLink("Detalles", "Details", new { id = item.idPrograma }, new { @class = "btn-detalles" }) 
-                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idPrograma }, new { @class = "btn-eliminar" })
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre_Programa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Duracion_Programa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Administrador.Nombre_Administrador)
+                </th>
+                <th>Operaciones</th>
             </tr>
-        }
 
-    </table>
-</div>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre_Programa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Duracion_Programa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Administrador.Nombre_Administrador)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.idPrograma }, new { @class = "btn-editar" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.idPrograma }, new { @class = "btn-detalles" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.idPrograma }, new { @class = "btn-eliminar" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</body>
+</html>

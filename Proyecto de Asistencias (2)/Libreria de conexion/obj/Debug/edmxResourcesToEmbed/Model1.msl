@@ -37,6 +37,7 @@
           <ScalarProperty Name="Duracion_Competencia" ColumnName="Duracion_Competencia" />
           <ScalarProperty Name="idAdministrador" ColumnName="idAdministrador" />
           <ScalarProperty Name="idPrograma" ColumnName="idPrograma" />
+          <ScalarProperty Name="idInstructor" ColumnName="idInstructor" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -48,6 +49,7 @@
           <ScalarProperty Name="Fecha_inicio" ColumnName="Fecha_inicio" />
           <ScalarProperty Name="Fecha_fin" ColumnName="Fecha_fin" />
           <ScalarProperty Name="Tipo_Ficha" ColumnName="Tipo_Ficha" />
+          <ScalarProperty Name="idPrograma" ColumnName="idPrograma" />
           <ScalarProperty Name="idAdministrador" ColumnName="idAdministrador" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -60,7 +62,6 @@
           <ScalarProperty Name="Apellido_Instructor" ColumnName="Apellido_Instructor" />
           <ScalarProperty Name="Email_Instructor" ColumnName="Email_Instructor" />
           <ScalarProperty Name="Contraseña_Instructor" ColumnName="Contraseña_Instructor" />
-          <ScalarProperty Name="Imagen_Qr" ColumnName="Imagen_Qr" />
           <ScalarProperty Name="Numero_Ficha" ColumnName="Numero_Ficha" />
           <ScalarProperty Name="idAdministrador" ColumnName="idAdministrador" />
         </MappingFragment>
@@ -72,7 +73,6 @@
           <ScalarProperty Name="idPrograma" ColumnName="idPrograma" />
           <ScalarProperty Name="Nombre_Programa" ColumnName="Nombre_Programa" />
           <ScalarProperty Name="Duracion_Programa" ColumnName="Duracion_Programa" />
-          <ScalarProperty Name="Numero_Ficha" ColumnName="Numero_Ficha" />
           <ScalarProperty Name="idAdministrador" ColumnName="idAdministrador" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -84,6 +84,13 @@
           <ScalarProperty Name="Fecha_Asistencia" ColumnName="Fecha_Asistencia" />
           <ScalarProperty Name="Hora_Asistencia" ColumnName="Hora_Asistencia" />
           <ScalarProperty Name="Tipo_Asistencia" ColumnName="Tipo_Asistencia" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="ImagenQR" ColumnName="ImagenQR" />
+          <ScalarProperty Name="Competencias" ColumnName="Competencias" />
+          <ScalarProperty Name="Ficha" ColumnName="Ficha" />
+          <ScalarProperty Name="Programa" ColumnName="Programa" />
+          <ScalarProperty Name="idInstructor" ColumnName="idInstructor" />
           <ScalarProperty Name="idAprendiz" ColumnName="idAprendiz" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -104,10 +111,17 @@
           <ScalarProperty Name="idSoporte" ColumnName="idSoporte" />
           <ScalarProperty Name="Fecha_Soporte" ColumnName="Fecha_Soporte" />
           <ScalarProperty Name="Hora_Soporte" ColumnName="Hora_Soporte" />
-          <ScalarProperty Name="Formato_Soporte" ColumnName="Formato_Soporte" />
           <ScalarProperty Name="idAprendiz" ColumnName="idAprendiz" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_ValidarUsuario" FunctionName="AsistenciaModel.Store.sp_ValidarUsuario">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AsistenciaModel.sp_ValidarUsuario_Result">
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+          <ScalarProperty Name="idAdministrador" ColumnName="idAdministrador" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

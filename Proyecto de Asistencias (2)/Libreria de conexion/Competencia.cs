@@ -20,8 +20,10 @@ namespace Libreria_de_conexion
         public string Duracion_Competencia { get; set; }
         public Nullable<int> idAdministrador { get; set; }
         public Nullable<int> idPrograma { get; set; }
+        public Nullable<int> idInstructor { get; set; }
     
         public virtual Administrador Administrador { get; set; }
+        public virtual Instructor Instructor { get; set; }
         public virtual Programa_Formacion Programa_Formacion { get; set; }
     }
 }

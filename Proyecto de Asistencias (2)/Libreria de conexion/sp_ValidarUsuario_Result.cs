@@ -10,15 +10,10 @@
 namespace Libreria_de_conexion
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Soporte_asistencia
+    public partial class sp_ValidarUsuario_Result
     {
-        public int idSoporte { get; set; }
-        public string Fecha_Soporte { get; set; }
-        public string Hora_Soporte { get; set; }
-        public Nullable<int> idAprendiz { get; set; }
-    
-        public virtual Aprendiz Aprendiz { get; set; }
+        public string Column1 { get; set; }
+        public int idAdministrador { get; set; }
     }
 }

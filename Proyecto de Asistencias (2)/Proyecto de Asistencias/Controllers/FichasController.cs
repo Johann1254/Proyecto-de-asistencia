@@ -7,11 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Libreria_de_conexion;
-using Proyecto_de_Asistencias.Sesion;
 
 namespace Proyecto_de_Asistencias.Controllers
 {
-    [Validar_sesion]
     public class FichasController : Controller
     {
         private AsistenciaEntities db = new AsistenciaEntities();
@@ -19,7 +17,7 @@ namespace Proyecto_de_Asistencias.Controllers
         // GET: Fichas
         public ActionResult Index()
         {
-            var ficha = db.Ficha.Include(f => f.Administrador);
+            var ficha = db.Ficha.Include(f => f.Administrador).Include(f => f.Programa_Formacion);
             return View(ficha.ToList());
         }
 
@@ -41,7 +39,8 @@ namespace Proyecto_de_Asistencias.Controllers
         // GET: Fichas/Create
         public ActionResult Create()
         {
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador");
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador");
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa");
             return View();
         }
 
@@ -50,7 +49,7 @@ namespace Proyecto_de_Asistencias.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Numero_Ficha,Jornada_Ficha,Fecha_inicio,Fecha_fin,Tipo_Ficha,idAdministrador")] Ficha ficha)
+        public ActionResult Create([Bind(Include = "Numero_Ficha,Jornada_Ficha,Fecha_inicio,Fecha_fin,Tipo_Ficha,idPrograma,idAdministrador")] Ficha ficha)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +58,8 @@ namespace Proyecto_de_Asistencias.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", ficha.idAdministrador);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", ficha.idAdministrador);
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa", ficha.idPrograma);
             return View(ficha);
         }
 
@@ -75,7 +75,8 @@ namespace Proyecto_de_Asistencias.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", ficha.idAdministrador);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", ficha.idAdministrador);
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa", ficha.idPrograma);
             return View(ficha);
         }
 
@@ -84,7 +85,7 @@ namespace Proyecto_de_Asistencias.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Numero_Ficha,Jornada_Ficha,Fecha_inicio,Fecha_fin,Tipo_Ficha,idAdministrador")] Ficha ficha)
+        public ActionResult Edit([Bind(Include = "Numero_Ficha,Jornada_Ficha,Fecha_inicio,Fecha_fin,Tipo_Ficha,idPrograma,idAdministrador")] Ficha ficha)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +93,8 @@ namespace Proyecto_de_Asistencias.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", ficha.idAdministrador);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", ficha.idAdministrador);
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa", ficha.idPrograma);
             return View(ficha);
         }
 

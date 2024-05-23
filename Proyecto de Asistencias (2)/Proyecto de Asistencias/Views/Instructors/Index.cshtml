@@ -1,84 +1,95 @@
 ﻿@model IEnumerable<Libreria_de_conexion.Instructor>
 
 @{
-    ViewBag.Title = "Instructor";
+    ViewBag.title = "Instructor"; 
 }
-<br />
-<h2 class="welcome">Instructor</h2>
-<br />
-<link href="~/Content/Estilo_tablas.css" rel="stylesheet" />
-<link href="~/CSS/Botonesprincipales_tablas.css" rel="stylesheet" />
-<style>
-    .welcome {
-        text-align: center;
-        padding: 10px;
-        background-color: #3DAF04;
-        border-radius: 15px;
-        color: white;
-        font-family: 'Poppins',sans-serif;
-    }
-</style>
-<p>
-    @Html.ActionLink("Nuevo Instructor", "Create", "", new { @class = "btn-nuevo" })
-</p>
-<div class="table-responsive">
-    <table class="table">
-        <tr>
-            <th>
-                Nombres
-            </th>
-            <th>
-                Apellidos
-            </th>
-            <th>
-                Correo electronico
-            </th>
-            <th>
-                Contraseña
-            </th>
-            <th>
-                Qr asistencias
-            </th>
-            <th>
-                Identificacion admin
-            </th>
-            <th>
-                Ficha
-            </th>
-            <th>OPERACIONES</th>
-        </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nombre_Instructor)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Apellido_Instructor)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email_Instructor)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Contraseña_Instructor)
-                </td>
-                <td style="overflow-x: scroll; max-width :100px " class="columna_qr">
-                    @Html.DisplayFor(modelItem => item.Imagen_Qr)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Ficha.Numero_Ficha)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.idInstructor }, new { @class = "btn-editar" }) 
-                    @Html.ActionLink("Detalles", "Details", new { id = item.idInstructor }, new { @class = "btn-detalles" }) 
-                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idInstructor }, new { @class = "btn-eliminar" })
-                </td>
-            </tr>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/Estilo_tablas.css" rel="stylesheet" />
+    <link href="~/CSS/Botonesprincipales_tablas.css" rel="stylesheet" />
+
+    <style>
+        .welcome {
+            text-align: center;
+            padding: 10px;
+            padding-top: 10px;
+            background-color: #3DAF04;
+            border-radius: 15px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
         }
+    </style>
+</head>
+<body>
+    <br />
+    <h2 class="welcome">Instructor</h2>
+    <p>
+        @Html.ActionLink("Nuevo Instructor", "Create", "", new { @class = "btn-nuevo" })
+    </p>
+    <div class="table-responsive">
 
-    </table>
-</div>
+        <table class="table">
+            <tr>
+                <th>
+                    Nombres
+                </th>
+                <th>
+                    Apellidos
+                </th>
+                <th>
+                    Correo electronico
+                </th>
+                <th>
+                    Contraseña
+                </th>
+                <th>
+                    Qr asistencias
+                </th>
+                <th>
+                    Identificacion admin
+                </th>
+                <th>
+                    Ficha
+                </th>
+                <th>OPERACIONES</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre_Instructor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Apellido_Instructor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email_Instructor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Contraseña_Instructor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Administrador.Nombre_Administrador)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ficha.Jornada_Ficha)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.idInstructor }, new { @class = "btn-editar" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.idInstructor }, new { @class = "btn-detalles" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.idInstructor }, new { @class = "btn-eliminar" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</body>
+</html>

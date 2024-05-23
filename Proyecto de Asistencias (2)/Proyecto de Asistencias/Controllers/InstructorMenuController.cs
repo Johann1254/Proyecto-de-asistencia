@@ -7,7 +7,6 @@ using Proyecto_de_Asistencias.Sesion;
 using Libreria_de_conexion;
 using System.Data.SqlClient;
 using System.Data;
-using Model.models; 
 namespace Proyecto_de_Asistencias.Controllers
 {
     [Validar_sesion]
@@ -83,33 +82,6 @@ namespace Proyecto_de_Asistencias.Controllers
         public ActionResult FormularioAsistencias()
         {
             return View(); 
-        }
-
-
-        public ActionResult Consultar_Aprendices()
-        {
-            string nombre = apr.Nombres_Aprenidiz;
-            string apellido = apr.Apellidos_Aprendiz;
-
-            List<Aprendiz> aprendices = new List<Aprendiz>();
-
-            string query = "select Nombres_Aprenidiz, Apellido_Aprenidiz from Aprendiz";
-
-            SqlCommand cmd = new SqlCommand(query);
-           
-            SqlDataAdapter reader = cmd.ExecuteReader(); 
-
-            while (reader.Read())
-            {
-                Aprendiz.Add(new Aprendiz
-                {
-                    Nombres_Aprenidiz = reader["Nombre_Aprenidz"].ToString(),
-                    Apellidos_Aprendiz = reader["Apellido_Aprenidiz"].ToString()
-                }); 
-            }
-
-            return View(aprendices); 
-
         }
     }
 

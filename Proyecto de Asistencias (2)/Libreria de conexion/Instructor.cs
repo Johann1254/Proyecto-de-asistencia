@@ -14,16 +14,26 @@ namespace Libreria_de_conexion
     
     public partial class Instructor
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Instructor()
+        {
+            this.Competencia = new HashSet<Competencia>();
+            this.Registro_Asistencias_QR = new HashSet<Registro_Asistencias_QR>();
+        }
+    
         public int idInstructor { get; set; }
         public string Nombre_Instructor { get; set; }
         public string Apellido_Instructor { get; set; }
         public string Email_Instructor { get; set; }
         public string Contraseña_Instructor { get; set; }
-        public string Imagen_Qr { get; set; }
         public Nullable<int> Numero_Ficha { get; set; }
         public Nullable<int> idAdministrador { get; set; }
     
         public virtual Administrador Administrador { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Competencia> Competencia { get; set; }
         public virtual Ficha Ficha { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Registro_Asistencias_QR> Registro_Asistencias_QR { get; set; }
     }
 }
