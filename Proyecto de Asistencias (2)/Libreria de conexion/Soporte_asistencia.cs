@@ -17,7 +17,6 @@ namespace Libreria_de_conexion
         public int idSoporte { get; set; }
         public string Fecha_Soporte { get; set; }
         public string Hora_Soporte { get; set; }
-        public string Formato_Soporte { get; set; }
         public Nullable<int> idAprendiz { get; set; }
     
         public virtual Aprendiz Aprendiz { get; set; }

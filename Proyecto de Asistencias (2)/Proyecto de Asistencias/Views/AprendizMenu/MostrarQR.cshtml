@@ -1,0 +1,20 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar QR</title>
+</head>
+<body>
+    <h1>Código QR Generado</h1>
+    <div id="qr-container">
+        <img id="qr-image" src="@Url.Action("ObtenerImagenQR", "AprendizMenu")" alt="Código QR">
+    </div>
+</body>
+</html>

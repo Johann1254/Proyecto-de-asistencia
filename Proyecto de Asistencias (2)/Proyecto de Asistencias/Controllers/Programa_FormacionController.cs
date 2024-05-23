@@ -62,7 +62,6 @@ namespace Proyecto_de_Asistencias.Controllers
             }
 
             ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", programa_Formacion.idAdministrador);
-            ViewBag.Numero_Ficha = new SelectList(db.Ficha, "Numero_Ficha", "Numero_Ficha", programa_Formacion.Numero_Ficha);
             return View(programa_Formacion);
         }
 
@@ -79,7 +78,6 @@ namespace Proyecto_de_Asistencias.Controllers
                 return HttpNotFound();
             }
             ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", programa_Formacion.idAdministrador);
-            ViewBag.Numero_Ficha = new SelectList(db.Ficha, "Numero_Ficha", "Numero_Ficha", programa_Formacion.Numero_Ficha);
             return View(programa_Formacion);
         }
 
@@ -97,7 +95,6 @@ namespace Proyecto_de_Asistencias.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", programa_Formacion.idAdministrador);
-            ViewBag.Numero_Ficha = new SelectList(db.Ficha, "Numero_Ficha", "Numero_Ficha", programa_Formacion.Numero_Ficha);
             return View(programa_Formacion);
         }
 

@@ -28,7 +28,7 @@ namespace Libreria_de_conexion
         public string Tipo_Documento { get; set; }
         public string Numero_Documento { get; set; }
         public string Contraseña { get; set; }
-        public string Estado { get; set; }
+        public Nullable<bool> Estado { get; set; }
         public Nullable<int> Numero_Ficha { get; set; }
         public Nullable<int> idAdministrador { get; set; }
     

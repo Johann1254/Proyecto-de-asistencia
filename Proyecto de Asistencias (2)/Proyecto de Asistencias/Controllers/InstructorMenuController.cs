@@ -6,135 +6,90 @@ using QRCoder;
 using System.Drawing;
 using System.IO;
 using Libreria_de_conexion;
+using System.Drawing.Imaging;
 
 namespace Proyecto_de_Asistencias.Controllers
 {
     [Validar_sesion]
     public class InstructorMenuController : Controller
     {
-        private AsistenciaEntities db = new AsistenciaEntities(); // Usar tu contexto existente
+        private AsistenciaEntities db = new AsistenciaEntities();
 
-        public ActionResult MenuprincipalInstructor()
-        {
-            return View();
-        }
-
-        public ActionResult VistaAsistencias()
-        {
-            return View();
-        }
-
-        public ActionResult VistaInasistencias()
-        {
-            return View();
-        }
-
-        public ActionResult VistacrearUsuarios()
-        {
-            return View();
-        }
-
-        public ActionResult ConsultarFichas()
-        {
-            return View();
-        }
-
-        public ActionResult VistaconsultarInasistencias()
-        {
-            return View();
-        }
-
-        public ActionResult Listadofichas()
-        {
-            return View();
-        }
-
-        public ActionResult ListadoAprendiCES()
-        {
-            return View();
-        }
-
-        public ActionResult ListadoProgramas()
-        {
-            return View();
-        }
-
-        public ActionResult ListadoCompetencias()
-        {
-            return View();
-        }
-
-        public ActionResult reporte()
-        {
-            return View();
-        }
+        public ActionResult MenuprincipalInstructor() => View();
+        public ActionResult VistaAsistencias() => View();
+        public ActionResult VistaInasistencias() => View();
+        public ActionResult VistacrearUsuarios() => View();
+        public ActionResult ConsultarFichas() => View();
+        public ActionResult VistaconsultarInasistencias() => View();
+        public ActionResult Listadofichas() => View();
+        public ActionResult ListadoAprendiCES() => View();
+        public ActionResult ListadoProgramas() => View();
+        public ActionResult ListadoCompetencias() => View();
+        public ActionResult reporte() => View();
 
         public ActionResult QrAsistencias()
         {
-            // Obtener las fichas desde la base de datos
-            var fichas = db.Ficha.Select(f => new SelectListItem
+            ViewBag.Fichas = db.Ficha.Select(f => new SelectListItem
             {
                 Value = f.Numero_Ficha.ToString(),
                 Text = f.Numero_Ficha.ToString()
             }).ToList();
 
-            ViewBag.Fichas = fichas;
+            ViewBag.Programa_Formacion = db.Programa_Formacion.Select(f => new SelectListItem
+            {
+                Value = f.Nombre_Programa.ToString(),
+                Text = f.Nombre_Programa.ToString()
+            }).ToList();
+
+            ViewBag.Competencia = db.Competencia.Select(f => new SelectListItem
+            {
+                Value = f.Nombre_Competencia.ToString(),
+                Text = f.Nombre_Competencia.ToString()
+            }).ToList();
+
             return View();
         }
 
-        public ActionResult InasistenciasAprendiz()
-        {
-            return View();
-        }
-
-        public ActionResult ConsultarProgramas()
-        {
-            return View();
-        }
-
-        public ActionResult ConsultarCompetencias()
-        {
-            return View();
-        }
-
-        public ActionResult FormularioAsistencias()
-        {
-            return View();
-        }
+        public ActionResult InasistenciasAprendiz() => View();
+        public ActionResult ConsultarProgramas() => View();
+        public ActionResult ConsultarCompetencias() => View();
+        public ActionResult FormularioAsistencias() => View();
 
         [HttpGet]
-        public ActionResult ObtenerCodigoQR(string fecha, int fichaId)
+        public ActionResult ObtenerCodigoQR(string fecha, int fichaId, string namecompe, string nameprog)
         {
-            // Obtener la ficha desde la base de datos
             var ficha = db.Ficha.FirstOrDefault(f => f.Numero_Ficha == fichaId);
-            if (ficha == null)
+            var competencia = db.Competencia.FirstOrDefault(f => f.Nombre_Competencia == namecompe);
+            var programa = db.Programa_Formacion.FirstOrDefault(f => f.Nombre_Programa == nameprog);
+
+            if (ficha == null || competencia == null || programa == null)
             {
                 return HttpNotFound();
             }
 
-            // Generar un ID único
             string uniqueId = Guid.NewGuid().ToString();
+            string url = Url.Action("FormularioAsistencias", "InstructorMenu", new { fecha, fichaId, nameprog, namecompe, id = uniqueId }, Request.Url.Scheme);
 
-            // URL de la vista a la que quieres que el QR redirija, incluyendo fecha, ficha e ID único
-            string url = Url.Action("FormularioAsistencias", "InstructorMenu", new { fecha = fecha, ficha = ficha.Numero_Ficha, id = uniqueId }, Request.Url.Scheme);
-
-            // Crear instancia de QRCodeGenerator
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(url, QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
+            Bitmap qrCodeImage = qrCode.GetGraphic(3);
 
-            // Crear Bitmap del código QR
-            Bitmap qrCodeImage = qrCode.GetGraphic(5);
-
-            // Convertir Bitmap a arreglo de bytes
             using (MemoryStream stream = new MemoryStream())
             {
-                qrCodeImage.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                qrCodeImage.Save(stream, ImageFormat.Png);
                 byte[] byteArray = stream.ToArray();
-
-                // Convertir el arreglo de bytes a una cadena base64
                 string base64String = Convert.ToBase64String(byteArray);
+
+                // Almacenar en la sesión
+                Session["QrCodeBase64"] = base64String;
+                Session["Fecha"] = fecha;
+                Session["FichaId"] = fichaId;
+                Session["Competencia"] = namecompe;
+                Session["Programa"] = nameprog;
                 return Json(base64String, JsonRequestBehavior.AllowGet);
+
+
             }
         }
     }

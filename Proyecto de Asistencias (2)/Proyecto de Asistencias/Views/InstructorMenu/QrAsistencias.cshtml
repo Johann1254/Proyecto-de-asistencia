@@ -3,10 +3,11 @@
     Layout = null;
 }
 
-<html>
+<html lang="es">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Qr de Asistencias</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar QR de Asistencias</title>
     <link href="~/CSS/CSSvistasInstructor.css" rel="stylesheet" />
     <link href="~/CSS/cssQRAsistencia.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -15,27 +16,41 @@
     <div class="container">
         <div class="header">
             <h1>Instructor Jesus Marzal Barboza</h1>
-            <h4>Detalles de QR</h4>
+            <h4>Generar Código QR para Asistencias</h4>
         </div>
-            <div class="form-container">
-                <div class="form-field">
-                    <label for="date">Fecha</label>
-                    <input type="date" id="date">
-                </div>
-                <div class="form-field">
-                    <label for="ficha">Seleccione el número de la Ficha</label>
-                    <select id="ficha" class="form-control">
-                        @foreach (var item in ViewBag.Fichas)
-                        {
-                        <option value="@item.Value">@item.Text</option>
-}
-                    </select>
-                </div>
-                <button class="button" onclick="generarQR()">Generar QR</button>
+        <div class="form-container">
+            <div class="form-field">
+                <label for="date">Fecha</label>
+                <input type="date" id="date">
             </div>
+            <div class="form-field">
+                <label for="ficha">Seleccione el número de la Ficha</label>
+                <select id="ficha" class="form-control">
+                    @foreach (var item in ViewBag.Fichas)
+                    {
+        <option value="@item.Value">@item.Text</option>}
+                </select>
+            </div>
+            <div class="form-field">
+                <label for="programa_formacion">Seleccione el programa de formación:</label>
+                <select id="programa_formacion" class="form-control">
+                    @foreach (var item in ViewBag.Programa_Formacion)
+                    {
+        <option value="@item.Value">@item.Text</option>}
+                </select>
+            </div>
+            <div class="form-field">
+                <label for="competencias">Seleccione la competencia:</label>
+                <select id="competencias" class="form-control">
+                    @foreach (var item in ViewBag.Competencia)
+                    {
+        <option value="@item.Value">@item.Text</option>}
+                </select>
+            </div>
+            <button class="button" onclick="generarQR()">Generar QR</button>
+        </div>
         <br />
         <br />
-
         <div id="qr-container" class="qr-container" style="display:none;">
             <h4>Código QR Generado:</h4>
             <img id="qr-image" src="" alt="Código QR">
@@ -62,6 +77,8 @@
         function generarQR() {
             var fecha = document.getElementById('date').value;
             var fichaId = document.getElementById('ficha').value;
+            var programa = document.getElementById('programa_formacion').value;
+            var competencias = document.getElementById('competencias').value;
 
             if (fecha === '' || fichaId === '') {
                 alert('Por favor, ingrese todos los datos.');
@@ -71,7 +88,7 @@
             $.ajax({
                 url: '@Url.Action("ObtenerCodigoQR", "InstructorMenu")',
                 type: 'GET',
-                data: { fecha: fecha, fichaId: fichaId },
+                data: { fecha: fecha, nameprog: programa, namecompe: competencias, fichaId: fichaId },
                 success: function (data) {
                     $('#qr-image').attr('src', `data:image/png;base64,${data}`);
                     $('#qr-container').show();

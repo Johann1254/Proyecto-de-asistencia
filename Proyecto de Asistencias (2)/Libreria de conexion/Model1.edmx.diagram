@@ -4,28 +4,30 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="441bf19578bb45ca808a775032b3132a" Name="Diagram1">
-        <EntityTypeShape EntityType="AsistenciaModel.Administrador" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="AsistenciaModel.Aprendiz" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="AsistenciaModel.Competencia" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AsistenciaModel.Ficha" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="AsistenciaModel.Instructor" Width="1.5" PointX="8.25" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AsistenciaModel.Programa_Formacion" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AsistenciaModel.Registro_Asistencias_QR" Width="1.5" PointX="7.5" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="AsistenciaModel.Reporte" Width="1.5" PointX="9.75" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AsistenciaModel.Soporte_asistencia" Width="1.5" PointX="7.5" PointY="16.5" IsExpanded="true" />
-        <AssociationConnector Association="AsistenciaModel.FK__Aprendiz__idAdmi__59FA5E80" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Competenc__idAdm__5070F446" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Ficha__idAdminis__3B75D760" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Instructo__idAdm__440B1D61" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Programa___idAdm__47DBAE45" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Aprendiz__Numero__59063A47" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Registro___idApr__5FB337D6" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Soporte_a__idApr__5CD6CB2B" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Competenc__idPro__5165187F" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Instructo__Numer__4316F928" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Programa___Numer__46E78A0C" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Reporte__idAsist__628FA481" ManuallyRouted="false" />
+      <Diagram DiagramId="be8cd54e66264ebead0bf89476f5d9ae" Name="Diagram1">
+        <EntityTypeShape EntityType="AsistenciaModel.Administrador" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsistenciaModel.Aprendiz" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsistenciaModel.Competencia" Width="1.5" PointX="5.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsistenciaModel.Ficha" Width="1.5" PointX="8.25" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsistenciaModel.Instructor" Width="1.5" PointX="10.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsistenciaModel.Programa_Formacion" Width="1.5" PointX="3" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsistenciaModel.Registro_Asistencias_QR" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsistenciaModel.Reporte" Width="1.5" PointX="7.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsistenciaModel.Soporte_asistencia" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
+        <AssociationConnector Association="AsistenciaModel.FK__Aprendiz__idAdmi__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Competenc__idAdm__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Ficha__idAdminis__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Instructo__idAdm__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Programa___idAdm__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Aprendiz__Numero__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Registro___idApr__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Soporte_a__idApr__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Competenc__idIns__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Competenc__idPro__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Ficha__idProgram__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Instructo__Numer__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Registro___idIns__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Reporte__idAsist__6B24EA82" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

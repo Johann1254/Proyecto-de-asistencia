@@ -15,5 +15,20 @@ namespace Proyecto_de_Asistencias.Controllers
         {
             return View();
         }
+        public ActionResult MostrarQR()
+        {
+            return View();
+        }
+
+        public ActionResult ObtenerImagenQR()
+        {
+            string base64String = Session["QrCodeBase64"] as string;
+            if (!string.IsNullOrEmpty(base64String))
+            {
+                byte[] qrCodeImage = Convert.FromBase64String(base64String);
+                return File(qrCodeImage, "image/png");
+            }
+            return HttpNotFound();
+        }
     }
 }

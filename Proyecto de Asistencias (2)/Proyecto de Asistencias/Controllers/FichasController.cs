@@ -42,6 +42,7 @@ namespace Proyecto_de_Asistencias.Controllers
         public ActionResult Create()
         {
             ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador");
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "idPrograma");
             return View();
         }
 
@@ -50,7 +51,7 @@ namespace Proyecto_de_Asistencias.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Numero_Ficha,Jornada_Ficha,Fecha_inicio,Fecha_fin,Tipo_Ficha,idAdministrador")] Ficha ficha)
+        public ActionResult Create([Bind(Include = "Numero_Ficha,Jornada_Ficha,Fecha_inicio,Fecha_fin,Tipo_Ficha,idPrograma,idAdministrador")] Ficha ficha)
         {
             if (ModelState.IsValid)
             {

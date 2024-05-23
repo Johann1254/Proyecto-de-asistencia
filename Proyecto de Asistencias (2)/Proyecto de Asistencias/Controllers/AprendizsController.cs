@@ -41,7 +41,6 @@ namespace Proyecto_de_Asistencias.Controllers
         public ActionResult Create()
         {
             ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador");
-            ViewBag.idSoporte = new SelectList(db.Soporte_asistencia, "idSoporte", "Fecha_Soporte");
             ViewBag.Numero_Ficha = new SelectList(db.Ficha, "Numero_Ficha", "Numero_Ficha");
             return View();
         }
