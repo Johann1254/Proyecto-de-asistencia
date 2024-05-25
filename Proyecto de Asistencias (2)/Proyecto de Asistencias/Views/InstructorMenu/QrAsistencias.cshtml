@@ -15,8 +15,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Instructor Jesus Marzal Barboza</h1>
             <h4>Generar Código QR para Asistencias</h4>
+            <h1>Instructor Jesus Marzal Barboza</h1>
         </div>
         <div class="form-container">
             <div class="form-field">
@@ -28,7 +28,8 @@
                 <select id="ficha" class="form-control">
                     @foreach (var item in ViewBag.Fichas)
                     {
-        <option value="@item.Value">@item.Text</option>}
+                        <option value="@item.Value">@item.Text</option>
+                    }
                 </select>
             </div>
             <div class="form-field">
@@ -36,7 +37,8 @@
                 <select id="programa_formacion" class="form-control">
                     @foreach (var item in ViewBag.Programa_Formacion)
                     {
-        <option value="@item.Value">@item.Text</option>}
+                        <option value="@item.Value">@item.Text</option>
+                    }
                 </select>
             </div>
             <div class="form-field">
@@ -44,7 +46,8 @@
                 <select id="competencias" class="form-control">
                     @foreach (var item in ViewBag.Competencia)
                     {
-        <option value="@item.Value">@item.Text</option>}
+                        <option value="@item.Value">@item.Text</option>
+                    }
                 </select>
             </div>
             <button class="button" onclick="generarQR()">Generar QR</button>
@@ -54,20 +57,20 @@
         <div id="qr-container" class="qr-container" style="display:none;">
             <h4>Código QR Generado:</h4>
             <img id="qr-image" src="" alt="Código QR">
+            <button class="button" onclick="eliminarQR()">Eliminar QR</button>
         </div>
+
+
     </div>
 
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', (event) => {
-            // Obtener la fecha actual
             var today = new Date();
             var day = String(today.getDate()).padStart(2, '0');
-            var month = String(today.getMonth() + 1).padStart(2, '0'); // Enero es 0
+            var month = String(today.getMonth() + 1).padStart(2, '0');
             var year = today.getFullYear();
-
             var currentDate = year + '-' + month + '-' + day;
 
-            // Establecer la fecha mínima y máxima del campo de fecha a la fecha actual
             var dateInput = document.getElementById('date');
             dateInput.setAttribute('min', currentDate);
             dateInput.setAttribute('max', currentDate);
@@ -95,6 +98,25 @@
                 },
                 error: function () {
                     alert('Error al generar el código QR.');
+                }
+            });
+        }
+
+        function eliminarQR() {
+            $.ajax({
+                url: '@Url.Action("EliminarCodigoQR", "InstructorMenu")',
+                type: 'POST',
+                success: function (data) {
+                    if (data.success) {
+                        $('#qr-image').attr('src', '');
+                        $('#qr-container').hide();
+                        alert('Código QR eliminado con éxito.');
+                    } else {
+                        alert('Error al eliminar el código QR.');
+                    }
+                },
+                error: function () {
+                    alert('Error al eliminar el código QR.');
                 }
             });
         }

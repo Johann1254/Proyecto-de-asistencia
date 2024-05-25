@@ -12,7 +12,7 @@ namespace Proyecto_de_Asistencias.Controllers
     public class LoginController : Controller
     {
         
-        string cadena = "data source = DESKTOP-UI13C50\\SQLEXPRESS; initial catalog = Asistencia; integrated security = true; multipleactiveresultsets=true;";
+        string cadena = "data source = DESKTOP-3MKCP8S\\SQLEXPRESS; initial catalog = Asistencia; integrated security = true; multipleactiveresultsets=true;";
         // GET: Login
         public ActionResult Login()
         {

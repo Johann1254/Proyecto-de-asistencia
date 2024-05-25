@@ -71,3 +71,16 @@ C:\Users\USER\Documents\GitHub\Proyecto-de-asistencia\Proyecto de Asistencias (2
 C:\Users\USER\Documents\GitHub\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria de conexion.pdb
 C:\Users\USER\Documents\GitHub\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria de conexion.csproj.AssemblyReference.cache
 C:\Users\USER\Documents\GitHub\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\QRCoder.dll
+C:\Users\Usuario\Videos\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\Libreria de conexion.dll.config
+C:\Users\Usuario\Videos\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\Libreria de conexion.dll
+C:\Users\Usuario\Videos\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\Libreria de conexion.pdb
+C:\Users\Usuario\Videos\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\EntityFramework.dll
+C:\Users\Usuario\Videos\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Usuario\Videos\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\QRCoder.dll
+C:\Users\Usuario\Videos\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\EntityFramework.xml
+C:\Users\Usuario\Videos\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Usuario\Videos\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria de conexion.csproj.AssemblyReference.cache
+C:\Users\Usuario\Videos\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria de conexion.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Videos\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria.14A57DF2.Up2Date
+C:\Users\Usuario\Videos\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria de conexion.dll
+C:\Users\Usuario\Videos\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Libreria de conexion\obj\Debug\Libreria de conexion.pdb

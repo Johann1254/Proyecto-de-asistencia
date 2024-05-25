@@ -92,5 +92,17 @@ namespace Proyecto_de_Asistencias.Controllers
 
             }
         }
+        [HttpPost]
+        public ActionResult EliminarCodigoQR()
+        {
+            // Eliminar el QR de la sesión
+            Session.Remove("QrCodeBase64");
+            Session.Remove("Fecha");
+            Session.Remove("FichaId");
+            Session.Remove("Competencia");
+            Session.Remove("Programa");
+
+            return Json(new { success = true });
+        }
     }
 }
