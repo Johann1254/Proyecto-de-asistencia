@@ -35,24 +35,25 @@
         <table class="table">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Nombre_Competencia)
+                    Nombre
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Tipo_Competencias)
+                    Tipo
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Duracion_Competencia)
+                    Duracion
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Administrador.Nombre_Administrador)
+                    Identificacion admin
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Instructor.Nombre_Instructor)
-                </th>
+                    Id instructor
+                </th> 
                 <th>
-                    @Html.DisplayNameFor(model => model.Programa_Formacion.Nombre_Programa)
+                    Id programa
                 </th>
-                <th></th>
+                <th>OPERACIONES</th>
+                
             </tr>
 
             @foreach (var item in Model)
@@ -68,18 +69,18 @@
                         @Html.DisplayFor(modelItem => item.Duracion_Competencia)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Administrador.Nombre_Administrador)
+                        @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Instructor.Nombre_Instructor)
+                        @Html.DisplayFor(modelItem => item.Instructor.idInstructor)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Programa_Formacion.Nombre_Programa)
+                        @Html.DisplayFor(modelItem => item.Programa_Formacion.idPrograma)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.idCompetencia }, new { @class = "btn-editar" }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.idCompetencia }, new { @class = "btn-detalles" }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.idCompetencia }, new { @class = "btn-eliminar" })
+                        @Html.ActionLink("Editar", "Edit", new { id = item.idCompetencia }, new { @class = "btn-editar" }) 
+                        @Html.ActionLink("Detalles", "Details", new { id = item.idCompetencia }, new { @class = "btn-detalles" }) 
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.idCompetencia }, new { @class = "btn-eliminar" })
                     </td>
                 </tr>
             }

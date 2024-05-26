@@ -1,11 +1,11 @@
 ﻿@model Libreria_de_conexion.Competencia
 
 @{
-    Layout = null;
+    ViewBag.Title = "Details";
 }
 
 <!DOCTYPE html>
-
+<link href="~/Content/Botones_y_textos.css" rel="stylesheet" />
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -17,7 +17,7 @@
         <hr />
         <dl class="dl-horizontal">
             <dt>
-                @Html.DisplayNameFor(model => model.Nombre_Competencia)
+                <a class="nombre">Nombre</a>
             </dt>
     
             <dd>
@@ -25,7 +25,7 @@
             </dd>
     
             <dt>
-                @Html.DisplayNameFor(model => model.Tipo_Competencias)
+                <a class="nombre">Tipo</a>
             </dt>
     
             <dd>
@@ -33,7 +33,7 @@
             </dd>
     
             <dt>
-                @Html.DisplayNameFor(model => model.Duracion_Competencia)
+                <a class="nombre">Duracion</a>
             </dt>
     
             <dd>
@@ -41,34 +41,37 @@
             </dd>
     
             <dt>
-                @Html.DisplayNameFor(model => model.Administrador.Nombre_Administrador)
+                <a class="nombre">Identificacion admin</a>
             </dt>
     
             <dd>
-                @Html.DisplayFor(model => model.Administrador.Nombre_Administrador)
+                @Html.DisplayFor(model => model.Administrador.idAdministrador)
             </dd>
     
             <dt>
-                @Html.DisplayNameFor(model => model.Instructor.Nombre_Instructor)
+                <a class="nombre">Id instructor</a>
             </dt>
     
             <dd>
-                @Html.DisplayFor(model => model.Instructor.Nombre_Instructor)
+                @Html.DisplayFor(model => model.Instructor.idInstructor)
             </dd>
     
             <dt>
-                @Html.DisplayNameFor(model => model.Programa_Formacion.Nombre_Programa)
+                <a class="nombre">Id programa</a>
             </dt>
     
             <dd>
-                @Html.DisplayFor(model => model.Programa_Formacion.Nombre_Programa)
+                @Html.DisplayFor(model => model.Programa_Formacion.idPrograma)
             </dd>
     
         </dl>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.idCompetencia }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+    <div class="form-group button-container">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" class="btn-Editar" value="Editar" onclick="location.href='@Url.Action("Edit", new { id = Model.idCompetencia })'" />
+            <input type="button" class="input-volver" value="Volver" onclick="location.href='@Url.Action("Index")'" />
+
+        </div>
+    </div>
 </body>
 </html>

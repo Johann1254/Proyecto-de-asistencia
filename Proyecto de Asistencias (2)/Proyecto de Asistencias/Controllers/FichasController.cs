@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Libreria_de_conexion;
+using Proyecto_de_Asistencias.Sesion;
 
 namespace Proyecto_de_Asistencias.Controllers
 {
+    [Validar_sesion]
     public class FichasController : Controller
     {
         private AsistenciaEntities db = new AsistenciaEntities();
@@ -39,7 +41,7 @@ namespace Proyecto_de_Asistencias.Controllers
         // GET: Fichas/Create
         public ActionResult Create()
         {
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador");
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador");
             ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa");
             return View();
         }
@@ -58,7 +60,7 @@ namespace Proyecto_de_Asistencias.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", ficha.idAdministrador);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", ficha.idAdministrador);
             ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa", ficha.idPrograma);
             return View(ficha);
         }
@@ -75,7 +77,7 @@ namespace Proyecto_de_Asistencias.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", ficha.idAdministrador);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", ficha.idAdministrador);
             ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa", ficha.idPrograma);
             return View(ficha);
         }
@@ -93,7 +95,7 @@ namespace Proyecto_de_Asistencias.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", ficha.idAdministrador);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", ficha.idAdministrador);
             ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa", ficha.idPrograma);
             return View(ficha);
         }

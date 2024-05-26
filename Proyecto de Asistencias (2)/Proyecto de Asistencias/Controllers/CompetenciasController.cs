@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Libreria_de_conexion;
+using Proyecto_de_Asistencias.Sesion;
 
 namespace Proyecto_de_Asistencias.Controllers
 {
+    [Validar_sesion]
     public class CompetenciasController : Controller
     {
         private AsistenciaEntities db = new AsistenciaEntities();
@@ -39,9 +41,9 @@ namespace Proyecto_de_Asistencias.Controllers
         // GET: Competencias/Create
         public ActionResult Create()
         {
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador");
-            ViewBag.idInstructor = new SelectList(db.Instructor, "idInstructor", "Nombre_Instructor");
-            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa");
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador");
+            ViewBag.idInstructor = new SelectList(db.Instructor, "idInstructor", "idInstructor");
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "idPrograma");
             return View();
         }
 
@@ -59,9 +61,9 @@ namespace Proyecto_de_Asistencias.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", competencia.idAdministrador);
-            ViewBag.idInstructor = new SelectList(db.Instructor, "idInstructor", "Nombre_Instructor", competencia.idInstructor);
-            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa", competencia.idPrograma);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", competencia.idAdministrador);
+            ViewBag.idInstructor = new SelectList(db.Instructor, "idInstructor", "idInstructor", competencia.idInstructor);
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "idPrograma", competencia.idPrograma);
             return View(competencia);
         }
 
@@ -77,9 +79,9 @@ namespace Proyecto_de_Asistencias.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", competencia.idAdministrador);
-            ViewBag.idInstructor = new SelectList(db.Instructor, "idInstructor", "Nombre_Instructor", competencia.idInstructor);
-            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa", competencia.idPrograma);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", competencia.idAdministrador);
+            ViewBag.idInstructor = new SelectList(db.Instructor, "idInstructor", "idInstructor", competencia.idInstructor);
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "idPrograma", competencia.idPrograma);
             return View(competencia);
         }
 
@@ -96,9 +98,9 @@ namespace Proyecto_de_Asistencias.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", competencia.idAdministrador);
-            ViewBag.idInstructor = new SelectList(db.Instructor, "idInstructor", "Nombre_Instructor", competencia.idInstructor);
-            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa", competencia.idPrograma);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", competencia.idAdministrador);
+            ViewBag.idInstructor = new SelectList(db.Instructor, "idInstructor", "idInstructor", competencia.idInstructor);
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "idPrograma", competencia.idPrograma);
             return View(competencia);
         }
 

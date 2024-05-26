@@ -34,22 +34,26 @@
         <table class="table">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Jornada_Ficha)
+                    Numero de ficha
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Fecha_inicio)
+                    Jornada
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Fecha_fin)
+                    Fecha inicio
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Tipo_Ficha)
+                    Fecha fin
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Administrador.Nombre_Administrador)
+                    Tipo de ficha
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Programa_Formacion.Nombre_Programa)
+                    Identificacion admin
+                </th>
+                
+                <th>
+                   Programa
                 </th>
                 <th>Operaciones</th>
             </tr>
@@ -57,6 +61,9 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Numero_Ficha)
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Jornada_Ficha)
                     </td>
@@ -70,15 +77,15 @@
                         @Html.DisplayFor(modelItem => item.Tipo_Ficha)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Administrador.Nombre_Administrador)
+                        @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Programa_Formacion.Nombre_Programa)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Numero_Ficha }, new { @class = "btn-editar" }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Numero_Ficha }, new { @class = "btn-detalles" }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Numero_Ficha }, new { @class = "btn-eliminar" })
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Numero_Ficha }, new { @class = "btn-editar" }) 
+                        @Html.ActionLink("Detalles", "Details", new { id = item.Numero_Ficha }, new { @class = "btn-detalles" }) 
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Numero_Ficha }, new { @class = "btn-eliminar" })
                     </td>
                 </tr>
             }

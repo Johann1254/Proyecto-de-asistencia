@@ -48,9 +48,6 @@
                     Contraseña
                 </th>
                 <th>
-                    Qr asistencias
-                </th>
-                <th>
                     Identificacion admin
                 </th>
                 <th>
@@ -75,15 +72,15 @@
                         @Html.DisplayFor(modelItem => item.Contraseña_Instructor)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Administrador.Nombre_Administrador)
+                        @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Ficha.Jornada_Ficha)
+                        @Html.DisplayFor(modelItem => item.Ficha.Numero_Ficha)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.idInstructor }, new { @class = "btn-editar" }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.idInstructor }, new { @class = "btn-detalles" }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.idInstructor }, new { @class = "btn-eliminar" })
+                        @Html.ActionLink("Editar", "Edit", new { id = item.idInstructor }, new { @class = "btn-editar" }) 
+                        @Html.ActionLink("Detalles", "Details", new { id = item.idInstructor }, new { @class = "btn-detalles" }) 
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.idInstructor }, new { @class = "btn-eliminar" })
                     </td>
                 </tr>
             }

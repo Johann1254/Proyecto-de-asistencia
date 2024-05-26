@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Libreria_de_conexion;
+using Proyecto_de_Asistencias.Sesion;
 
 namespace Proyecto_de_Asistencias.Controllers
 {
+    [Validar_sesion]
     public class Programa_FormacionController : Controller
     {
         private AsistenciaEntities db = new AsistenciaEntities();
@@ -39,7 +41,7 @@ namespace Proyecto_de_Asistencias.Controllers
         // GET: Programa_Formacion/Create
         public ActionResult Create()
         {
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador");
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador");
             return View();
         }
 
@@ -57,7 +59,7 @@ namespace Proyecto_de_Asistencias.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", programa_Formacion.idAdministrador);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", programa_Formacion.idAdministrador);
             return View(programa_Formacion);
         }
 
@@ -73,7 +75,7 @@ namespace Proyecto_de_Asistencias.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", programa_Formacion.idAdministrador);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", programa_Formacion.idAdministrador);
             return View(programa_Formacion);
         }
 
@@ -90,7 +92,7 @@ namespace Proyecto_de_Asistencias.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "Nombre_Administrador", programa_Formacion.idAdministrador);
+            ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", programa_Formacion.idAdministrador);
             return View(programa_Formacion);
         }
 

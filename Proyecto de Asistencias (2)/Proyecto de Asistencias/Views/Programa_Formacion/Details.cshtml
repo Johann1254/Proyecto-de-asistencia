@@ -1,7 +1,7 @@
 ﻿@model Libreria_de_conexion.Programa_Formacion
 
 @{
-    Layout = null;
+    ViewBag.Title = "Detalles";
 }
 
 <!DOCTYPE html>
@@ -9,6 +9,8 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Botones_y_textos.css" rel="stylesheet" />
+
     <title>Details</title>
 </head>
 <body>
@@ -17,7 +19,7 @@
         <hr />
         <dl class="dl-horizontal">
             <dt>
-                @Html.DisplayNameFor(model => model.Nombre_Programa)
+                <a class="nombre">Nombre</a>
             </dt>
     
             <dd>
@@ -25,7 +27,7 @@
             </dd>
     
             <dt>
-                @Html.DisplayNameFor(model => model.Duracion_Programa)
+                <a class="nombre">Duracion</a>
             </dt>
     
             <dd>
@@ -33,18 +35,19 @@
             </dd>
     
             <dt>
-                @Html.DisplayNameFor(model => model.Administrador.Nombre_Administrador)
+                <a class="nombre">Identificacion admin</a>
             </dt>
     
             <dd>
-                @Html.DisplayFor(model => model.Administrador.Nombre_Administrador)
+                @Html.DisplayFor(model => model.Administrador.idAdministrador)
             </dd>
     
         </dl>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.idPrograma }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+    <div class="col-md-offset-2 col-md-10">
+        <input type="button" class="btn-Editar" value="Editar" onclick="location.href='@Url.Action("Edit", new { id = Model.idPrograma })'" />
+        <input type="button" class="input-volver" value="Volver" onclick="location.href='@Url.Action("Index")'" />
+
+    </div>
 </body>
 </html>

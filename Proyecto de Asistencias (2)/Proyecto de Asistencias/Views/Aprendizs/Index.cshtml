@@ -28,6 +28,7 @@
 <body>
     <br />
     <h2  class="welcome"> Aprendiz</h2>
+
     <p>
         @Html.ActionLink("Nuevo Aprendiz", "Create", "", new { @class = "btn-nuevo" })
     </p>
@@ -35,7 +36,7 @@
         <table class="table">
             <tr>
                 <th>
-                    Nomnbre(s)
+                    Nombre(s)
                 </th>
                 <th>
                    Apellidos
@@ -89,15 +90,15 @@
                         @Html.DisplayFor(modelItem => item.Estado)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Administrador.Nombre_Administrador)
+                        @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Ficha.Numero_Ficha)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.idAprendiz }, new { @class = "btn-editar" }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.idAprendiz }, new { @class = "btn-detalles" }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.idAprendiz }, new { @class = "btn-eliminar" })
+                        @Html.ActionLink("Editar", "Edit", new { id = item.idAprendiz }, new { @class = "btn-editar" }) 
+                        @Html.ActionLink("Detalles", "Details", new { id = item.idAprendiz }, new { @class = "btn-detalles" }) 
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.idAprendiz }, new { @class = "btn-eliminar" })
                     </td>
                 </tr>
             }

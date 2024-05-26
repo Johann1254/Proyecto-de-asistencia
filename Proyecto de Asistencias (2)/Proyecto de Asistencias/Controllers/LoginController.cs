@@ -12,7 +12,7 @@ namespace Proyecto_de_Asistencias.Controllers
     public class LoginController : Controller
     {
         AsistenciaEntities Ae = new AsistenciaEntities();
-        string cadena = "data source = DESKTOP-67BA9OT\\SQLEXPRESS; initial catalog = Asistencia; integrated security = true; multipleactiveresultsets=true;";
+        string cadena = "data source = JAMB\\SQLEXPRESS; initial catalog = Asistencia; integrated security = true; multipleactiveresultsets=true;";
         // GET: Login
         public ActionResult Login()
         {
