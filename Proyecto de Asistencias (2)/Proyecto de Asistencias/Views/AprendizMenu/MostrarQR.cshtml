@@ -9,12 +9,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostrar QR</title>
+    <title>Ver QR de Asistencias</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>Código QR Generado</h1>
-    <div id="qr-container">
-        <img id="qr-image" src="@Url.Action("ObtenerImagenQR", "AprendizMenu")" alt="Código QR">
+    <div class="container">
+        <div class="header">
+            <h1>Aprendiz - Código QR de Asistencias</h1>
+        </div>
+        <div class="qr-container" id="qr-container">
+            <h4>Código QR:</h4>
+            <img id="qr-image" src="@Url.Action("ObtenerImagenQR", "AprendizMenu")" alt="Código QR">
+        </div>
+        <div id="mensaje-container" class="mensaje-container" style="display:none;">
+            <h4>El código QR ya no está disponible.</h4>
+        </div>
     </div>
+
+    <script type="text/javascript">
+        function verificarDisponibilidadQR() {
+            $.ajax({
+                url: '@Url.Action("VerificarDisponibilidadQR", "AprendizMenu")',
+                type: 'GET',
+                success: function (data) {
+                    if (!data.disponible) {
+                        $('#qr-container').hide();
+                        $('#mensaje-container').show();
+                    }
+                },
+                error: function () {
+                    console.error('Error al verificar la disponibilidad del QR.');
+                }
+            });
+        }
+
+        // Verificar la disponibilidad del QR cada 5 segundos
+        setInterval(verificarDisponibilidadQR, 1000);
+    </script>
 </body>
 </html>

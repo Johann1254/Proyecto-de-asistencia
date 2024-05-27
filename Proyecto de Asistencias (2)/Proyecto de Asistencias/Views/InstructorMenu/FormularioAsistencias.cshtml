@@ -7,22 +7,44 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Asistencias</title>
     <link href="~/CSS/CssFormulario.css" rel="stylesheet" />
 </head>
 <body>
     <div class="form-container">
         <h2 class="form-title">Formulario de Asistencias</h2>
-        <form>
+        <form id="asistencia-form">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre">
+            <input type="text" id="nombre" name="nombre" required>
 
             <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido">
+            <input type="text" id="apellido" name="apellido" required>
 
             <button type="submit">Enviar</button>
         </form>
     </div>
+
+    <script>
+        document.getElementById('asistencia-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var nombre = document.getElementById('nombre').value;
+            var apellido = document.getElementById('apellido').value;
+
+            // Obtener los parámetros de la URL
+            var urlParams = new URLSearchParams(window.location.search);
+            var fecha = urlParams.get('fecha');
+            var fichaId = urlParams.get('fichaId');
+            var nameprog = urlParams.get('nameprog');
+            var namecompe = urlParams.get('namecompe');
+            var hora = urlParams.get('hora');
+
+            // Redirigir a la nueva URL con los parámetros incluidos
+            var nuevaUrl = `FormularioAsistencias?fecha=${fecha}&fichaId=${fichaId}&nameprog=${nameprog}&namecompe=${namecompe}&hora=${hora}&nombre=${nombre}&apellido=${apellido}`;
+            window.location.href = nuevaUrl;
+        });
+    </script>
 </body>
 </html>

@@ -15,8 +15,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <h4>Generar Código QR para Asistencias</h4>
             <h1>Instructor Jesus Marzal Barboza</h1>
+            <h4>Generar Código QR para Asistencias</h4>
         </div>
         <div class="form-container">
             <div class="form-field">
@@ -51,6 +51,7 @@
                 </select>
             </div>
             <button class="button" onclick="generarQR()">Generar QR</button>
+            
         </div>
         <br />
         <br />
@@ -59,8 +60,6 @@
             <img id="qr-image" src="" alt="Código QR">
             <button class="button" onclick="eliminarQR()">Eliminar QR</button>
         </div>
-
-
     </div>
 
     <script type="text/javascript">
@@ -94,6 +93,7 @@
                 data: { fecha: fecha, nameprog: programa, namecompe: competencias, fichaId: fichaId },
                 success: function (data) {
                     $('#qr-image').attr('src', `data:image/png;base64,${data}`);
+                    $('#qr-time').text(new Date().toLocaleTimeString());
                     $('#qr-container').show();
                 },
                 error: function () {

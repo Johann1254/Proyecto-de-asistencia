@@ -68,7 +68,8 @@ namespace Proyecto_de_Asistencias.Controllers
             }
 
             string uniqueId = Guid.NewGuid().ToString();
-            string url = Url.Action("FormularioAsistencias", "InstructorMenu", new { fecha, fichaId, nameprog, namecompe, id = uniqueId }, Request.Url.Scheme);
+            string hora = DateTime.Now.ToString("HH:mm:ss");
+            string url = Url.Action("FormularioAsistencias", "InstructorMenu", new { fecha, fichaId, nameprog, namecompe, hora, id = uniqueId }, Request.Url.Scheme);
 
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(url, QRCodeGenerator.ECCLevel.Q);
@@ -84,20 +85,22 @@ namespace Proyecto_de_Asistencias.Controllers
                 // Almacenar en la sesión
                 Session["QrCodeBase64"] = base64String;
                 Session["Fecha"] = fecha;
+                Session["Hora"] = hora;
                 Session["FichaId"] = fichaId;
                 Session["Competencia"] = namecompe;
                 Session["Programa"] = nameprog;
+
                 return Json(base64String, JsonRequestBehavior.AllowGet);
-
-
             }
         }
+
         [HttpPost]
         public ActionResult EliminarCodigoQR()
         {
             // Eliminar el QR de la sesión
             Session.Remove("QrCodeBase64");
             Session.Remove("Fecha");
+            Session.Remove("Hora");
             Session.Remove("FichaId");
             Session.Remove("Competencia");
             Session.Remove("Programa");

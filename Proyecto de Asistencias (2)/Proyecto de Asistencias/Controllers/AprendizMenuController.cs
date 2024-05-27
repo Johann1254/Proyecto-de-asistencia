@@ -30,5 +30,13 @@ namespace Proyecto_de_Asistencias.Controllers
             }
             return HttpNotFound();
         }
+
+        [HttpGet]
+        public ActionResult VerificarDisponibilidadQR()
+        {
+            string base64String = Session["QrCodeBase64"] as string;
+            bool qrDisponible = !string.IsNullOrEmpty(base64String);
+            return Json(new { disponible = qrDisponible }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

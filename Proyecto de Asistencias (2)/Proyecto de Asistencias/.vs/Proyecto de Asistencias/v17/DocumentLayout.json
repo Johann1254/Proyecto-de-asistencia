@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|c:\\users\\usuario\\videos\\proyecto-de-asistencia\\proyecto de asistencias (2)\\proyecto de asistencias\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|solutionrelative:controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|c:\\users\\usuario\\videos\\proyecto-de-asistencia\\proyecto de asistencias (2)\\proyecto de asistencias\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|c:\\users\\usuario\\videos\\proyecto-de-asistencia\\proyecto de asistencias (2)\\proyecto de asistencias\\views\\instructormenu\\formularioasistencias.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|solutionrelative:views\\instructormenu\\formularioasistencias.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|c:\\users\\usuario\\videos\\proyecto-de-asistencia\\proyecto de asistencias (2)\\proyecto de asistencias\\views\\aprendizmenu\\mostrarqr.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|solutionrelative:views\\aprendizmenu\\mostrarqr.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|c:\\users\\usuario\\videos\\proyecto-de-asistencia\\proyecto de asistencias (2)\\proyecto de asistencias\\views\\instructormenu\\qrasistencias.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|solutionrelative:views\\instructormenu\\qrasistencias.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|c:\\users\\usuario\\videos\\proyecto-de-asistencia\\proyecto de asistencias (2)\\proyecto de asistencias\\controllers\\instructormenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|solutionrelative:controllers\\instructormenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|c:\\users\\usuario\\videos\\proyecto-de-asistencia\\proyecto de asistencias (2)\\proyecto de asistencias\\controllers\\aprendizmenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\controllers\\aprendizmenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|solutionrelative:controllers\\aprendizmenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|c:\\users\\usuario\\videos\\proyecto-de-asistencia\\proyecto de asistencias (2)\\proyecto de asistencias\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|solutionrelative:controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\controllers\\instructormenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1954A826-7B81-44C2-B527-546B8F5327C1}|Proyecto de Asistencias.csproj|solutionrelative:controllers\\instructormenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,52 +46,91 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "Controllers\\LoginController.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAowEsAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T01:45:31.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AQIAACUAAAAAAAAAAAAgwBwAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T01:45:11.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormularioAsistencias.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\Views\\InstructorMenu\\FormularioAsistencias.cshtml",
+              "RelativeDocumentMoniker": "Views\\InstructorMenu\\FormularioAsistencias.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\Views\\InstructorMenu\\FormularioAsistencias.cshtml",
+              "RelativeToolTip": "Views\\InstructorMenu\\FormularioAsistencias.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADEAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-26T23:54:52.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MostrarQR.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\Views\\AprendizMenu\\MostrarQR.cshtml",
+              "RelativeDocumentMoniker": "Views\\AprendizMenu\\MostrarQR.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\Views\\AprendizMenu\\MostrarQR.cshtml",
+              "RelativeToolTip": "Views\\AprendizMenu\\MostrarQR.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-26T23:09:41.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "InstructorMenuController.cs",
               "DocumentMoniker": "C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\Controllers\\InstructorMenuController.cs",
               "RelativeDocumentMoniker": "Controllers\\InstructorMenuController.cs",
               "ToolTip": "C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\Controllers\\InstructorMenuController.cs",
               "RelativeToolTip": "Controllers\\InstructorMenuController.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAA7wE4AAAANAAAA",
+              "ViewState": "AQIAADYAAAAAAAAAAAA6wEUAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-24T18:12:20.278Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "AprendizMenuController.cs",
               "DocumentMoniker": "C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\Controllers\\AprendizMenuController.cs",
               "RelativeDocumentMoniker": "Controllers\\AprendizMenuController.cs",
               "ToolTip": "C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\Controllers\\AprendizMenuController.cs",
               "RelativeToolTip": "Controllers\\AprendizMenuController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-24T18:12:12.852Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "Controllers\\LoginController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T19:28:59.15Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "QrAsistencias.cshtml",
               "DocumentMoniker": "C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\Views\\InstructorMenu\\QrAsistencias.cshtml",
               "RelativeDocumentMoniker": "Views\\InstructorMenu\\QrAsistencias.cshtml",
               "ToolTip": "C:\\Users\\Usuario\\Videos\\Proyecto-de-asistencia\\Proyecto de Asistencias (2)\\Proyecto de Asistencias\\Views\\InstructorMenu\\QrAsistencias.cshtml",
               "RelativeToolTip": "Views\\InstructorMenu\\QrAsistencias.cshtml",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAgwBEAAAA3AAAA",
+              "ViewState": "AQIAACQAAAAAAAAAAAAowDsAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-24T19:45:51.336Z",
               "EditorCaption": ""
