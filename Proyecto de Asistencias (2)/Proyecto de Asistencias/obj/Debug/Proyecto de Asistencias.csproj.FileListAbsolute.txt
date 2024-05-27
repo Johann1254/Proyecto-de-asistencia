@@ -650,3 +650,5 @@ C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proy
 C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\obj\Debug\Proyecto de Asistencias.dll
 C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\obj\Debug\Proyecto de Asistencias.pdb
 C:\Users\USER\Documents\GitHub\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\bin\QRCoder.dll
+C:\Users\march\Crepos\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\obj\Debug\Proyecto de Asistencias.dll
+C:\Users\march\Crepos\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\obj\Debug\Proyecto de Asistencias.pdb
