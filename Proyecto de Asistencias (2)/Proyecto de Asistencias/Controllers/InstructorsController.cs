@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Libreria_de_conexion;
@@ -133,6 +134,21 @@ namespace Proyecto_de_Asistencias.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+     
         }
+
+        public async Task<ActionResult>Indexs(string buscar)
+        {
+            var instructors = from instructor in db.Instructor select instructor;
+
+            if (!String.IsNullOrEmpty(buscar))
+            {
+                instructors = instructors.Where(s => s.Nombre_Instructor.Contains(buscar));
+            }
+            return View(await instructors.ToListAsync());
+        }
+
     }
+
+
 }

@@ -31,6 +31,14 @@
     <p>
         @Html.ActionLink("Nuevo Instructor", "Create", "", new { @class = "btn-nuevo" })
     </p>
+    <form asp-controller="Instructors" asp-action="Indexs" method="get">
+        <p>
+            Buscar:<input type="text" name="buscar" class="form-text" />
+            <input type="submit" value="Buscar" class="btn btn-sm btn-dark" />
+
+        </p>
+
+    </form>
     <div class="table-responsive">
 
         <table class="table">
@@ -53,8 +61,10 @@
                 <th>
                     Ficha
                 </th>
+
                 <th>OPERACIONES</th>
             </tr>
+
 
             @foreach (var item in Model)
             {

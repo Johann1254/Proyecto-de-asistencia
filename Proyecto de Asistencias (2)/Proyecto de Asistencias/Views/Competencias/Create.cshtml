@@ -39,7 +39,7 @@
         <div class="form-group">
             <a class="nombre">Tipo</a>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Tipo_Competencias, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.Tipo_Competencias, new SelectList(new List<string>() { "Transversal", "Tecnica" }), new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Tipo_Competencias, "", new { @class = "text-danger" })
             </div>
         </div>

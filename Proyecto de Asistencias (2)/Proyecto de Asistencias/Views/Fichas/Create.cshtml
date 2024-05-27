@@ -32,7 +32,7 @@
         <div class="form-group">
             <a class="nombre">Jornada</a>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Jornada_Ficha, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.Jornada_Ficha, new SelectList(new List<string>() { "Diurna", "Mixta" }), new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Jornada_Ficha, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -58,7 +58,7 @@
         <div class="form-group">
             <a class="nombre">Tipo de ficha</a>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Tipo_Ficha, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.Tipo_Ficha, new SelectList(new List<string>() { "Abierta", "Cerrada" }), new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Tipo_Ficha, "", new { @class = "text-danger" })
             </div>
         </div>
