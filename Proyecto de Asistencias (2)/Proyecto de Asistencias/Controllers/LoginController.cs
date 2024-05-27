@@ -12,7 +12,7 @@ namespace Proyecto_de_Asistencias.Controllers
     public class LoginController : Controller
     {
         
-        string cadena = "data source = DESKTOP-3MKCP8S\\SQLEXPRESS; initial catalog = Asistencia; integrated security = true; multipleactiveresultsets=true;";
+        string cadena = "data source = DESKTOP-UI13C50\\SQLEXPRESS; initial catalog = Asistencia; integrated security = true; multipleactiveresultsets=true;";
         // GET: Login
         public ActionResult Login()
         {
@@ -59,13 +59,13 @@ namespace Proyecto_de_Asistencias.Controllers
             {
                 case "Administrador":
                     Session["Administrador"] = idUsuario;
-                    return RedirectToAction("Index", "Home"); // Redireccionar a la vista de administrador
+                    return RedirectToAction("Index", "Home",new {idUser = idUsuario}); // Redireccionar a la vista de administrador
                 case "Aprendiz":
                     Session["Aprendiz"] = idUsuario;
-                    return RedirectToAction("MenuprincipalAprendiz", "AprendizMenu"); // Redireccionar a la vista de aprendiz
+                    return RedirectToAction("MenuprincipalAprendiz", "AprendizMenu", new {idUser = idUsuario}); // Redireccionar a la vista de aprendiz
                 case "Instructor":
                     Session["Instructor"] = idUsuario;
-                    return RedirectToAction("MenuprincipalInstructor", "InstructorMenu"); // Redireccionar a la vista de instructor
+                    return RedirectToAction("MenuprincipalInstructor", "InstructorMenu", new { idUser = idUsuario }); // Redireccionar a la vista de instructor
                 default:
                     ViewData["mensaje"] = "Tipo de usuario no reconocido";
                     return View();

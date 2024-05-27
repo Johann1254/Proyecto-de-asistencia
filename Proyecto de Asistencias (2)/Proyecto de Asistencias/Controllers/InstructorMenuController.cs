@@ -26,6 +26,11 @@ namespace Proyecto_de_Asistencias.Controllers
         public ActionResult ListadoProgramas() => View();
         public ActionResult ListadoCompetencias() => View();
         public ActionResult reporte() => View();
+        
+        public ActionResult InasistenciasAprendiz() => View();
+        public ActionResult ConsultarProgramas() => View();
+        public ActionResult ConsultarCompetencias() => View();
+        public ActionResult FormularioAsistencias() => View();
 
         public ActionResult QrAsistencias()
         {
@@ -50,11 +55,6 @@ namespace Proyecto_de_Asistencias.Controllers
             return View();
         }
 
-        public ActionResult InasistenciasAprendiz() => View();
-        public ActionResult ConsultarProgramas() => View();
-        public ActionResult ConsultarCompetencias() => View();
-        public ActionResult FormularioAsistencias() => View();
-
         [HttpGet]
         public ActionResult ObtenerCodigoQR(string fecha, int fichaId, string namecompe, string nameprog)
         {
@@ -69,7 +69,7 @@ namespace Proyecto_de_Asistencias.Controllers
 
             string uniqueId = Guid.NewGuid().ToString();
             string hora = DateTime.Now.ToString("HH:mm:ss");
-            string url = Url.Action("FormularioAsistencias", "InstructorMenu", new { fecha, fichaId, nameprog, namecompe, hora, id = uniqueId }, Request.Url.Scheme);
+            string url = Url.Action("FormularioAsistencias", "AprendizMenu", new { fecha, fichaId, nameprog, namecompe, hora, id = uniqueId }, Request.Url.Scheme);
 
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(url, QRCodeGenerator.ECCLevel.Q);

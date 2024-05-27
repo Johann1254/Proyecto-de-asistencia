@@ -90,7 +90,7 @@
             $.ajax({
                 url: '@Url.Action("ObtenerCodigoQR", "InstructorMenu")',
                 type: 'GET',
-                data: { fecha: fecha, nameprog: programa, namecompe: competencias, fichaId: fichaId },
+                data: { fecha: fecha, nameprog: programa, namecompe: competencias, fichaId: fichaId},
                 success: function (data) {
                     $('#qr-image').attr('src', `data:image/png;base64,${data}`);
                     $('#qr-time').text(new Date().toLocaleTimeString());
