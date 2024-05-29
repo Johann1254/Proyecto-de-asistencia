@@ -31,6 +31,14 @@
     <p>
         @Html.ActionLink("Nueva Competencia", "Create", "", new { @class = "btn-nuevo" })
     </p>
+    <form asp-controller="Competencias" asp-action="Index" method="get">
+        <p>
+            Buscar:<input type="text" name="buscar" class="form-text" />
+            <input type="submit" value="Buscar" class="btn btn-sm btn-dark" />
+
+        </p>
+
+    </form>
     <div class="table-responsive">
         <table class="table">
             <tr>
@@ -48,12 +56,12 @@
                 </th>
                 <th>
                     Id instructor
-                </th> 
+                </th>
                 <th>
                     Id programa
                 </th>
                 <th>OPERACIONES</th>
-                
+
             </tr>
 
             @foreach (var item in Model)
@@ -78,8 +86,8 @@
                         @Html.DisplayFor(modelItem => item.Programa_Formacion.idPrograma)
                     </td>
                     <td>
-                        @Html.ActionLink("Editar", "Edit", new { id = item.idCompetencia }, new { @class = "btn-editar" }) 
-                        @Html.ActionLink("Detalles", "Details", new { id = item.idCompetencia }, new { @class = "btn-detalles" }) 
+                        @Html.ActionLink("Editar", "Edit", new { id = item.idCompetencia }, new { @class = "btn-editar" })
+                        @Html.ActionLink("Detalles", "Details", new { id = item.idCompetencia }, new { @class = "btn-detalles" })
                         @Html.ActionLink("Eliminar", "Delete", new { id = item.idCompetencia }, new { @class = "btn-eliminar" })
                     </td>
                 </tr>

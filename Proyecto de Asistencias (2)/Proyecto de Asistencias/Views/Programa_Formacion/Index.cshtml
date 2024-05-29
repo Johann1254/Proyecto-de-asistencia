@@ -31,6 +31,14 @@
     <p>
         @Html.ActionLink("Nuevo Programa", "Create", "", new { @class = "btn-nuevo" })
     </p>
+    <form asp-controller="Programa_Formacion" asp-action="Index" method="get">
+        <p>
+            Buscar:<input type="text" name="buscar" class="form-text" />
+            <input type="submit" value="Buscar" class="btn btn-sm btn-dark" />
+
+        </p>
+
+    </form>
     <div class="table-responsive">
 
 
@@ -61,8 +69,8 @@
                         @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
                     </td>
                     <td>
-                        @Html.ActionLink("Editar", "Edit", new { id = item.idPrograma }, new { @class = "btn-editar" }) 
-                        @Html.ActionLink("Detalles", "Details", new { id = item.idPrograma }, new { @class = "btn-detalles" }) 
+                        @Html.ActionLink("Editar", "Edit", new { id = item.idPrograma }, new { @class = "btn-editar" })
+                        @Html.ActionLink("Detalles", "Details", new { id = item.idPrograma }, new { @class = "btn-detalles" })
                         @Html.ActionLink("Eliminar", "Delete", new { id = item.idPrograma }, new { @class = "btn-eliminar" })
                     </td>
                 </tr>

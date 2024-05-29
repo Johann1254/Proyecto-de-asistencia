@@ -27,11 +27,19 @@
 </head>
 <body>
     <br />
-    <h2  class="welcome"> Aprendiz</h2>
+    <h2 class="welcome"> Aprendiz</h2>
 
     <p>
         @Html.ActionLink("Nuevo Aprendiz", "Create", "", new { @class = "btn-nuevo" })
     </p>
+    <form asp-controller="Aprendizs" asp-action="Index" method="get">
+        <p>
+            Buscar:<input type="text" name="buscar" class="form-text" />
+            <input type="submit" value="Buscar" class="btn btn-sm btn-dark" />
+
+        </p>
+
+    </form>
     <div class="table-responsive">
         <table class="table">
             <tr>
@@ -39,13 +47,13 @@
                     Nombre(s)
                 </th>
                 <th>
-                   Apellidos
+                    Apellidos
                 </th>
                 <th>
                     Email
                 </th>
                 <th>
-                   Tipo de Documento
+                    Tipo de Documento
                 </th>
                 <th>
                     Numero de Documento
@@ -57,10 +65,10 @@
                     Estado
                 </th>
                 <th>
-                    Identificacion Admin 
+                    Identificacion Admin
                 </th>
                 <th>
-                   Ficha 
+                    Ficha
                 </th>
                 <th>Operaciones</th>
             </tr>
@@ -96,8 +104,8 @@
                         @Html.DisplayFor(modelItem => item.Ficha.Numero_Ficha)
                     </td>
                     <td>
-                        @Html.ActionLink("Editar", "Edit", new { id = item.idAprendiz }, new { @class = "btn-editar" }) 
-                        @Html.ActionLink("Detalles", "Details", new { id = item.idAprendiz }, new { @class = "btn-detalles" }) 
+                        @Html.ActionLink("Editar", "Edit", new { id = item.idAprendiz }, new { @class = "btn-editar" })
+                        @Html.ActionLink("Detalles", "Details", new { id = item.idAprendiz }, new { @class = "btn-detalles" })
                         @Html.ActionLink("Eliminar", "Delete", new { id = item.idAprendiz }, new { @class = "btn-eliminar" })
                     </td>
                 </tr>

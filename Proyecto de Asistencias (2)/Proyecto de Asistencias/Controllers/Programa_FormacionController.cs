@@ -17,11 +17,19 @@ namespace Proyecto_de_Asistencias.Controllers
         private AsistenciaEntities db = new AsistenciaEntities();
 
         // GET: Programa_Formacion
-        public ActionResult Index()
+        public ActionResult Index(string buscar)
         {
             var programa_Formacion = db.Programa_Formacion.Include(p => p.Administrador);
+
+            if (!String.IsNullOrEmpty(buscar))
+            {
+                // Asumiendo que quieres buscar por un campo 'Nombre' en la entidad 'Programa_Formacion'
+                programa_Formacion = programa_Formacion.Where(p => p.Nombre_Programa.Contains(buscar));
+            }
+
             return View(programa_Formacion.ToList());
         }
+
 
         // GET: Programa_Formacion/Details/5
         public ActionResult Details(int? id)

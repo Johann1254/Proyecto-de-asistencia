@@ -17,11 +17,20 @@ namespace Proyecto_de_Asistencias.Controllers
         private AsistenciaEntities db = new AsistenciaEntities();
 
         // GET: Fichas
-        public ActionResult Index()
+        public ActionResult Index(string buscar)
         {
-            var ficha = db.Ficha.Include(f => f.Administrador).Include(f => f.Programa_Formacion);
-            return View(ficha.ToList());
+            var Fichas = db.Ficha.Include(i => i.Administrador).Include(i => i.Programa_Formacion);
+
+            if (!String.IsNullOrEmpty(buscar))
+            {
+                // Convertir el número de ficha a una cadena antes de usar 'Contains'
+                Fichas = Fichas.Where(s => s.Numero_Ficha.ToString().Contains(buscar));
+            }
+
+            return View(Fichas.ToList());
         }
+
+
 
         // GET: Fichas/Details/5
         public ActionResult Details(int? id)

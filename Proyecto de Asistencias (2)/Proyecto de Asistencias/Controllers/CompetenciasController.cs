@@ -17,11 +17,21 @@ namespace Proyecto_de_Asistencias.Controllers
         private AsistenciaEntities db = new AsistenciaEntities();
 
         // GET: Competencias
-        public ActionResult Index()
+        public ActionResult Index(string buscar)
         {
-            var competencia = db.Competencia.Include(c => c.Administrador).Include(c => c.Instructor).Include(c => c.Programa_Formacion);
+            var competencia = db.Competencia.Include(c => c.Administrador)
+                                            .Include(c => c.Instructor)
+                                            .Include(c => c.Programa_Formacion);
+
+            if (!String.IsNullOrEmpty(buscar))
+            {
+                // Asumiendo que quieres buscar por un campo 'Nombre' en la entidad 'Competencia'
+                competencia = competencia.Where(c => c.Nombre_Competencia.Contains(buscar));
+            }
+
             return View(competencia.ToList());
         }
+
 
         // GET: Competencias/Details/5
         public ActionResult Details(int? id)

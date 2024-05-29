@@ -18,11 +18,18 @@ namespace Proyecto_de_Asistencias.Controllers
         private AsistenciaEntities db = new AsistenciaEntities();
 
         // GET: Instructors
-        public ActionResult Index()
+        public ActionResult Index(string buscar)
         {
-            var instructor = db.Instructor.Include(i => i.Administrador).Include(i => i.Ficha);
-            return View(instructor.ToList());
+            var instructors = db.Instructor.Include(i => i.Administrador).Include(i => i.Ficha);
+
+            if (!String.IsNullOrEmpty(buscar))
+            {
+                instructors = instructors.Where(s => s.Nombre_Instructor.Contains(buscar));
+            }
+
+            return View(instructors.ToList());
         }
+
 
         // GET: Instructors/Details/5
         public ActionResult Details(int? id)
@@ -137,16 +144,7 @@ namespace Proyecto_de_Asistencias.Controllers
      
         }
 
-        public async Task<ActionResult>Indexs(string buscar)
-        {
-            var instructors = from instructor in db.Instructor select instructor;
-
-            if (!String.IsNullOrEmpty(buscar))
-            {
-                instructors = instructors.Where(s => s.Nombre_Instructor.Contains(buscar));
-            }
-            return View(await instructors.ToListAsync());
-        }
+     
 
     }
 

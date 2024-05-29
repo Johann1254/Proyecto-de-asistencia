@@ -17,11 +17,18 @@ namespace Proyecto_de_Asistencias.Controllers
         private AsistenciaEntities db = new AsistenciaEntities();
 
         // GET: Aprendizs
-        public ActionResult Index()
+        public ActionResult Index(string buscar)
         {
-            var aprendiz = db.Aprendiz.Include(a => a.Administrador).Include(a => a.Ficha);
-            return View(aprendiz.ToList());
+            var aprendizs = db.Aprendiz.Include(i => i.Administrador).Include(i => i.Ficha);
+
+            if (!String.IsNullOrEmpty(buscar))
+            {
+                aprendizs = aprendizs.Where(s => s.Nombres_Aprenidiz.Contains(buscar));
+            }
+
+            return View(aprendizs.ToList());
         }
+
 
         // GET: Aprendizs/Details/5
         public ActionResult Details(int? id)
