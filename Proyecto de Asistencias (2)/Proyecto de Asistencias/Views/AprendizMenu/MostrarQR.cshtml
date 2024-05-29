@@ -1,15 +1,16 @@
 ﻿
 @{
     Layout = null;
+    ViewBag.Title = "Ver QR de Asistencias";
+    int idUsuario = ViewBag.IdUsuario; // Obtén el ID del usuario desde el ViewBag
 }
 
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ver QR de Asistencias</title>
+    <title>@ViewBag.Title</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -19,7 +20,7 @@
         </div>
         <div class="qr-container" id="qr-container">
             <h4>Código QR:</h4>
-            <img id="qr-image" src="@Url.Action("ObtenerImagenQR", "AprendizMenu")" alt="Código QR">
+            <img id="qr-image" src="@Url.Action("ObtenerImagenQR", "AprendizMenu" , new { idUser = idUsuario })" alt="Código QR">
         </div>
         <div id="mensaje-container" class="mensaje-container" style="display:none;">
             <h4>El código QR ya no está disponible.</h4>
@@ -29,7 +30,7 @@
     <script type="text/javascript">
         function verificarDisponibilidadQR() {
             $.ajax({
-                url: '@Url.Action("VerificarDisponibilidadQR", "AprendizMenu")',
+                url: '@Url.Action("VerificarDisponibilidadQR", "AprendizMenu", new { idUser = idUsuario })',
                 type: 'GET',
                 success: function (data) {
                     if (!data.disponible) {

@@ -10,30 +10,120 @@ using System.Drawing.Imaging;
 
 namespace Proyecto_de_Asistencias.Controllers
 {
-    [Validar_sesion]
     public class InstructorMenuController : Controller
     {
         private AsistenciaEntities db = new AsistenciaEntities();
 
-        public ActionResult MenuprincipalInstructor() => View();
-        public ActionResult VistaAsistencias() => View();
-        public ActionResult VistaInasistencias() => View();
-        public ActionResult VistacrearUsuarios() => View();
-        public ActionResult ConsultarFichas() => View();
-        public ActionResult VistaconsultarInasistencias() => View();
-        public ActionResult Listadofichas() => View();
-        public ActionResult ListadoAprendiCES() => View();
-        public ActionResult ListadoProgramas() => View();
-        public ActionResult ListadoCompetencias() => View();
-        public ActionResult reporte() => View();
-        
-        public ActionResult InasistenciasAprendiz() => View();
-        public ActionResult ConsultarProgramas() => View();
-        public ActionResult ConsultarCompetencias() => View();
-        public ActionResult FormularioAsistencias() => View();
+        public ActionResult MenuprincipalInstructor()
+        {
+            int idUsuario = (int)Session["Usuarios"];
+            ViewBag.IdUsuario = idUsuario;
+            return View();
+        }
+
+        public ActionResult VistaAsistencias()
+        {
+            int idUsuario = (int)Session["Usuarios"];
+            ViewBag.IdUsuario = idUsuario;
+            return View();
+        }
+
+        public ActionResult VistaInasistencias()
+        {
+            int idUsuario = (int)Session["Usuarios"];
+            ViewBag.IdUsuario = idUsuario;
+            return View();
+        }
+
+        public ActionResult VistacrearUsuarios()
+        {
+            int idUsuario = (int)Session["Usuarios"];
+            ViewBag.IdUsuario = idUsuario;
+            return View();
+        }
+
+        public ActionResult ConsultarFichas()
+        {
+            int idUsuario = (int)Session["Usuarios"];
+            ViewBag.IdUsuario = idUsuario;
+            return View();
+        }
+
+        public ActionResult VistaconsultarInasistencias()
+        {
+            int idUsuario = (int)Session["Usuarios"];
+            ViewBag.IdUsuario = idUsuario;
+            return View();
+        }
+
+        public ActionResult Listadofichas()
+        {
+            int idUsuario = (int)Session["Usuarios"];
+            ViewBag.IdUsuario = idUsuario;
+            return View();
+        }
+
+        public ActionResult ListadoAprendiCES()
+        {
+            int idUsuario = (int)Session["Usuarios"];
+            ViewBag.IdUsuario = idUsuario;
+            return View();
+        }
+
+        public ActionResult ListadoProgramas()
+        {
+            int idUsuario = (int)Session["Usuarios"];
+            ViewBag.IdUsuario = idUsuario;
+            return View();
+        }
+
+        public ActionResult ListadoCompetencias()
+        {
+            int idUsuario = (int)Session["Usuarios"];
+            ViewBag.IdUsuario = idUsuario;
+            return View();
+        }
+
+        public ActionResult reporte()
+        {
+            int idUsuario = (int)Session["Usuarios"];
+            ViewBag.IdUsuario = idUsuario;
+            return View();
+        }
+
+        public ActionResult InasistenciasAprendiz()
+        {
+            int idUsuario = (int)Session["Usuarios"];
+            ViewBag.IdUsuario = idUsuario;
+            return View();
+        }
+
+        public ActionResult ConsultarProgramas()
+        {
+            int idUsuario = (int)Session["Usuarios"];
+            ViewBag.IdUsuario = idUsuario;
+            return View();
+        }
+
+        public ActionResult ConsultarCompetencias()
+        {
+            int idUsuario = (int)Session["Usuarios"];
+            ViewBag.IdUsuario = idUsuario;
+            return View();
+        }
+
+        public ActionResult FormularioAsistencias()
+        {
+            int idUsuario = (int)Session["Usuarios"];
+            ViewBag.IdUsuario = idUsuario;
+            return View();
+        }
 
         public ActionResult QrAsistencias()
         {
+            int idUsuario = (int)Session["Usuarios"];
+            ViewBag.IdUsuario = idUsuario;
+
             ViewBag.Fichas = db.Ficha.Select(f => new SelectListItem
             {
                 Value = f.Numero_Ficha.ToString(),
@@ -58,6 +148,7 @@ namespace Proyecto_de_Asistencias.Controllers
         [HttpGet]
         public ActionResult ObtenerCodigoQR(string fecha, int fichaId, string namecompe, string nameprog)
         {
+            int idUsuario = (int)Session["Usuarios"]; // Obtener el ID del instructor
             var ficha = db.Ficha.FirstOrDefault(f => f.Numero_Ficha == fichaId);
             var competencia = db.Competencia.FirstOrDefault(f => f.Nombre_Competencia == namecompe);
             var programa = db.Programa_Formacion.FirstOrDefault(f => f.Nombre_Programa == nameprog);
@@ -69,7 +160,7 @@ namespace Proyecto_de_Asistencias.Controllers
 
             string uniqueId = Guid.NewGuid().ToString();
             string hora = DateTime.Now.ToString("HH:mm:ss");
-            string url = Url.Action("FormularioAsistencias", "AprendizMenu", new { fecha, fichaId, nameprog, namecompe, hora, id = uniqueId }, Request.Url.Scheme);
+            string url = Url.Action("FormularioAsistencias", "AprendizMenu", new { fecha, fichaId, nameprog, namecompe, hora, id = uniqueId, instructorId = idUsuario }, Request.Url.Scheme);
 
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(url, QRCodeGenerator.ECCLevel.Q);

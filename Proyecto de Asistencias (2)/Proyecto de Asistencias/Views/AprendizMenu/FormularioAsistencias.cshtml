@@ -1,49 +1,68 @@
 ﻿
 @{
+    ViewBag.Title = "Formulario de Asistencias";
+    string fecha = Request.QueryString["fecha"];
+    string hora = Request.QueryString["hora"];
+    int fichaId = int.Parse(Request.QueryString["fichaId"]);
+    string programa = Request.QueryString["nameprog"];
+    string competencia = Request.QueryString["namecompe"];
+    int instructorId = int.Parse(Request.QueryString["instructorId"]);
+    string uniqueId = Request.QueryString["id"];
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Asistencias</title>
-    <link href="~/CSS/CssFormulario.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <div class="form-container">
-        <h2 class="form-title">Formulario de Asistencias</h2>
-        <form id="asistencia-form">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
+    <div class="container">
+        <h1>Formulario de Asistencias</h1>
+        <form id="asistenciaForm">
+            <input type="hidden" name="fecha" value="@fecha" />
+            <input type="hidden" name="hora" value="@hora" />
+            <input type="hidden" name="fichaId" value="@fichaId" />
+            <input type="hidden" name="programa" value="@programa" />
+            <input type="hidden" name="competencia" value="@competencia" />
+            <input type="hidden" name="instructorId" value="@instructorId" />
+            <input type="hidden" name="uniqueId" value="@uniqueId" />
 
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required>
-
-            <button type="submit">Enviar</button>
+            <div class="form-group">
+                <label for="nombres">Nombres:</label>
+                <input type="text" id="nombres" name="nombres" required />
+            </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" required />
+            </div>
+            <button type="submit">Registrar Asistencia</button>
         </form>
+        <div id="confirmationMessage" style="display:none; color: green;">
+            La asistencia ha sido registrada exitosamente.
+        </div>
     </div>
 
-    <script>
-        document.getElementById('asistencia-form').addEventListener('submit', function (event) {
-            event.preventDefault();
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#asistenciaForm').on('submit', function (e) {
+                e.preventDefault(); // Prevent the form from submitting via the browser
 
-            var nombre = document.getElementById('nombre').value;
-            var apellido = document.getElementById('apellido').value;
-
-            // Obtener los parámetros de la URL
-            var urlParams = new URLSearchParams(window.location.search);
-            var fecha = urlParams.get('fecha');
-            var fichaId = urlParams.get('fichaId');
-            var nameprog = urlParams.get('nameprog');
-            var namecompe = urlParams.get('namecompe');
-            var hora = urlParams.get('hora');
-
-            // Redirigir a la nueva URL con los parámetros incluidos
-            var nuevaUrl = `FormularioAsistencias?fecha=${fecha}&fichaId=${fichaId}&nameprog=${nameprog}&namecompe=${namecompe}&hora=${hora}&nombre=${nombre}&apellido=${apellido}`;
-            window.location.href = nuevaUrl;
+                $.ajax({
+                    url: '@Url.Action("RegistrarAsistencia", "AprendizMenu")',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        $('#confirmationMessage').show(); // Show confirmation message
+                    },
+                    error: function () {
+                        alert('Error al registrar la asistencia.');
+                    }
+                });
+            });
         });
     </script>
 </body>
