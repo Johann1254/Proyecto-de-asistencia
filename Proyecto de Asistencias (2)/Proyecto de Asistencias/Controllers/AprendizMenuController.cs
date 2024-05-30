@@ -18,6 +18,29 @@ namespace Proyecto_de_Asistencias.Controllers
             ViewBag.IdUsuario = idUsuario; // Pasa el ID del usuario a la vista
             return View();
         }
+        public ActionResult Consultarasistencias()
+        {
+            int idUsuario = (int)Session["Usuarios"];
+
+            using (var db = new AsistenciaEntities())
+            {
+                // Obtener las asistencias del aprendiz desde la base de datos
+                var asistencias = db.Registro_Asistencias_QR
+                                    .Where(a => a.idAprendiz == idUsuario)
+                                    .ToList();
+
+                // Pasar las asistencias a la vista mediante ViewBag o un modelo de vista
+                ViewBag.Asistencias = asistencias;
+            }
+
+            return View();
+        }
+        public ActionResult Consultarinasistencias()
+        {
+            int idUsuario = (int)Session["Usuarios"];
+            ViewBag.IdUsuario = idUsuario; // Pasa el ID del usuario a la vista
+            return View();
+        }
 
         public ActionResult MostrarQR()
         {
@@ -58,6 +81,12 @@ namespace Proyecto_de_Asistencias.Controllers
         [HttpPost]
         public ActionResult RegistrarAsistencia(string fecha, string hora, int fichaId, string programa, string competencia, int instructorId, string uniqueId, string nombres, string apellidos, int aprendizId)
         {
+            // Verificar si el QR ha sido eliminado
+            if (Session["QrEliminado"] != null && (bool)Session["QrEliminado"])
+            {
+                return Json(new { success = false, message = "El código QR ha sido eliminado. No se puede registrar asistencia." });
+            }
+
             using (var db = new AsistenciaEntities())
             {
                 // Obtener el aprendiz de la base de datos usando el ID del aprendiz

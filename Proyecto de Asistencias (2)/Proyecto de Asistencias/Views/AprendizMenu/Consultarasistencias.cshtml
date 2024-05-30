@@ -4,7 +4,6 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -18,22 +17,28 @@
     <h1 id="titulo2">Listado de asistencias </h1>
     <div class="table-container">
         <table class="custom-table">
-            <tr>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Fecha</th>
-
-            </tr>
-            <tr>
-                <td>Johan</td>
-                <td>Avendaño</td>
-                <td>04/05/2024</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var asistencia in ViewBag.Asistencias)
+                {
+                    <tr>
+                        <td>@asistencia.Nombres</td>
+                        <td>@asistencia.Apellidos</td>
+                        <td>@asistencia.Fecha_Asistencia</td>
+                    </tr>
+                }
+            </tbody>
         </table>
     </div>
     <div id="botones">
         <div class="volver">
-            <button class="boton-transicion" onclick="redirectTo('Index')">Volver</button>
+            <button class="boton-transicion" onclick="redirectTo('MenuprincipalAprendiz')">Volver</button>
         </div>
     </div>
 
