@@ -148,7 +148,6 @@ namespace Proyecto_de_Asistencias.Controllers
         [HttpGet]
         public ActionResult ObtenerCodigoQR(string fecha, int fichaId, string namecompe, string nameprog)
         {
-            int idUsuario = (int)Session["Usuarios"]; // Obtener el ID del instructor
             var ficha = db.Ficha.FirstOrDefault(f => f.Numero_Ficha == fichaId);
             var competencia = db.Competencia.FirstOrDefault(f => f.Nombre_Competencia == namecompe);
             var programa = db.Programa_Formacion.FirstOrDefault(f => f.Nombre_Programa == nameprog);
@@ -158,9 +157,12 @@ namespace Proyecto_de_Asistencias.Controllers
                 return HttpNotFound();
             }
 
+            // Obtener el ID del instructor de la sesión
+            int instructorId = (int)Session["Instructor"];
+
             string uniqueId = Guid.NewGuid().ToString();
             string hora = DateTime.Now.ToString("HH:mm:ss");
-            string url = Url.Action("FormularioAsistencias", "AprendizMenu", new { fecha, fichaId, nameprog, namecompe, hora, id = uniqueId, instructorId = idUsuario }, Request.Url.Scheme);
+            string url = Url.Action("FormularioAsistencias", "AprendizMenu", new { fecha, fichaId, nameprog, namecompe, hora, instructorId, id = uniqueId }, Request.Url.Scheme);
 
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(url, QRCodeGenerator.ECCLevel.Q);
@@ -180,6 +182,7 @@ namespace Proyecto_de_Asistencias.Controllers
                 Session["FichaId"] = fichaId;
                 Session["Competencia"] = namecompe;
                 Session["Programa"] = nameprog;
+                Session["InstructorId"] = instructorId;
 
                 return Json(base64String, JsonRequestBehavior.AllowGet);
             }
@@ -195,6 +198,7 @@ namespace Proyecto_de_Asistencias.Controllers
             Session.Remove("FichaId");
             Session.Remove("Competencia");
             Session.Remove("Programa");
+            Session.Remove("Instructor");
 
             return Json(new { success = true });
         }

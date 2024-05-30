@@ -52,7 +52,7 @@
                     }
                 </select>
             </div>
-            <button class="button" onclick="generarQR(@idUsuario)">Generar QR</button>
+            <button class="button" id="generate-qr-btn" onclick="generarQR(@idUsuario)">Generar QR</button>
         </div>
         <br />
         <br />
@@ -88,6 +88,9 @@
                 return;
             }
 
+            // Deshabilitar el botón de generar QR
+            $('#generate-qr-btn').prop('disabled', true);
+
             $.ajax({
                 url: '@Url.Action("ObtenerCodigoQR", "InstructorMenu")',
                 type: 'GET',
@@ -98,6 +101,10 @@
                 },
                 error: function () {
                     alert('Error al generar el código QR.');
+                },
+                complete: function() {
+                    // Volver a habilitar el botón de generar QR
+                    $('#generate-qr-btn').prop('disabled', false);
                 }
             });
         }
@@ -121,5 +128,6 @@
             });
         }
     </script>
+</body>
 </body>
 </html>
