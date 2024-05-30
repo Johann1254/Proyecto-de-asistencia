@@ -37,6 +37,8 @@ body {
 #titulo {
     text-align: center;
     color: #fff;
+    position:relative;
+    top:30px;
 }
 /* Media query para ajustar el tamaño del texto en dispositivos más pequeños */
 @media screen and (max-width: 600px) {
@@ -58,7 +60,7 @@ body {
     border-collapse: collapse;
     width: 50%;
     border-radius: 10px; /* Añadir esquinas redondeadas */
-    overflow: hidden; /* Ocultar las esquinas redondeadas en las esquinas */
+    overflow: scroll; /* Ocultar las esquinas redondeadas en las esquinas */
 }
 
     .custom-table th, .custom-table td {
@@ -96,10 +98,11 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: dimgrey; /* Color verde */
     color: white;
-    transition: background-color 0.3s;
     margin: 5px;
+    background-color: #3DAF04;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    font-weight: 1000;
 }
 
     .volver button:hover {
@@ -109,4 +112,15 @@ body {
 #titulo2 {
     text-align: center;
     color: #000;
+    position: relative;
+    top: 14vh; /* Usa unidades relativas como vh (viewport height) */
+     /* Usa unidades relativas como vw (viewport width) */
+}
+
+@media (max-width: 541px) {
+    #titulo2 {
+        text-align: center;
+        font-size: 5vw; /* Aumenta el tamaño del texto para pantallas pequeñas */
+        top: 14vh; /* Reduce aún más la distancia desde la parte superior */
+    }
 }
