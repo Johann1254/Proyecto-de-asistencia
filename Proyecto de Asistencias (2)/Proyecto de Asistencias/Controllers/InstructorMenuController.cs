@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using Libreria_de_conexion;
 using System.Drawing.Imaging;
+using System.Collections.Generic;
 
 namespace Proyecto_de_Asistencias.Controllers
 {
@@ -145,48 +146,56 @@ namespace Proyecto_de_Asistencias.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult ObtenerCodigoQR(string fecha, int fichaId, string namecompe, string nameprog)
-        {
-            var ficha = db.Ficha.FirstOrDefault(f => f.Numero_Ficha == fichaId);
-            var competencia = db.Competencia.FirstOrDefault(f => f.Nombre_Competencia == namecompe);
-            var programa = db.Programa_Formacion.FirstOrDefault(f => f.Nombre_Programa == nameprog);
-
-            if (ficha == null || competencia == null || programa == null)
+            [HttpGet]
+            public ActionResult ObtenerCodigoQR(string fecha, int fichaId, string namecompe, string nameprog, int instructorId)
             {
-                return HttpNotFound();
-            }
+                var ficha = db.Ficha.FirstOrDefault(f => f.Numero_Ficha == fichaId);
+                var competencia = db.Competencia.FirstOrDefault(f => f.Nombre_Competencia == namecompe);
+                var programa = db.Programa_Formacion.FirstOrDefault(f => f.Nombre_Programa == nameprog);
 
-            // Obtener el ID del instructor de la sesión
-            int instructorId = (int)Session["Instructor"];
+                if (ficha == null || competencia == null || programa == null)
+                {
+                    return HttpNotFound();
+                }
 
-            string uniqueId = Guid.NewGuid().ToString();
-            string hora = DateTime.Now.ToString("HH:mm:ss");
-            string url = Url.Action("FormularioAsistencias", "AprendizMenu", new { fecha, fichaId, nameprog, namecompe, hora, instructorId, id = uniqueId }, Request.Url.Scheme);
+                // Crear un ID único para cada aprendiz
+                var aprendices = db.Aprendiz.Where(a => a.Numero_Ficha == fichaId).ToList();
+                var qrs = new List<object>();
 
-            QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode(url, QRCodeGenerator.ECCLevel.Q);
-            QRCode qrCode = new QRCode(qrCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(3);
+                foreach (var aprendiz in aprendices)
+                {
+                    string uniqueId = Guid.NewGuid().ToString();
 
-            using (MemoryStream stream = new MemoryStream())
-            {
-                qrCodeImage.Save(stream, ImageFormat.Png);
-                byte[] byteArray = stream.ToArray();
-                string base64String = Convert.ToBase64String(byteArray);
+                    // Crear la URL del QR para el aprendiz
+                    string url = Url.Action("RegistrarAsistencia", "AprendizMenu",
+                        new { fecha, fichaId, nameprog, namecompe, hora = DateTime.Now.ToString("HH:mm:ss"), instructorId, uniqueId, aprendizId = aprendiz.idAprendiz },
+                        Request.Url.Scheme);
 
-                // Almacenar en la sesión
-                Session["QrCodeBase64"] = base64String;
+                    QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                    QRCodeData qrCodeData = qrGenerator.CreateQrCode(url, QRCodeGenerator.ECCLevel.Q);
+                    QRCode qrCode = new QRCode(qrCodeData);
+                    Bitmap qrCodeImage = qrCode.GetGraphic(3);
+
+                    using (MemoryStream stream = new MemoryStream())
+                    {
+                        qrCodeImage.Save(stream, ImageFormat.Png);
+                        byte[] byteArray = stream.ToArray();
+                        string base64String = Convert.ToBase64String(byteArray);
+                        qrs.Add(base64String);
+                    }
+                }
+
+                // Almacenar los QRs en la sesión
+                Session["QrCodes"] = qrs;
                 Session["Fecha"] = fecha;
-                Session["Hora"] = hora;
+                Session["Hora"] = DateTime.Now.ToString("HH:mm:ss");
                 Session["FichaId"] = fichaId;
                 Session["Competencia"] = namecompe;
                 Session["Programa"] = nameprog;
                 Session["InstructorId"] = instructorId;
 
-                return Json(base64String, JsonRequestBehavior.AllowGet);
+                return Json(qrs, JsonRequestBehavior.AllowGet);
             }
-        }
 
         [HttpPost]
         public ActionResult EliminarCodigoQR()
@@ -195,7 +204,7 @@ namespace Proyecto_de_Asistencias.Controllers
             Session["QrEliminado"] = true;
 
             // Eliminar el QR de la sesión
-            Session.Remove("QrCodeBase64");
+            Session.Remove("QrCodes");
             Session.Remove("Fecha");
             Session.Remove("Hora");
             Session.Remove("FichaId");

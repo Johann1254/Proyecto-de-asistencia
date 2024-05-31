@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{ 
     Layout = null;
     ViewBag.Title = "Generar QR de Asistencias";
     int idUsuario = ViewBag.IdUsuario; // Obtener el ID del instructor desde ViewBag
@@ -30,8 +29,8 @@
                 <select id="ficha" class="form-control">
                     @foreach (var item in ViewBag.Fichas)
                     {
-                        <option value="@item.Value">@item.Text</option>
-                    }
+        <option value="@item.Value">@item.Text</option>
+}
                 </select>
             </div>
             <div class="form-field">
@@ -39,8 +38,8 @@
                 <select id="programa_formacion" class="form-control">
                     @foreach (var item in ViewBag.Programa_Formacion)
                     {
-                        <option value="@item.Value">@item.Text</option>
-                    }
+        <option value="@item.Value">@item.Text</option>
+}
                 </select>
             </div>
             <div class="form-field">
@@ -48,18 +47,19 @@
                 <select id="competencias" class="form-control">
                     @foreach (var item in ViewBag.Competencia)
                     {
-                        <option value="@item.Value">@item.Text</option>
-                    }
+        <option value="@item.Value">@item.Text</option>
+}
                 </select>
             </div>
             <button class="button" id="generate-qr-btn" onclick="generarQR(@idUsuario)">Generar QR</button>
+            <button class="button" onclick="eliminarQR()">Eliminar QR</button>
         </div>
         <br />
         <br />
         <div id="qr-container" class="qr-container" style="display:none;">
-            <h4>Código QR Generado:</h4>
-            <img id="qr-image" src="" alt="Código QR">
-            <button class="button" onclick="eliminarQR()">Eliminar QR</button>
+            <h4>Códigos QR Generados:</h4>
+            <div id="qrs"></div>
+            
         </div>
     </div>
 
@@ -96,7 +96,11 @@
                 type: 'GET',
                 data: { fecha: fecha, nameprog: programa, namecompe: competencias, fichaId: fichaId, instructorId: idUsuario },
                 success: function (data) {
-                    $('#qr-image').attr('src', `data:image/png;base64,${data}`);
+                    $('#qrs').empty();
+                    data.forEach(function (qrCode) {
+                        var img = $('<img>').attr('src', `data:image/png;base64,${qrCode}`).attr('alt', 'Código QR');
+                        $('#qrs').append(img);
+                    });
                     $('#qr-container').show();
                 },
                 error: function () {
@@ -108,14 +112,14 @@
                 }
             });
         }
-         
+
         function eliminarQR() {
             $.ajax({
                 url: '@Url.Action("EliminarCodigoQR", "InstructorMenu")',
                 type: 'POST',
                 success: function (data) {
                     if (data.success) {
-                        $('#qr-image').attr('src', '');
+                        $('#qrs').empty();
                         $('#qr-container').hide();
                         alert('Código QR eliminado con éxito.');
                     } else {
