@@ -13,8 +13,16 @@
     <link href="~/CSS/EstiloConsultarI.css" rel="stylesheet" />
     <link href="~/Content/CSSvistasInstructor.css" rel="stylesheet" />
     <link href="~/CSS/cssQRAsistencia.css" rel="stylesheet" />
+   
 </head>
 <body>
+    <div class="barra-arriba">
+        <h1 id="titulo">Inasistencias</h1>
+    </div>
+    <div class="barra-abajo">
+        <br />
+        <a class="copyright">Assist.Net ©</a>
+    </div>
     <div class="container">
         <div class="header">
             <h1>Apendiz Brayan Marchena Urbina</h1>
@@ -28,25 +36,26 @@
                     <th>Apellido</th>
                     <th>Fecha</th>
                     <th>Ficha</th>
-                    
+
                 </tr>
                 <tr>
-                    
                 </tr>
-                
+
                 <!-- Puedes añadir más filas según sea necesario -->
             </table>
+
+        </div>
+        <div id="botones">
+            <div class="">
+                <button class="button" onclick="redirectTo('Archivosoporte')">Subir archivo de soporte</button>
+            </div>
+
+            <div class="volver">
+                <button class="boton-transicion" onclick="redirectTo('MenuprincipalAprendiz')">Volver</button>
+            </div>
         </div>
     </div>
-    <div id="botones">
-        <div class="">
-            <button class="button" onclick="redirectTo('Archivosoporte')">Subir archivo de soporte</button>
-        </div>
-        
-        <div class="volve">
-            <button  class="boton-transicion" onclick="redirectTo('MenuprincipalAprendiz')">Volver</button>
-        </div>
-    </div>
+    
 
     @*<footer id="Bot"> Proyecto asistencia © </footer>*@
 </body>

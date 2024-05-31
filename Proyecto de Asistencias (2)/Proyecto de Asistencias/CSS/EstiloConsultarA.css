@@ -53,7 +53,7 @@ body {
     align-content: center;
     display: flex;
     justify-content: center;
-    height: 50vh; /* Ajusta la altura según tu preferencia */
+    overflow:scroll;
 }
 
 .custom-table {
@@ -103,6 +103,8 @@ body {
     background-color: #3DAF04;
     -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
     font-weight: 1000;
+    position:relative;
+    top:40px;
 }
 
     .volver button:hover {
@@ -112,7 +114,6 @@ body {
 #titulo2 {
     text-align: center;
     color: #000;
-    position: relative;
     top: 14vh; /* Usa unidades relativas como vh (viewport height) */
      /* Usa unidades relativas como vw (viewport width) */
 }
