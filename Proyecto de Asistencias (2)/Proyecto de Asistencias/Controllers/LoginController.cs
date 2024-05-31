@@ -17,7 +17,7 @@ namespace Proyecto_de_Asistencias.Controllers
         AsistenciaEntities Ae = new AsistenciaEntities();
 
         // Cadena de conexión a la base de datos
-        string cadena = "data source = DESKTOP-LSQ95PM; initial catalog = Asistencia; integrated security = true; multipleactiveresultsets=true;";
+        string cadena = "data source = DESKTOP-67BA9OT\\SQLEXPRESS; initial catalog = Asistencia; integrated security = true; multipleactiveresultsets=true;";
 
         // Método para manejar la solicitud POST(enviar datos) para iniciar sesión
         [HttpPost]

@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ConsultarAprendices</title>
+</head>
+<body>
+    <form action="@Url.Action("ConsultarA", "InstructorMenu")">
+        <div>
+            <label>Numero de ficha</label>
+            <input name="NumeroFicha" placeholder="Numero de ficha" />
+        </div>
+        <div>
+            <label>id de Competencia</label>
+            <input name="IdCompetencia" placeholder="Id de Competencia" />
+        </div>
+        <div>
+            <label>Id de Programa</label>
+            <input name="IdPrograma" placeholder="Id de Programa" />
+        </div>
+        <div>
+            <button type="submit">Consultar</button>
+        </div>
+    </form>
+</body>
+
+    
+
+</html>
