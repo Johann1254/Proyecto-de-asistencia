@@ -45,6 +45,9 @@
         <table class="table">
             <tr>
                 <th>
+                    ID
+                </th>
+                <th>
                     Nombre
                 </th>
                 <th>
@@ -59,6 +62,9 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.idPrograma)
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Nombre_Programa)
                     </td>

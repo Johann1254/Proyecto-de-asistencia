@@ -99,11 +99,9 @@ body {
 
 /*Listado de aprendices*/
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 113px;
-    width: 347px;
+  
+   
+    margin-top: -50px;
     height: 376px;
 }
 
