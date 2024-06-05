@@ -20,7 +20,13 @@
     color: black;
     font-family: 'Poppins',sans-serif;
     font-weight: bold;
-    margin-left: 10px; 
+   
+}
+.logo {
+    color: black;
+    font-family: 'Poppins',sans-serif;
+    font-weight: bold;
+    margin-left: 10px;
 }
 
 .extension {

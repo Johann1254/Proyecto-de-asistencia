@@ -4,77 +4,79 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Eliminar</h2>
+<!DOCTYPE html>
 
-<h3></h3>
-<div>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Eliminar</title>
     <link href="~/Content/Botones_y_textos.css" rel="stylesheet" />
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            <a class="nombre">Nombres</a>
-        </dt>
+</head>
+<body>
+   
+    <div>
+        <h4>Instructor</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <a class="nombre">Nombres</a>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nombre_Instructor)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Nombre_Instructor)
+            </dd>
 
-        <dt>
-            <a class="nombre">Apellidos</a>
-        </dt>
+            <dt>
+                <a class="nombre">Apellidos</a>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Apellido_Instructor)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Apellido_Instructor)
+            </dd>
 
-        <dt>
-            <a class="nombre">Email</a>
-        </dt>
+            <dt>
+                <a class="nombre">Email</a>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email_Instructor)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Email_Instructor)
+            </dd>
 
-        <dt>
-            <a class="nombre">Contraseña</a>
-        </dt>
+            <dt>
+                <a class="nombre">Contraseña</a>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Contraseña_Instructor)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Contraseña_Instructor)
+            </dd>
 
-        <dt>
-            <a class="nombre">Qr asistencias</a>
-        </dt>
+            <dt>
+                <a class="nombre">Identificacion admin</a>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Imagen_Qr)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Administrador.idAdministrador)
+            </dd>
 
-        <dt>
-            <a class="nombre">Identificacion admin</a>
-        </dt>
+            <dt>
+                <a class="nombre">Ficha</a>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Administrador.idAdministrador)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Ficha.Numero_Ficha)
+            </dd>
 
-        <dt>
-            <a class="nombre">Ficha</a>
-        </dt>
+        </dl>
 
-        <dd>
-            @Html.DisplayFor(model => model.Ficha.Numero_Ficha)
-        </dd>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Eliminar" class="btn-Eliminar" /> 
-            <input type="button" class="input-volver" value="Volver" onclick="location.href='@Url.Action("Index")'" />
-        </div>
-    }
-</div>
+            <div class="form-actions no-color">
+                <input type="submit" value="Eliminar" class="btn-Eliminar" />
+                <input type="button" class="input-volver" value="Volver" onclick="location.href='@Url.Action("Index")'" />
+            </div>
+        }
+    </div>
+</body>
+</html>

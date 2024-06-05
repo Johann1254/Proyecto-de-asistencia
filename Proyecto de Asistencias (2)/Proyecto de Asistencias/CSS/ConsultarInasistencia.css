@@ -1,0 +1,75 @@
+﻿.container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+    .header h1 {
+        margin: 0;
+    }
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.form-field {
+    margin: 10px;
+    width: calc(50% - 20px);
+}
+
+    .form-field label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .form-field input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+.table-container {
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    overflow: scroll;
+}
+.custom-table {
+    border-collapse: collapse;
+    width: 50%;
+    border-radius: 10px; /* Añadir esquinas redondeadas */
+    overflow: scroll; /* Ocultar las esquinas redondeadas en las esquinas */
+}
+
+    .custom-table th, .custom-table td {
+        border: 1px solid #dddddd;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .custom-table th {
+        background-color: #333333; /* Fondo con un tono de negro más suave */
+        color: white; /* Texto blanco */
+        font-weight: bold;
+    }
+
+    .custom-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .custom-table tr:hover {
+        background-color: #f1f1f1;
+    }

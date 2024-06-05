@@ -1,78 +1,104 @@
 ﻿@model IEnumerable<Libreria_de_conexion.Ficha>
 
 @{
-    ViewBag.Title = "Fichas";
+    ViewBag.title = "Ficha"; 
 }
-<br />
-<h2 class="welcome">Fichas</h2>
-<br />
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/CSS/Botonesprincipales_tablas.css" rel="stylesheet" />
+    <link href="~/Content/Estilo_tablas.css" rel="stylesheet" />
+</head>
 <style>
     .welcome {
         text-align: center;
         padding: 10px;
+        padding-top: 10px;
         background-color: #3DAF04;
         border-radius: 15px;
         color: white;
-        font-family: 'Poppins',sans-serif;
+        font-family: 'Poppins', sans-serif;
     }
 </style>
-<link href="~/Content/Estilo_tablas.css" rel="stylesheet" />
-<link href="~/CSS/Botonesprincipales_tablas.css" rel="stylesheet" />
-<p>
-    @Html.ActionLink("Nueva Ficha", "Create", "",new { @class = "btn-nuevo" })
-</p>
-<div class="table-responsive">
-    <table class="table">
-        <tr>
-            <th>
-                Numero de ficha
-            </th>
-            <th>
-               Jornada
-            </th>
-            <th>
-               Fecha inicio
-            </th>
-            <th>
-               Fecha fin
-            </th>
-            <th>
-                Tipo de ficha
-            </th>
-            <th>
-                Identificacion admin
-            </th>
-            <th>OPERACIONES</th>
-        </tr>
+<body>
+    <br />
+    <h2 class="welcome">Fichas</h2>
+    <p>
+        @Html.ActionLink("Nueva Ficha", "Create", "", new { @class = "btn-nuevo" })
+    </p>
+    <form asp-controller="Fichas" asp-action="Index" method="get">
+        <p>
+            Buscar:<input type="text" name="buscar" class="form-text" />
+            <input type="submit" value="Buscar" class="btn btn-sm btn-dark" />
 
-        @foreach (var item in Model)
-        {
+        </p>
+
+    </form>
+    <div class="table-responsive">
+        <table class="table">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Numero_Ficha)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Jornada_Ficha)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Fecha_inicio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Fecha_fin)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Tipo_Ficha)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.Numero_Ficha }, new { @class = "btn-editar" }) 
-                    @Html.ActionLink("Detalles", "Details", new { id = item.Numero_Ficha }, new { @class = "btn-detalles" }) 
-                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Numero_Ficha }, new { @class = "btn-eliminar" })
-                </td>
-            </tr>
-        }
+                <th>
+                    Numero de ficha
+                </th>
+                <th>
+                    Jornada
+                </th>
+                <th>
+                    Fecha inicio
+                </th>
+                <th>
+                    Fecha fin
+                </th>
+                <th>
+                    Tipo de ficha
+                </th>
+                <th>
+                    Identificacion admin
+                </th>
 
-    </table>
-</div>
+                <th>
+                    Programa
+                </th>
+                <th>Operaciones</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Numero_Ficha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Jornada_Ficha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha_inicio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha_fin)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tipo_Ficha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Programa_Formacion.Nombre_Programa)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Numero_Ficha }, new { @class = "btn-editar" })
+                        @Html.ActionLink("Detalles", "Details", new { id = item.Numero_Ficha }, new { @class = "btn-detalles" })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Numero_Ficha }, new { @class = "btn-eliminar" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</body>
+</html>

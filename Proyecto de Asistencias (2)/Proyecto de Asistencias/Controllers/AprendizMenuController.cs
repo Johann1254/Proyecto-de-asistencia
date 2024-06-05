@@ -116,6 +116,21 @@ namespace Proyecto_de_Asistencias.Controllers
             db.SaveChanges();
 
             return Json(new { success = true, message = "Asistencia registrada exitosamente." });
+        public ActionResult Subirarchivo()
+        {
+            return View(); 
+        }
+        public ActionResult Consultarasistencias()
+        {
+            return View(); 
+        }
+        public ActionResult Consultarinasistencias()
+        {
+            return View(); 
+        }
+        public ActionResult Archivosoporte()
+        {
+            return View(); 
         }
     }
 
