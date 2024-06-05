@@ -326,6 +326,8 @@
     <Content Include="Views\InstructorMenu\ConsultarCompetencias.cshtml" />
     <Content Include="Views\AprendizMenu\FormularioAsistencias.cshtml" />
     <Content Include="Views\AprendizMenu\MostrarQR.cshtml" />
+    <Content Include="Views\InstructorMenu\RegistroInasistencia.cshtml" />
+    <Content Include="Views\InstructorMenu\ConsultarInasistencias.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

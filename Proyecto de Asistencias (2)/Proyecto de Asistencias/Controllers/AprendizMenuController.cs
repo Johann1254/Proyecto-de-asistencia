@@ -13,12 +13,22 @@ namespace Proyecto_de_Asistencias.Controllers
     {
         AsistenciaEntities db = new AsistenciaEntities();
         // GET: AprendizMenu
+        public ActionResult Subirarchivo()
+        {
+            return View();
+        }
+        public ActionResult Archivosoporte()
+        {
+            return View();
+        }
+
         public ActionResult MenuprincipalAprendiz()
         {
             int idUsuario = (int)Session["Usuarios"];
             ViewBag.IdUsuario = idUsuario; // Pasa el ID del usuario a la vista
             return View();
         }
+
         public ActionResult Consultarasistencias()
         {
             int idUsuario = (int)Session["Usuarios"];
@@ -116,22 +126,8 @@ namespace Proyecto_de_Asistencias.Controllers
             db.SaveChanges();
 
             return Json(new { success = true, message = "Asistencia registrada exitosamente." });
-        public ActionResult Subirarchivo()
-        {
-            return View(); 
-        }
-        public ActionResult Consultarasistencias()
-        {
-            return View(); 
-        }
-        public ActionResult Consultarinasistencias()
-        {
-            return View(); 
-        }
-        public ActionResult Archivosoporte()
-        {
-            return View(); 
-        }
-    }
 
+        }
+
+    }
 }

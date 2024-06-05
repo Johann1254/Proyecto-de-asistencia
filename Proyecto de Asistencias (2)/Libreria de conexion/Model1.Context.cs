@@ -12,8 +12,6 @@ namespace Libreria_de_conexion
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Data.Entity.Core.Objects;
-    using System.Linq;
     
     public partial class AsistenciaEntities : DbContext
     {
@@ -36,18 +34,5 @@ namespace Libreria_de_conexion
         public virtual DbSet<Registro_Asistencias_QR> Registro_Asistencias_QR { get; set; }
         public virtual DbSet<Reporte> Reporte { get; set; }
         public virtual DbSet<Soporte_asistencia> Soporte_asistencia { get; set; }
-    
-        public virtual ObjectResult<sp_ValidarUsuario_Result> sp_ValidarUsuario(string email, string contraseña)
-        {
-            var emailParameter = email != null ?
-                new ObjectParameter("Email", email) :
-                new ObjectParameter("Email", typeof(string));
-    
-            var contraseñaParameter = contraseña != null ?
-                new ObjectParameter("Contraseña", contraseña) :
-                new ObjectParameter("Contraseña", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_ValidarUsuario_Result>("sp_ValidarUsuario", emailParameter, contraseñaParameter);
-        }
     }
 }

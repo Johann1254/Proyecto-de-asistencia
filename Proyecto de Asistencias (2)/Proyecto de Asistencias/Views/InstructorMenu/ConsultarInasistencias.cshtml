@@ -28,7 +28,8 @@
                 <option value="">Seleccione una ficha</option>
                 @foreach (var item in ViewBag.Fichas)
                 {
-                    <option value="@item.Value">@item.Text</option>}
+                    <option value="@item.Value">@item.Text</option>
+}
             </select>
         </div>
         <div class="form-field">
@@ -84,7 +85,7 @@
                         success: function (data) {
                               // Aquí se obtiene una referencia al elemento HTML con id 'programa_formacion'.
                             var $programaFormacion = $('#programa_formacion');
-                            // Esta función de jQuery itera sobre los datos devueltos por el servidor. En cada iteración, 
+                            // Esta función de jQuery itera sobre los datos devueltos por el servidor. En cada iteración,
                             //se añade una nueva opción al elemento 'programa_formacion' con el id y el nombre del programa.
                             $.each(data, function (index, value) {
                                 $programaFormacion.append('<option value="' + value.idPrograma + '">' + value.Nombre_Programa + '</option>');
@@ -109,7 +110,7 @@
                         success: function (data) {
                              // Aquí se obtiene una referencia al elemento HTML con id 'competencias'.
                             var $competencias = $('#competencias');
-                            // Esta función de jQuery itera sobre los datos devueltos por el servidor. En cada iteración, 
+                            // Esta función de jQuery itera sobre los datos devueltos por el servidor. En cada iteración,
                             //se añade una nueva opción al elemento 'competencias' con el id y el nombre de la competencia.
                             $.each(data, function (index, value) {
                                 $competencias.append('<option value="' + value.idCompetencia + '">' + value.Nombre_Competencia + '</option>');

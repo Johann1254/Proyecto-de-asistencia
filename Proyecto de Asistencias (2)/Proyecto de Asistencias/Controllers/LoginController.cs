@@ -13,6 +13,7 @@ namespace Proyecto_de_Asistencias.Controllers
     // Clase LoginController que hereda de la clase Controller de ASP.NET MVC
     public class LoginController : Controller
     {
+        // Cadena de conexión a la base de datos
         string cadena = "data source = DESKTOP-UI13C50\\SQLEXPRESS; initial catalog = Asistencia; integrated security = true; multipleactiveresultsets=true;";
 
         // GET: Login
@@ -22,9 +23,6 @@ namespace Proyecto_de_Asistencias.Controllers
         }
         // Instancia de AsistenciaEntities para interactuar con la base de datos
         AsistenciaEntities Ae = new AsistenciaEntities();
-
-        // Cadena de conexión a la base de datos
-        string cadena = "data source = JAMB\\SQLEXPRESS; initial catalog = Asistencia; integrated security = true; multipleactiveresultsets=true;";
 
         // Método para manejar la solicitud POST(enviar datos) para iniciar sesión
         [HttpPost]
@@ -102,11 +100,7 @@ namespace Proyecto_de_Asistencias.Controllers
             }
         }
         // Método para manejar la solicitud GET(obtener datos) para la página de inicio de sesión
-        public ActionResult Login()
-        {
-            // Devuelve la vista de inicio de sesión
-            return View();
-        }
+
     }
 
 
