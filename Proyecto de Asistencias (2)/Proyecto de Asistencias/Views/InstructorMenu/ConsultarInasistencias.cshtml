@@ -1,0 +1,158 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ConsultarInasistencias</title>
+    <link href="~/CSS/ConsultarInasistencia.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+    <h1 id="titulo2">Listado de Inasistencias</h1>
+    <div class="container">
+        <div class="header">
+            <h1>Instructor Jesus Marzal Barboza</h1>
+            <h4>Consulta Inasistencia</h4>
+        </div>
+    </div>
+    <div class="form-container">
+        <div class="form-field">
+            <label for="ficha">Seleccione el número de la Ficha</label>
+            <select id="ficha" class="form-control">
+                <option value="">Seleccione una ficha</option>
+                @foreach (var item in ViewBag.Fichas)
+                {
+                    <option value="@item.Value">@item.Text</option>}
+            </select>
+        </div>
+        <div class="form-field">
+            <label for="programa_formacion">Seleccione el programa de formación:</label>
+            <select id="programa_formacion" class="form-control">
+                <option value="">Seleccione un programa</option>
+            </select>
+        </div>
+        <div class="form-field">
+            <label for="competencias">Seleccione la competencia:</label>
+            <select id="competencias" class="form-control">
+                <option value="">Seleccione una competencia</option>
+            </select>
+        </div>
+        <button id="buscar-inasistencias" class="btn btn-primary">Buscar Inasistencias</button>
+    </div>
+    <div class="table-container">
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Fecha</th>
+                    <th>Ficha</th>
+                </tr>
+            </thead>
+            <tbody id="inasistencias-table-body">
+                <!-- Filas de inasistencias se llenarán dinámicamente aquí -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Este bloque de código se ejecuta cuando el documento HTML ha sido completamente cargado y está listo para interactuar con JavaScript.
+        $(document).ready(function () {
+             // Este bloque de código se ejecuta cuando el valor del elemento HTML con id 'ficha' cambia. Este elemento es un menú desplegable.
+            $('#ficha').change(function () {
+                 // Aquí se obtiene el valor del elemento HTML con id 'ficha'. Este valor es el Numero de la ficha seleccionada por el usuario.
+                var fichaId = $(this).val();
+                 // Los siguientes dos bloques de código vacían los elementos HTML con ids 'programa_formacion', 'competencias' y les añaden una opción por defecto.
+                $('#programa_formacion').empty().append('<option value="">Seleccione un programa</option>');
+                $('#competencias').empty().append('<option value="">Seleccione una competencia</option>');
+                 // Si el id de la ficha es válido (no está vacío), se realiza una solicitud AJAX para obtener los programas correspondientes a la ficha.
+                if (fichaId) {
+                    $.ajax({
+                         // La URL a la que se envía la solicitud AJAX.
+                        url: '@Url.Action("GetProgramasPorFicha", "InstructorMenu")',
+                        // El tipo de solicitud HTTP a realizar. En este caso, es una solicitud GET.
+                        type: "GET",
+                         // Los datos que se envían al servidor en la solicitud HTTP. En este caso, se envía el id de la ficha.
+                        data: { fichaId: fichaId },
+                        // Esta función se ejecuta si la solicitud AJAX se completa con éxito. Los datos devueltos por el servidor se pasan a esta función
+                        success: function (data) {
+                              // Aquí se obtiene una referencia al elemento HTML con id 'programa_formacion'.
+                            var $programaFormacion = $('#programa_formacion');
+                            // Esta función de jQuery itera sobre los datos devueltos por el servidor. En cada iteración, 
+                            //se añade una nueva opción al elemento 'programa_formacion' con el id y el nombre del programa.
+                            $.each(data, function (index, value) {
+                                $programaFormacion.append('<option value="' + value.idPrograma + '">' + value.Nombre_Programa + '</option>');
+                            });
+                        }
+                    });
+                }
+            });
+            // Este bloque de código se ejecuta cuando el valor del elemento HTML con id 'programa_formacion' cambia.
+            $('#programa_formacion').change(function () {
+                 // Aquí se obtiene el valor del elemento HTML con id 'programa_formacion'. Este valor es el programa seleccionado por el usuario.
+                var programaId = $(this).val();
+                 // El siguiente bloque de código vacía el elemento HTML con id 'competencias' y le añade una opción por defecto.
+                $('#competencias').empty().append('<option value="">Seleccione una competencia</option>');
+                 // Si el id del programa es válido (no está vacío), se realiza una solicitud AJAX para obtener las competencias correspondientes al programa.
+                if (programaId) {
+                    $.ajax({
+                        url: '@Url.Action("GetCompetenciasPorPrograma", "InstructorMenu")',
+                        type: "GET",
+                        data: { programaId: programaId },
+                         // Esta función se ejecuta si la solicitud AJAX se completa con éxito. Los datos devueltos por el servidor se pasan a esta función.
+                        success: function (data) {
+                             // Aquí se obtiene una referencia al elemento HTML con id 'competencias'.
+                            var $competencias = $('#competencias');
+                            // Esta función de jQuery itera sobre los datos devueltos por el servidor. En cada iteración, 
+                            //se añade una nueva opción al elemento 'competencias' con el id y el nombre de la competencia.
+                            $.each(data, function (index, value) {
+                                $competencias.append('<option value="' + value.idCompetencia + '">' + value.Nombre_Competencia + '</option>');
+                            });
+                        }
+                    });
+                }
+            });
+            // Este bloque de código se ejecuta cuando se hace clic en el elemento HTML con id 'buscar-inasistencias'
+            $('#buscar-inasistencias').click(function () {
+                 // Aquí se obtienen los valores de los elementos HTML con ids 'ficha', 'programa_formacion' y 'competencias'.
+                var fichaId = $('#ficha').val();
+                var programaId = $('#programa_formacion').val();
+                var competenciaId = $('#competencias').val();
+                // Se realiza una solicitud AJAX para obtener las inasistencias correspondientes a los valores seleccionados.
+                $.ajax({
+                    url: '@Url.Action("ObtenerInasistencias", "InstructorMenu")',
+                    type: "GET",
+                    data: {
+                        fichaId: fichaId || null,
+                        programaId: programaId || null,
+                        competenciaId: competenciaId || null
+                    },
+                    success: function (data) {
+                        // Aquí se obtiene una referencia al cuerpo de la tabla HTML con id 'inasistencias-table-body'.
+                        var $tbody = $('#inasistencias-table-body');
+                        // Se vacía el cuerpo de la tabla.
+                        $tbody.empty();
+                        // Esta función de jQuery itera sobre los datos devueltos por el servidor. En cada iteración,
+                        //se añade una nueva fila a la tabla con los datos de la inasistencia.
+                        $.each(data, function (index, value) {
+                            var row = '<tr>' +
+                                '<td>' + value.Nombre + '</td>' +
+                                '<td>' + value.Apellidos + '</td>' +
+                                '<td>' + value.Fecha + '</td>' +
+                                '<td>' + value.Ficha + '</td>' +
+                                '</tr>';
+                            $tbody.append(row);
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

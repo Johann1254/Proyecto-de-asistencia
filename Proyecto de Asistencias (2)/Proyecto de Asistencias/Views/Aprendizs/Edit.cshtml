@@ -4,15 +4,20 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Editar</h2>
+<!DOCTYPE html>
 <link href="~/Content/Botones_y_textos.css" rel="stylesheet" />
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Editar</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-
+        <h4>Aprendiz</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.idAprendiz)
@@ -66,12 +71,17 @@
         </div>
 
         <div class="form-group">
-            <a class="nombre">Estado</a>
+            <a class="nombre"> Estado</a>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.Estado, new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "En formación", Value = "true" },
+                    new SelectListItem { Text = "Retirado", Value = "false" }
+                }, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
             </div>
         </div>
+
 
         <div class="form-group">
             <a class="nombre">Ficha</a>
@@ -88,6 +98,7 @@
                 @Html.ValidationMessageFor(model => model.idAdministrador, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <br />
 
 
@@ -98,6 +109,8 @@
             </div>
         </div>
     </div>
-}
+    }
 
-
+    
+</body>
+</html>

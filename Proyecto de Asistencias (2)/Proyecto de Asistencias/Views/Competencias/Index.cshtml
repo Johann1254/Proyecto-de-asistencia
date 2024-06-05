@@ -1,72 +1,99 @@
 ﻿@model IEnumerable<Libreria_de_conexion.Competencia>
 
 @{
-    ViewBag.Title = "Competencias";
+    ViewBag.title = "Competencias"; 
 }
-<br />
-<h2 class="welcome">Competencias</h2>
-<br />
-<style>
-    .welcome {
-        text-align: center;
-        padding: 10px;
-        background-color: #3DAF04;
-        border-radius: 15px;
-        color: white;
-        font-family: 'Poppins',sans-serif;
-    }
-</style>
-<link href="~/Content/Estilo_tablas.css" rel="stylesheet" />
-<link href="~/CSS/Botonesprincipales_tablas.css" rel="stylesheet" />
-<p>
-    @Html.ActionLink("Nueva competencia", "Create","", new { @class = "btn-nuevo" })
-</p>
-<div class="table-responsive">
-    <table class="table">
-        <tr>
-            <th>
-              Nombre
-            </th>
-            <th>
-               Tipo
-            </th>
-            <th>
-                Duracion
-            </th>
-            <th>
-              Identificacion admin
-            </th>
-            <th>
-               Id programa
-            </th>
-            <th>OPERACIONES</th>
-        </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nombre_Competencia)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Tipo_Competencias)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Duracion_Competencia)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Programa_Formacion.idPrograma)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.idCompetencia }, new { @class = "btn-editar" }) 
-                    @Html.ActionLink("Detalles", "Details", new { id = item.idCompetencia }, new { @class = "btn-detalles" }) 
-                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idCompetencia }, new { @class = "btn-eliminar" })
-                </td>
-            </tr>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/Estilo_tablas.css" rel="stylesheet" />
+    <link href="~/CSS/Botonesprincipales_tablas.css" rel="stylesheet" />
+
+    <style>
+        .welcome {
+            text-align: center;
+            padding: 10px;
+            padding-top: 10px;
+            background-color: #3DAF04;
+            border-radius: 15px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
         }
+    </style>
+</head>
+<body>
+    <br />
+    <h2 class="welcome">Competencias</h2>
+    <p>
+        @Html.ActionLink("Nueva Competencia", "Create", "", new { @class = "btn-nuevo" })
+    </p>
+    <form asp-controller="Competencias" asp-action="Index" method="get">
+        <p>
+            Buscar:<input type="text" name="buscar" class="form-text" />
+            <input type="submit" value="Buscar" class="btn btn-sm btn-dark" />
 
-    </table>
-</div>
+        </p>
+
+    </form>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Tipo
+                </th>
+                <th>
+                    Duracion
+                </th>
+                <th>
+                    Identificacion admin
+                </th>
+                <th>
+                    Id instructor
+                </th>
+                <th>
+                    Id programa
+                </th>
+                <th>OPERACIONES</th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre_Competencia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tipo_Competencias)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Duracion_Competencia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Instructor.idInstructor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Programa_Formacion.idPrograma)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.idCompetencia }, new { @class = "btn-editar" })
+                        @Html.ActionLink("Detalles", "Details", new { id = item.idCompetencia }, new { @class = "btn-detalles" })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.idCompetencia }, new { @class = "btn-eliminar" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</body>
+</html>

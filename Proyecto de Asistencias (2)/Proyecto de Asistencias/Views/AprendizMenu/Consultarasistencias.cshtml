@@ -4,36 +4,38 @@
 }
 
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Consultarasistencias</title>
     <link href="~/CSS/EstiloConsultarA.css" rel="stylesheet" />
+    <link href="~/CSS/cssIndex.css" rel="stylesheet" />
 </head>
 <body>
-    <div id="Top">
+    <div class="barra-arriba">
         <h1 id="titulo">Asistencias</h1>
+    </div>
+
+    <div class="barra-abajo">
+        <br />
+        <a class="copyright">Assist.Net ©</a>
     </div>
     <h1 id="titulo2">Listado de asistencias </h1>
     <div class="table-container">
         <table class="custom-table">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Fecha</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var asistencia in ViewBag.Asistencias)
-                {
-                    <tr>
-                        <td>@asistencia.Nombres</td>
-                        <td>@asistencia.Apellidos</td>
-                        <td>@asistencia.Fecha_Asistencia</td>
-                    </tr>
-                }
-            </tbody>
+
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Fecha</th>
+
+            </tr>
+            <tr>
+                <td>Johan</td>
+                <td>Avendaño</td>
+                <td>04/05/2024</td>
+            </tr>
         </table>
     </div>
     <div id="botones">
@@ -42,7 +44,7 @@
         </div>
     </div>
 
-    <footer id="Bot"> Proyecto asistencia © </footer>
+
 </body>
 </html>
 <script>

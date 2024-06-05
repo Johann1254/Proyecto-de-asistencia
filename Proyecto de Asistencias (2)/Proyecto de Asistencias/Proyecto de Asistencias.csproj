@@ -52,11 +52,6 @@
       <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="QRCoder, Version=1.5.1.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
-      <HintPath>packages\QRCoder.1.5.1\lib\net40\QRCoder.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -121,7 +116,6 @@
       <Private>True</Private>
       <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -185,9 +179,11 @@
     <Content Include="Content\v4-shims.css" />
     <Content Include="Content\v4-shims.min.css" />
     <Content Include="CSS\Botonesprincipales_tablas.css" />
+    <Content Include="CSS\ConsultarInasistencia.css" />
     <Content Include="CSS\CssFormulario.css" />
     <Content Include="CSS\cssIndex.css" />
     <Content Include="CSS\cssQRAsistencia.css" />
+    <Content Include="CSS\cssregistroinasistencia.css" />
     <Content Include="CSS\CSSvistasInstructor.css" />
     <Content Include="CSS\Dashboard.css" />
     <Content Include="CSS\EstiloArchivo.css" />
@@ -294,6 +290,7 @@
     <Content Include="Views\AprendizMenu\MenuprincipalAprendiz.cshtml" />
     <Content Include="Views\InstructorMenu\VistaAsistencias.cshtml" />
     <Content Include="Views\InstructorMenu\VistaInasistencias.cshtml" />
+    <Content Include="Views\InstructorMenu\VistacrearUsuarios.cshtml" />
     <Content Include="Views\InstructorMenu\ConsultarFichas.cshtml" />
     <Content Include="Views\InstructorMenu\VistaconsultarInasistencias.cshtml" />
     <Content Include="Views\InstructorMenu\Listadofichas.cshtml" />
@@ -324,8 +321,9 @@
     <Content Include="Views\InstructorMenu\InasistenciasAprendiz.cshtml" />
     <Content Include="Views\InstructorMenu\ConsultarProgramas.cshtml" />
     <Content Include="Views\InstructorMenu\ConsultarCompetencias.cshtml" />
-    <Content Include="Views\AprendizMenu\FormularioAsistencias.cshtml" />
-    <Content Include="Views\AprendizMenu\MostrarQR.cshtml" />
+    <Content Include="Views\InstructorMenu\FormularioAsistencias.cshtml" />
+    <Content Include="Views\InstructorMenu\RegistroInasistencia.cshtml" />
+    <Content Include="Views\InstructorMenu\ConsultarInasistencias.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

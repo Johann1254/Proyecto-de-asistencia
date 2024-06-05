@@ -17,11 +17,20 @@ namespace Proyecto_de_Asistencias.Controllers
         private AsistenciaEntities db = new AsistenciaEntities();
 
         // GET: Fichas
-        public ActionResult Index()
+        public ActionResult Index(string buscar)
         {
-            var ficha = db.Ficha.Include(f => f.Administrador);
-            return View(ficha.ToList());
+            var Fichas = db.Ficha.Include(i => i.Administrador).Include(i => i.Programa_Formacion);
+
+            if (!String.IsNullOrEmpty(buscar))
+            {
+                // Convertir el número de ficha a una cadena antes de usar 'Contains'
+                Fichas = Fichas.Where(s => s.Numero_Ficha.ToString().Contains(buscar));
+            }
+
+            return View(Fichas.ToList());
         }
+
+
 
         // GET: Fichas/Details/5
         public ActionResult Details(int? id)
@@ -42,7 +51,7 @@ namespace Proyecto_de_Asistencias.Controllers
         public ActionResult Create()
         {
             ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador");
-            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "idPrograma");
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa");
             return View();
         }
 
@@ -61,6 +70,7 @@ namespace Proyecto_de_Asistencias.Controllers
             }
 
             ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", ficha.idAdministrador);
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa", ficha.idPrograma);
             return View(ficha);
         }
 
@@ -77,6 +87,7 @@ namespace Proyecto_de_Asistencias.Controllers
                 return HttpNotFound();
             }
             ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", ficha.idAdministrador);
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa", ficha.idPrograma);
             return View(ficha);
         }
 
@@ -85,7 +96,7 @@ namespace Proyecto_de_Asistencias.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Numero_Ficha,Jornada_Ficha,Fecha_inicio,Fecha_fin,Tipo_Ficha,idAdministrador")] Ficha ficha)
+        public ActionResult Edit([Bind(Include = "Numero_Ficha,Jornada_Ficha,Fecha_inicio,Fecha_fin,Tipo_Ficha,idPrograma,idAdministrador")] Ficha ficha)
         {
             if (ModelState.IsValid)
             {
@@ -94,6 +105,7 @@ namespace Proyecto_de_Asistencias.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.idAdministrador = new SelectList(db.Administrador, "idAdministrador", "idAdministrador", ficha.idAdministrador);
+            ViewBag.idPrograma = new SelectList(db.Programa_Formacion, "idPrograma", "Nombre_Programa", ficha.idPrograma);
             return View(ficha);
         }
 

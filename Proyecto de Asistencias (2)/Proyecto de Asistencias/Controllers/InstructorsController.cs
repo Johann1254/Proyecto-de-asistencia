@@ -4,10 +4,12 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Libreria_de_conexion;
 using Proyecto_de_Asistencias.Sesion;
+
 namespace Proyecto_de_Asistencias.Controllers
 {
     [Validar_sesion]
@@ -16,11 +18,18 @@ namespace Proyecto_de_Asistencias.Controllers
         private AsistenciaEntities db = new AsistenciaEntities();
 
         // GET: Instructors
-        public ActionResult Index()
+        public ActionResult Index(string buscar)
         {
-            var instructor = db.Instructor.Include(i => i.Administrador).Include(i => i.Ficha);
-            return View(instructor.ToList());
+            var instructors = db.Instructor.Include(i => i.Administrador).Include(i => i.Ficha);
+
+            if (!String.IsNullOrEmpty(buscar))
+            {
+                instructors = instructors.Where(s => s.Nombre_Instructor.Contains(buscar));
+            }
+
+            return View(instructors.ToList());
         }
+
 
         // GET: Instructors/Details/5
         public ActionResult Details(int? id)
@@ -50,7 +59,7 @@ namespace Proyecto_de_Asistencias.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idInstructor,Nombre_Instructor,Apellido_Instructor,Email_Instructor,Contraseña_Instructor,Imagen_Qr,Numero_Ficha,idAdministrador")] Instructor instructor)
+        public ActionResult Create([Bind(Include = "idInstructor,Nombre_Instructor,Apellido_Instructor,Email_Instructor,Contraseña_Instructor,Numero_Ficha,idAdministrador")] Instructor instructor)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +95,7 @@ namespace Proyecto_de_Asistencias.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idInstructor,Nombre_Instructor,Apellido_Instructor,Email_Instructor,Contraseña_Instructor,Imagen_Qr,Numero_Ficha,idAdministrador")] Instructor instructor)
+        public ActionResult Edit([Bind(Include = "idInstructor,Nombre_Instructor,Apellido_Instructor,Email_Instructor,Contraseña_Instructor,Numero_Ficha,idAdministrador")] Instructor instructor)
         {
             if (ModelState.IsValid)
             {
@@ -132,6 +141,12 @@ namespace Proyecto_de_Asistencias.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+     
         }
+
+     
+
     }
+
+
 }

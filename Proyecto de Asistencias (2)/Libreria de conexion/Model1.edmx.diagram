@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="be8cd54e66264ebead0bf89476f5d9ae" Name="Diagram1">
+      <Diagram DiagramId="c8bcfa8e215549c2a664901762611e8e" Name="Diagram1">
         <EntityTypeShape EntityType="AsistenciaModel.Administrador" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="AsistenciaModel.Aprendiz" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AsistenciaModel.Competencia" Width="1.5" PointX="5.25" PointY="14.75" IsExpanded="true" />
@@ -14,20 +14,20 @@
         <EntityTypeShape EntityType="AsistenciaModel.Registro_Asistencias_QR" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="AsistenciaModel.Reporte" Width="1.5" PointX="7.5" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="AsistenciaModel.Soporte_asistencia" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
-        <AssociationConnector Association="AsistenciaModel.FK__Aprendiz__idAdmi__286302EC" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Competenc__idAdm__66603565" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Ficha__idAdminis__239E4DCF" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Instructo__idAdm__5EBF139D" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Programa___idAdm__1FCDBCEB" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Aprendiz__Numero__276EDEB3" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Registro___idApr__6383C8BA" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Soporte_a__idApr__49C3F6B7" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Competenc__idIns__68487DD7" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Competenc__idPro__6754599E" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Ficha__idProgram__22AA2996" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Instructo__Numer__5DCAEF64" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Registro___idIns__628FA481" ManuallyRouted="false" />
-        <AssociationConnector Association="AsistenciaModel.FK__Reporte__idAsist__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Aprendiz__idAdmi__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Competenc__idAdm__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Ficha__idAdminis__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Instructo__idAdm__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Programa___idAdm__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Aprendiz__Numero__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Registro___idApr__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Soporte_a__idApr__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Competenc__idIns__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Competenc__idPro__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Ficha__idProgram__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Instructo__Numer__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Registro___idIns__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Reporte__idAsist__3A81B327" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

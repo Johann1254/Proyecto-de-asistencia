@@ -1,0 +1,197 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RegistroInasistencia</title>
+    <link href="~/CSS/cssregistroinasistencia.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Instructor Jesus Marzal Barboza</h1>
+            <h4>Registro Inasistencia</h4>
+        </div>
+        <div class="form-container">
+            <!-- <div class="form-field">
+                <label for="qr-code">QR de Asistencia</label>
+                <input type="text" id="qr-code" placeholder="Ingrese el código de asistencia">
+            </div> -->
+        </div>
+        <div class="form-container">
+            <div class="form-field">
+                <label for="date">Fecha</label>
+                <input type="date" id="date" readonly>
+            </div>
+
+            <div class="form-field">
+                <label for="ficha">Seleccione el número de la Ficha</label>
+                <select id="ficha" class="form-control">
+                    <option value="">Seleccione una ficha</option>
+                    @foreach (var item in ViewBag.Fichas)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="form-field">
+                <label for="programa_formacion">Seleccione el programa de formación:</label>
+                <select id="programa_formacion" class="form-control">
+                    <option value="">Seleccione un programa</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <label for="competencias">Seleccione la competencia:</label>
+                <select id="competencias" class="form-control">
+                    <option value="">Seleccione una competencia</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <label for="aprendiz">Seleccione el aprendiz:</label>
+                <select id="aprendiz" class="form-control">
+                    <option value="">Seleccione un aprendiz</option>
+                </select>
+            </div>
+            <button id="registrar-inasistencia" class="btn btn-primary">Registrar Inasistencia</button>
+
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+             // Este bloque de código se ejecuta cuando el valor del elemento HTML con id 'ficha' cambia. Este elemento es un menú desplegable.
+            $('#ficha').change(function () {
+                // Aquí se obtiene el valor del elemento HTML con id 'ficha'. Este valor es el numero de la ficha seleccionada por el usuario.
+                var fichaId = $(this).val();
+                 // Los siguientes tres bloques de código vacían los elementos HTML con ids 'programa_formacion', 'competencias' y 'aprendiz' y les añaden una opción por defecto.
+                $('#programa_formacion').empty().append('<option value="">Seleccione un programa</option>');
+                $('#competencias').empty().append('<option value="">Seleccione una competencia</option>');
+                $('#aprendiz').empty().append('<option value="">Seleccione un aprendiz</option>');
+                // Si el id de la ficha es válido (no está vacío), se realiza una solicitud AJAX para obtener los programas correspondientes a la ficha.
+                if (fichaId) {
+                    $.ajax({
+                        // La URL a la que se envía la solicitud AJAX.
+                        url: '@Url.Action("GetProgramasPorFicha", "InstructorMenu")',
+                        type: "GET",
+                        // Los datos que se envían al servidor en la solicitud HTTP. En este caso, se envía el id de la ficha.
+                        data: { fichaId: fichaId },
+                        // Esta función se ejecuta si la solicitud AJAX se completa con éxito. Los datos devueltos por el servidor se pasan a esta función.
+                        success: function (data) {
+                             // Aquí se obtiene una referencia al elemento HTML con id 'programa_formacion'.
+                            var $programaFormacion = $('#programa_formacion');
+                            // Esta función de jQuery itera sobre los datos devueltos por el servidor. En cada iteración,
+                            //se añade una nueva opción al elemento 'programa_formacion' con el id y el nombre del programa.
+                            $.each(data, function (index, value) {
+                                $programaFormacion.append('<option value="' + value.idPrograma + '">' + value.Nombre_Programa + '</option>');
+                            });
+                        }
+                    });
+                     // Si el id de la ficha es válido (no está vacío), se realiza una solicitud AJAX para obtener los aprendices correspondientes a la ficha.
+                    $.ajax({
+                        url: '@Url.Action("GetAprendicesPorFicha", "InstructorMenu")',
+                        type: "GET",
+                        data: { fichaId: fichaId },
+                        success: function (data) {
+                            var $aprendiz = $('#aprendiz');
+                            $.each(data, function (index, value) {
+                                $aprendiz.append('<option value="' + value.idAprendiz + '">' + value.NombreCompleto + '</option>');
+                            });
+                        }
+                    });
+                }
+            });
+             // Este bloque de código se ejecuta cuando el valor del elemento HTML con id 'programa_formacion' cambia.
+            $('#programa_formacion').change(function () {
+                 // Aquí se obtiene el valor del elemento HTML con id 'programa_formacion'. Este valor es el id del programa seleccionado por el usuario.
+                var programaId = $(this).val();
+                // El siguiente bloque de código vacía el elemento HTML con id 'competencias' y le añade una opción por defecto
+                $('#competencias').empty().append('<option value="">Seleccione una competencia</option>');
+                // Si el id del programa es válido (no está vacío), se realiza una solicitud AJAX para obtener las competencias correspondientes al programa.
+                if (programaId) {
+                    $.ajax({
+                        url: '@Url.Action("GetCompetenciasPorPrograma", "InstructorMenu")',
+                        type: "GET",
+                        data: { programaId: programaId },
+                         // Esta función se ejecuta si la solicitud AJAX se completa con éxito. Los datos devueltos por el servidor se pasan a esta función.
+                        success: function (data) {
+                            // Aquí se obtiene una referencia al elemento HTML con id 'competencias'.
+                            var $competencias = $('#competencias');
+                            $.each(data, function (index, value) {
+                                // Esta función de jQuery itera sobre los datos devueltos por el servidor. En cada iteración,
+                                //se añade una nueva opción al elemento 'competencias' con el id y el nombre de la competencia.
+                                $competencias.append('<option value="' + value.idCompetencia + '">' + value.Nombre_Competencia + '</option>');
+                            });
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            // Obtener la fecha actual en la zona horaria local
+            var currentDate = new Date();
+            var day = ("0" + currentDate.getDate()).slice(-2); // Asegura que el día tenga dos dígitos
+            var month = ("0" + (currentDate.getMonth() + 1)).slice(-2); // Asegura que el mes tenga dos dígitos
+            var year = currentDate.getFullYear();
+
+            // Formatea la fecha como yyyy-mm-dd
+            var formattedDate = year + "-" + month + "-" + day;
+
+            // Establece el valor del campo de fecha con la fecha actual
+            $('#date').val(formattedDate);
+            // Deshabilitar el campo de fecha para que no se pueda editar
+            $('#date').prop('disabled', true);
+        });
+    </script>
+
+    <script>
+$(document).ready(function () {
+    // Maneja el evento click del botón con id 'registrar-inasistencia'
+    $('#registrar-inasistencia').click(function () {
+        // Obtiene los valores de los campos de ficha, programa de formación, competencia, aprendiz y fecha
+        var fichaId = $('#ficha').val();
+        var programaId = $('#programa_formacion').val();
+        var competenciaId = $('#competencias').val();
+        var aprendizId = $('#aprendiz').val();
+        var fecha = $('#date').val();
+        var hora = new Date().toLocaleTimeString(); // Obtiene la hora actual
+
+        if (fichaId && programaId && competenciaId && aprendizId && fecha) {
+             // Si todos los campos están completos, realiza una solicitud AJAX para registrar la inasistencia
+            $.ajax({
+                url: '@Url.Action("RegistrarInasistencia", "InstructorMenu")',
+                type: "POST",
+                data: {
+                    fichaId: fichaId,
+                    programaId: programaId,
+                    competenciaId: competenciaId,
+                    aprendizId: aprendizId,
+                    fecha: fecha,
+                    hora: hora
+                },
+                success: function (data) {
+                    // Maneja la respuesta del servidor
+                    if (data.success) {
+                        alert('Inasistencia registrada con éxito');
+                    } else {
+                        alert('Error al registrar la inasistencia');
+                    }
+                }
+            });
+            // Si alguno de los campos está vacío, muestra un mensaje pidiendo que se completen todos los campos
+        } else {
+            alert('Por favor, completa todos los campos');
+        }
+    });
+});
+    </script>
+
+
+</body>
+</html>
