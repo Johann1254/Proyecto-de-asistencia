@@ -290,7 +290,6 @@
     <Content Include="Views\AprendizMenu\MenuprincipalAprendiz.cshtml" />
     <Content Include="Views\InstructorMenu\VistaAsistencias.cshtml" />
     <Content Include="Views\InstructorMenu\VistaInasistencias.cshtml" />
-    <Content Include="Views\InstructorMenu\VistacrearUsuarios.cshtml" />
     <Content Include="Views\InstructorMenu\ConsultarFichas.cshtml" />
     <Content Include="Views\InstructorMenu\VistaconsultarInasistencias.cshtml" />
     <Content Include="Views\InstructorMenu\Listadofichas.cshtml" />
@@ -324,6 +323,7 @@
     <Content Include="Views\InstructorMenu\FormularioAsistencias.cshtml" />
     <Content Include="Views\InstructorMenu\RegistroInasistencia.cshtml" />
     <Content Include="Views\InstructorMenu\ConsultarInasistencias.cshtml" />
+    <Content Include="Views\InstructorMenu\Consultar_Asistencia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

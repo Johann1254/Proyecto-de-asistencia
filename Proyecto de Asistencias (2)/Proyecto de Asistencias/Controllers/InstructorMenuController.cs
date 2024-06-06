@@ -29,11 +29,19 @@ namespace Proyecto_de_Asistencias.Controllers
         public ActionResult VistaInasistencias()
         {
             return View();
-        }
-        public ActionResult VistacrearUsuarios()
+        } 
+        public ActionResult Consultar_Asistencia()
         {
+
+            ViewBag.Fichas = db.Ficha.Select(f => new SelectListItem
+            {
+                Value = f.Numero_Ficha.ToString(),
+                Text = f.Numero_Ficha.ToString()
+            }).ToList();
+
             return View();
         }
+     
         public ActionResult ConsultarFichas()
         {
             return View();
@@ -95,6 +103,7 @@ namespace Proyecto_de_Asistencias.Controllers
                 Value = f.Numero_Ficha.ToString(),
                 Text = f.Numero_Ficha.ToString()
             }).ToList();
+
 
             // Retorna la vista.
             return View();
@@ -217,7 +226,7 @@ namespace Proyecto_de_Asistencias.Controllers
         }
 
         [HttpGet]
-        public ActionResult ObtenerInasistencias(int? fichaId, int? programaId, int? competenciaId)
+        public ActionResult ObtenerInasistencias(int? fichaId, int? programaId, int? competenciaId, string fecha)
         {
             // Este método se encarga de obtener las inasistencias basándose en los parámetros proporcionados.
             // Los parámetros pueden ser null, en cuyo caso no se utilizan para filtrar las inasistencias.
@@ -252,10 +261,66 @@ namespace Proyecto_de_Asistencias.Controllers
                                                                            .FirstOrDefault()) &&
                                               // Filtra por el nombre de la competencia si se proporciona
                                               (!competenciaId.HasValue || r.Competencias == nombreCompetencia) &&
+                                               (string.IsNullOrEmpty(fecha) || r.Fecha_Asistencia == fecha) &&
                                               // El idInstructor del registro debe ser igual al idInstructor obtenido de la sesión.
                                               r.idInstructor == idInstructor &&
                                               // El Tipo_Asistencia del registro debe ser false, lo que indica que es una inasistencia.
                                               r.Tipo_Asistencia == false)
+                                  // La función .Select() se utiliza para seleccionar ciertos campos de cada registro que cumple con las condiciones. 
+                                  .Select(r => new
+                                  {
+                                      Nombre = r.Nombres,
+                                      Apellidos = r.Apellidos,
+                                      Fecha = r.Fecha_Asistencia,
+                                      Ficha = r.Ficha
+                                  })
+                                  // Finalmente, la función .ToList() se utiliza para convertir el resultado en una lista.
+                                  .ToList();
+
+            // Retorna las inasistencias como un objeto JSON.
+            return Json(inasistencias, JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet]
+        public ActionResult ObtenerAsistencias(int? fichaId, int? programaId, int? competenciaId, string fecha)
+        {
+            // Este método se encarga de obtener las inasistencias basándose en los parámetros proporcionados.
+            // Los parámetros pueden ser null, en cuyo caso no se utilizan para filtrar las inasistencias.
+
+            // Obtiene el id del instructor de la sesión.
+            var idInstructor = (int?)Session["Instructor"];
+
+            // Si el id del instructor es null, significa que el instructor no está autenticado.
+            // En este caso, se retorna un objeto JSON con un mensaje de error.
+            if (idInstructor == null)
+            {
+                return Json(new { success = false, message = "Instructor no autenticado" }, JsonRequestBehavior.AllowGet);
+            }
+
+            // Obtiene el nombre de la competencia si se proporciona competenciaId
+            string nombreCompetencia = null;
+            if (competenciaId.HasValue)
+            {
+                nombreCompetencia = db.Competencia
+                                      .Where(c => c.idCompetencia == competenciaId.Value)
+                                      .Select(c => c.Nombre_Competencia)
+                                      .FirstOrDefault();
+            }
+
+            // Obtiene las inasistencias de la base de datos que coinciden con los parámetros proporcionados.
+            var inasistencias = db.Registro_Asistencias_QR
+                                  // La función .Where() se utiliza para filtrar los registros de asistencia.
+                                  .Where(r => (!fichaId.HasValue || r.Ficha == fichaId.Value) &&
+                                              (!programaId.HasValue || r.Programa == db.Programa_Formacion
+                                                                           .Where(p => p.idPrograma == programaId.Value)
+                                                                           .Select(p => p.Nombre_Programa)
+                                                                           .FirstOrDefault()) &&
+                                              // Filtra por el nombre de la competencia si se proporciona
+                                              (!competenciaId.HasValue || r.Competencias == nombreCompetencia) &&
+                                               (string.IsNullOrEmpty(fecha) || r.Fecha_Asistencia == fecha) &&
+                                              // El idInstructor del registro debe ser igual al idInstructor obtenido de la sesión.
+                                              r.idInstructor == idInstructor &&
+                                              // El Tipo_Asistencia del registro debe ser false, lo que indica que es una inasistencia.
+                                              r.Tipo_Asistencia == true)
                                   // La función .Select() se utiliza para seleccionar ciertos campos de cada registro que cumple con las condiciones. 
                                   .Select(r => new
                                   {

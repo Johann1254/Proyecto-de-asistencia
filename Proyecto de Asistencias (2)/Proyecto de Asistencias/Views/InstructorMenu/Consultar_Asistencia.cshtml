@@ -8,10 +8,8 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>ConsultarInasistencias</title>
-    <link href="~/CSS/ConsultarInasistencia.css" rel="stylesheet" />
+    <title>Consultar_Asistencia</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 </head>
 <body>
     <h1 id="titulo2">Listado de Inasistencias</h1>
@@ -67,8 +65,9 @@
             </tbody>
         </table>
     </div>
-
-    <script>
+</body>
+</html>
+<script>
         // Este bloque de código se ejecuta cuando el documento HTML ha sido completamente cargado y está listo para interactuar con JavaScript.
         $(document).ready(function () {
              // Este bloque de código se ejecuta cuando el valor del elemento HTML con id 'ficha' cambia. Este elemento es un menú desplegable.
@@ -134,7 +133,7 @@
                 var fecha = $('#fecha').val(); // Nuevo campo de fecha
                 // Se realiza una solicitud AJAX para obtener las inasistencias correspondientes a los valores seleccionados.
                 $.ajax({
-                    url: '@Url.Action("ObtenerInasistencias", "InstructorMenu")',
+                    url: '@Url.Action("ObtenerAsistencias", "InstructorMenu")',
                     type: "GET",
                     data: {
                         fichaId: fichaId || null,
@@ -162,6 +161,4 @@
                 });
             });
         });
-    </script>
-</body>
-</html>
+</script>
