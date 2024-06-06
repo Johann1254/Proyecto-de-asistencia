@@ -152,7 +152,7 @@ namespace Proyecto_de_Asistencias.Controllers
             return Json(aprendices, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
-        public ActionResult RegistrarInasistencia(int fichaId, int programaId, int competenciaId, int aprendizId, string fecha, string hora)
+        public ActionResult RegistrarInasistencia(int fichaId, int programaId, string nombreCompetencia, int aprendizId, string fecha, string hora)
         {
             try
             {
@@ -180,7 +180,7 @@ namespace Proyecto_de_Asistencias.Controllers
                     Tipo_Asistencia = false, // Inasistencia
                     Ficha = fichaId, // Id de la ficha
                     Programa = db.Programa_Formacion.Where(p => p.idPrograma == programaId).Select(p => p.Nombre_Programa).FirstOrDefault(), // Nombre del programa
-                    Competencias = competenciaId.ToString(), // Id de la competencia convertido a string
+                    Competencias = nombreCompetencia, // Nombre de la competencia
                     idAprendiz = aprendizId, // Id del aprendiz
                     Nombres = aprendiz.Nombres_Aprenidiz, // Nombres del aprendiz
                     Apellidos = aprendiz.Apellidos_Aprendiz, // Apellidos del aprendiz
@@ -232,28 +232,31 @@ namespace Proyecto_de_Asistencias.Controllers
                 return Json(new { success = false, message = "Instructor no autenticado" }, JsonRequestBehavior.AllowGet);
             }
 
+            // Obtiene el nombre de la competencia si se proporciona competenciaId
+            string nombreCompetencia = null;
+            if (competenciaId.HasValue)
+            {
+                nombreCompetencia = db.Competencia
+                                      .Where(c => c.idCompetencia == competenciaId.Value)
+                                      .Select(c => c.Nombre_Competencia)
+                                      .FirstOrDefault();
+            }
+
             // Obtiene las inasistencias de la base de datos que coinciden con los parámetros proporcionados.
             var inasistencias = db.Registro_Asistencias_QR
                                   // La función .Where() se utiliza para filtrar los registros de asistencia.
-                                  // Si no se proporcionó un fichaId, entonces esta condición es verdadera por defecto. 
-                                  // Si se proporcionó un fichaId, entonces el Ficha del registro debe ser igual a fichaId.Value.
                                   .Where(r => (!fichaId.HasValue || r.Ficha == fichaId.Value) &&
-                                              // igaul a la condición anterior, pero para el programaId. 
-                                              // Si se proporcionó un programaId, entonces el Programa del registro debe ser igual al
-                                              // Nombre_Programa del programa con el idPrograma igual a programaId.Value.
                                               (!programaId.HasValue || r.Programa == db.Programa_Formacion
                                                                            .Where(p => p.idPrograma == programaId.Value)
                                                                            .Select(p => p.Nombre_Programa)
                                                                            .FirstOrDefault()) &&
-                                              // igual a las condiciones anteriores, pero para el competenciaId. 
-                                              // Si se proporcionó un competenciaId, entonces las Competencias del registro deben ser iguales a competenciaId.Value.ToString().
-                                              (!competenciaId.HasValue || r.Competencias == competenciaId.Value.ToString()) &&
+                                              // Filtra por el nombre de la competencia si se proporciona
+                                              (!competenciaId.HasValue || r.Competencias == nombreCompetencia) &&
                                               // El idInstructor del registro debe ser igual al idInstructor obtenido de la sesión.
                                               r.idInstructor == idInstructor &&
                                               // El Tipo_Asistencia del registro debe ser false, lo que indica que es una inasistencia.
                                               r.Tipo_Asistencia == false)
                                   // La función .Select() se utiliza para seleccionar ciertos campos de cada registro que cumple con las condiciones. 
-                                  // En este caso, se seleccionan los campos Nombres, Apellidos, Fecha_Asistencia y Ficha.
                                   .Select(r => new
                                   {
                                       Nombre = r.Nombres,
@@ -267,6 +270,7 @@ namespace Proyecto_de_Asistencias.Controllers
             // Retorna las inasistencias como un objeto JSON.
             return Json(inasistencias, JsonRequestBehavior.AllowGet);
         }
+
 
 
 
