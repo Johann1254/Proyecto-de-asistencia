@@ -156,12 +156,12 @@ $(document).ready(function () {
         // Obtiene los valores de los campos de ficha, programa de formación, competencia, aprendiz y fecha
         var fichaId = $('#ficha').val();
         var programaId = $('#programa_formacion').val();
-        var competenciaId = $('#competencias').val();
+        var competenciaNombre = $('#competencias option:selected').text();
         var aprendizId = $('#aprendiz').val();
         var fecha = $('#date').val();
         var hora = new Date().toLocaleTimeString(); // Obtiene la hora actual
 
-        if (fichaId && programaId && competenciaId && aprendizId && fecha) {
+        if (fichaId && programaId && competenciaNombre && aprendizId && fecha) {
              // Si todos los campos están completos, realiza una solicitud AJAX para registrar la inasistencia
             $.ajax({
                 url: '@Url.Action("RegistrarInasistencia", "InstructorMenu")',
@@ -169,7 +169,7 @@ $(document).ready(function () {
                 data: {
                     fichaId: fichaId,
                     programaId: programaId,
-                    competenciaId: competenciaId,
+                    nombreCompetencia: competenciaNombre,
                     aprendizId: aprendizId,
                     fecha: fecha,
                     hora: hora
@@ -178,9 +178,17 @@ $(document).ready(function () {
                     // Maneja la respuesta del servidor
                     if (data.success) {
                         alert('Inasistencia registrada con éxito');
+                        $('#ficha').empty().append('<option value="">Seleccione una ficha</option>');
+                        $('#programa_formacion').empty().append('<option value="">Seleccione un programa</option>');
+                        $('#competencias').empty().append('<option value="">Seleccione una competencia</option>');
+                        $('#aprendiz').empty().append('<option value="">Seleccione un aprendiz</option>');
                     } else {
-                        alert('Error al registrar la inasistencia');
+                        alert('Error al registrar la inasistencia: ' + data.message);
                     }
+                },
+                error: function (xhr, status, error) {
+                    // Maneja errores de la solicitud AJAX
+                    alert('Ocurrió un error al registrar la inasistencia: ' + error);
                 }
             });
             // Si alguno de los campos está vacío, muestra un mensaje pidiendo que se completen todos los campos
