@@ -32,6 +32,7 @@ namespace Libreria_de_conexion
         public string Programa { get; set; }
         public Nullable<int> idInstructor { get; set; }
         public Nullable<int> idAprendiz { get; set; }
+        public byte[] ArchivoPDF { get; set; }
     
         public virtual Aprendiz Aprendiz { get; set; }
         public virtual Instructor Instructor { get; set; }

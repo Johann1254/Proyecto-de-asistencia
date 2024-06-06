@@ -86,6 +86,7 @@
     <Property Name="Programa" Type="varchar" MaxLength="100" />
     <Property Name="idInstructor" Type="int" />
     <Property Name="idAprendiz" Type="int" />
+    <Property Name="ArchivoPDF" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Reporte">
     <Key>

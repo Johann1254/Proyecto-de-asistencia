@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AsistenciaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AsistenciaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Administrador">
           <Key>
             <PropertyRef Name="idAdministrador" />
@@ -91,6 +91,7 @@
           <Property Name="Programa" Type="varchar" MaxLength="100" />
           <Property Name="idInstructor" Type="int" />
           <Property Name="idAprendiz" Type="int" />
+          <Property Name="ArchivoPDF" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Reporte">
           <Key>
@@ -349,8 +350,7 @@
             <End Role="Soporte_asistencia" EntitySet="Soporte_asistencia" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AsistenciaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -466,6 +466,7 @@
           <NavigationProperty Name="Aprendiz" Relationship="Self.FK__Registro___idApr__37A5467C" FromRole="Registro_Asistencias_QR" ToRole="Aprendiz" />
           <NavigationProperty Name="Instructor" Relationship="Self.FK__Registro___idIns__36B12243" FromRole="Registro_Asistencias_QR" ToRole="Instructor" />
           <NavigationProperty Name="Reporte" Relationship="Self.FK__Reporte__idAsist__3A81B327" FromRole="Registro_Asistencias_QR" ToRole="Reporte" />
+          <Property Name="ArchivoPDF" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Reporte">
           <Key>
@@ -815,6 +816,7 @@
           <EntitySetMapping Name="Registro_Asistencias_QR">
             <EntityTypeMapping TypeName="AsistenciaModel.Registro_Asistencias_QR">
               <MappingFragment StoreEntitySet="Registro_Asistencias_QR">
+                <ScalarProperty Name="ArchivoPDF" ColumnName="ArchivoPDF" />
                 <ScalarProperty Name="idAsistencia" ColumnName="idAsistencia" />
                 <ScalarProperty Name="Fecha_Asistencia" ColumnName="Fecha_Asistencia" />
                 <ScalarProperty Name="Hora_Asistencia" ColumnName="Hora_Asistencia" />

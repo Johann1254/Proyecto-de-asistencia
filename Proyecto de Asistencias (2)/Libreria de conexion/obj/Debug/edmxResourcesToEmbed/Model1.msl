@@ -80,6 +80,7 @@
     <EntitySetMapping Name="Registro_Asistencias_QR">
       <EntityTypeMapping TypeName="AsistenciaModel.Registro_Asistencias_QR">
         <MappingFragment StoreEntitySet="Registro_Asistencias_QR">
+          <ScalarProperty Name="ArchivoPDF" ColumnName="ArchivoPDF" />
           <ScalarProperty Name="idAsistencia" ColumnName="idAsistencia" />
           <ScalarProperty Name="Fecha_Asistencia" ColumnName="Fecha_Asistencia" />
           <ScalarProperty Name="Hora_Asistencia" ColumnName="Hora_Asistencia" />

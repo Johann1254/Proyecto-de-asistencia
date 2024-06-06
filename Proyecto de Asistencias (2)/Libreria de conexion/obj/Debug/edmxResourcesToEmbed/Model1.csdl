@@ -112,6 +112,7 @@
     <NavigationProperty Name="Aprendiz" Relationship="Self.FK__Registro___idApr__37A5467C" FromRole="Registro_Asistencias_QR" ToRole="Aprendiz" />
     <NavigationProperty Name="Instructor" Relationship="Self.FK__Registro___idIns__36B12243" FromRole="Registro_Asistencias_QR" ToRole="Instructor" />
     <NavigationProperty Name="Reporte" Relationship="Self.FK__Reporte__idAsist__3A81B327" FromRole="Registro_Asistencias_QR" ToRole="Reporte" />
+    <Property Name="ArchivoPDF" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Reporte">
     <Key>

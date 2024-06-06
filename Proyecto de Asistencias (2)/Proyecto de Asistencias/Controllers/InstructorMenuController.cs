@@ -15,8 +15,8 @@ namespace Proyecto_de_Asistencias.Controllers
     {
         Aprendiz apr = new Aprendiz();
         string cadena = "data source = DESKTOP-67BA9OT\\SQLEXPRESS; initial catalog = Asistencia; integrated security = true; multipleactiveresultsets=true;";
-        
 
+       
         // GET: InstructorMenu
         public ActionResult MenuprincipalInstructor()
         {
@@ -47,18 +47,22 @@ namespace Proyecto_de_Asistencias.Controllers
         {
             return View();
         }
+        private AsistenciaEntities db = new AsistenciaEntities(); 
         public ActionResult ListadoAprendices()
         {
+
             using (var db = new AsistenciaEntities())
             {
 
                 var aprendices = db.Aprendiz.ToList(); 
-   
 
-                ViewBag.Aprendiz = aprendices;
-                
+
+               ViewBag.Aprendiz = aprendices;
+
             }
             return View();
+
+           
         }
         public ActionResult ListadoProgramas()
         {
@@ -95,47 +99,47 @@ namespace Proyecto_de_Asistencias.Controllers
         }
         public ActionResult ConsultarAprendices()
         {
-            return View();
+            return View(); 
         }
        
 
-        //public ActionResult ConsultarA(int NumeroFicha, int IdCompetencia, int IdPrograma)
-        //{
-        //    List<Aprendiz> aprendices = new List<Aprendiz>();
+        public ActionResult ConsultarA(int NumeroFicha, int IdCompetencia, int IdPrograma)
+        {
+            List<Aprendiz> aprendices = new List<Aprendiz>();
 
-        //    using (SqlConnection cn = new SqlConnection(cadena))
-        //    {
-        //          // Crea un comando SQL para ejecutar el procedimiento almacenado sp_ValidarUsuario 
-        //          SqlCommand cmd = new SqlCommand("ConsultarAprendiz", cn);
-        //          cmd.Parameters.AddWithValue("NumeroFicha", NumeroFicha);
-        //          cmd.Parameters.AddWithValue("IdPrograma", IdPrograma);
-        //          cmd.Parameters.AddWithValue("IdCompetencia", IdCompetencia);
-        //          cmd.CommandType = CommandType.StoredProcedure;
+            using (SqlConnection cn = new SqlConnection(cadena))
+            {
+                // Crea un comando SQL para ejecutar el procedimiento almacenado sp_ValidarUsuario 
+                SqlCommand cmd = new SqlCommand("ConsultarAprendiz", cn);
+                cmd.Parameters.AddWithValue("NumeroFicha", NumeroFicha);
+                cmd.Parameters.AddWithValue("IdPrograma", IdPrograma);
+                cmd.Parameters.AddWithValue("IdCompetencia", IdCompetencia);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-        //            // Abre la conexión a la base de datos
-        //            cn.Open();
+                // Abre la conexión a la base de datos
+                cn.Open();
 
 
-        //        using (SqlDataReader dr = cmd.ExecuteReader())
-        //        {
-        //            while (dr.Read())
-        //            {
-        //                Aprendiz aprendiz = new Aprendiz
-        //                {
-        //                    Nombres_Aprenidiz = dr["Nombres_Aprenidiz"].ToString(),
-        //                    Apellidos_Aprendiz = dr["Apellidos_Aprendiz"].ToString(),
-        //                    Email_Aprenidiz = dr["Email_Aprenidiz"].ToString()
-        //                };
-        //                aprendices.Add(aprendiz);
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        Aprendiz aprendiz = new Aprendiz
+                        {
+                            Nombres_Aprenidiz = dr["Nombres_Aprenidiz"].ToString(),
+                            Apellidos_Aprendiz = dr["Apellidos_Aprendiz"].ToString(),
+                            Email_Aprenidiz = dr["Email_Aprenidiz"].ToString()
+                        };
+                        aprendices.Add(aprendiz);
 
-                     
 
-        //            }
-        //        }
 
-        //    }
-        //    return View(aprendices); 
-        //}
+                    }
+                }
+
+            }
+            return View("ListadoAprendices", aprendices);
+        }
         
     }
 

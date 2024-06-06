@@ -24,16 +24,37 @@
         <div class="cuadrado">
             <table>
                 <tr>
-                    <th>Nombre </th>
-                    <th>Apellido</th>
-                    <th>Fecha</th>
+                    <th>Id de Asistencias</th>
+                    <th>Fecha de Asistencias</th>
+                    <th>Hora de Asistencias</th>
+                    <th>Tipo de Asistencias</th>
+                    <th>Nombre de Aprendiz</th>
+                    <th>Apellido de Aprendiz</th>
+                    <th>Imagane de QR</th>
+                    <th>Competencia</th>
                     <th>Ficha</th>
-                    
+                    <th>Programa de Formación</th>
+
                 </tr>
-                <tr>
-                    
-                </tr>
-                
+                @foreach (var aprendiz in ViewBag.Aprendiz)
+                {
+                    <tr>
+                   
+                        <td>@aprendiz.idAsistencia</td>
+                        <td>@aprendiz.Fecha_Asistencia</td>
+                        <td>@aprendiz.Hora_Asistencia</td>
+                        <td>@aprendiz.Tipo_Asistencia</td>
+                        <td>@aprendiz.Nombres</td>
+                        <td>@aprendiz.Apellidos</td>
+                        <td>@aprendiz.ImagenQR</td>
+                        <td>@aprendiz.Competencias</td>
+                        <td>@aprendiz.Ficha</td>
+                        <td>@aprendiz.Programa</td>
+                      
+                    </tr>
+                }
+
+
                 <!-- Puedes añadir más filas según sea necesario -->
             </table>
         </div>

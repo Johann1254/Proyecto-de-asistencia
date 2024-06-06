@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Libreria_de_conexion.Registro_Asistencias_QR>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Archivo</title>
+</head>
+<body>
+    <table id="asistenciasTable">
+        <thead>
+            <tr>
+                <th>
+                    Id de Asistencias
+                </th>
+                <th>
+                    Fecha de Asistencias
+                </th>
+                <th>
+                    Hora de Asistencias
+                </th>
+                <th>
+                    Tipo de Asistencias
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <th>
+                    Imagen de QR
+                </th>
+                <th>
+                    Competencias
+                </th>
+                <th>
+                    Ficha
+                </th>
+                <th>
+                    Programa de formacion
+                </th>
+                <th>
+                    Archivo
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var inasistencias in Model)
+            {
+                <tr data-id="@inasistencias.idAsistencia">
+                    <td>
+                        @inasistencias.idAsistencia
+                    </td>
+                    <td>
+                        @inasistencias.Fecha_Asistencia
+                    </td>
+                    <td>
+                        @inasistencias.Hora_Asistencia
+                    </td>
+                    <td>
+                        @inasistencias.Tipo_Asistencia
+                    </td>
+                    <td>
+                        @inasistencias.Nombres
+                    </td>
+                    <td>
+                        @inasistencias.Apellidos
+                    </td>
+                    <td>
+                        @inasistencias.ImagenQR
+                    </td>
+                    <td>
+                        @inasistencias.Competencias
+                    </td>
+                    <td>
+                        @inasistencias.Ficha
+                    </td>
+                    <td>
+                        @inasistencias.Programa
+                    </td>
+                    <td>
+                        @inasistencias.ArchivoPDF
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <form id="editForm" method="post" action="/Asistencias/Edit">
+        <input type="hidden" id="asistenciaId" name="id" />
+        <label for="archivo">Archivo:</label>
+        <input type="text" id="archivo" name="archivo" />
+        <button type="submit">Guardar</button>
+    </form>
+
+
+
+</body>
+</html>
+<script>
+    document.querySelectorAll('#asistenciasTable tbody tr').forEach(row => {
+        row.addEventListener('click', () => {
+            const id = row.getAttribute('data-id');
+            document.getElementById('asistenciaId').value = id;
+        });
+    });
+</script>
