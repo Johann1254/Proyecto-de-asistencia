@@ -28,17 +28,16 @@
 <body>
     <br />
     <h2 class="welcome">Instructor</h2>
-    <p>
-        @Html.ActionLink("Nuevo Instructor", "Create", "", new { @class = "btn-nuevo" })
-    </p>
-    <form asp-controller="Instructors" asp-action="Index" method="get">
+    <div class="action-bar">
         <p>
-            <input type="text"  name="buscar" class="caja-texto" />
-            <input type="submit" value="Buscar" class="btn-buscar" />
-
+            @Html.ActionLink("Nuevo Instructor", "Create", "", new { @class = "btn-nuevo" })
         </p>
+        <form asp-controller="Instructors" asp-action="Index" method="get" class="search-form">
+            <input type="text" name="buscar" class="caja-texto" />
+            <input type="submit" value="Buscar" class="btn-buscar" />
+        </form>
+    </div>
 
-    </form>
     <div class="table-responsive">
 
         <table class="table">
@@ -88,8 +87,8 @@
                         @Html.DisplayFor(modelItem => item.Ficha.Numero_Ficha)
                     </td>
                     <td>
-                        @Html.ActionLink("Editar", "Edit", new { id = item.idInstructor }, new { @class = "btn-editar" }) 
-                        @Html.ActionLink("Detalles", "Details", new { id = item.idInstructor }, new { @class = "btn-detalles" }) 
+                        @Html.ActionLink("Editar", "Edit", new { id = item.idInstructor }, new { @class = "btn-editar" })
+                        @Html.ActionLink("Detalles", "Details", new { id = item.idInstructor }, new { @class = "btn-detalles" })
                         @Html.ActionLink("Eliminar", "Delete", new { id = item.idInstructor }, new { @class = "btn-eliminar" })
                     </td>
                 </tr>

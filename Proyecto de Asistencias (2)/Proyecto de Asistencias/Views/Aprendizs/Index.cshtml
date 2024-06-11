@@ -28,90 +28,91 @@
 <body>
     <br />
     <h2 class="welcome"> Aprendiz</h2>
-
-    <p>
-        @Html.ActionLink("Nuevo Aprendiz", "Create", "", new { @class = "btn-nuevo" })
-    </p>
-    <form asp-controller="Aprendizs" asp-action="Index" method="get">
+    <div class="action-bar">
         <p>
-            Buscar:<input type="text" name="buscar" class="form-text" />
-            <input type="submit" value="Buscar" class="btn btn-sm btn-dark" />
-
+            @Html.ActionLink("Nuevo Aprendiz", "Create", "", new { @class = "btn-nuevo" })
         </p>
+        <form asp-controller="Aprendizs" asp-action="Index" method="get">
+            <p>
+                <input type="text" name="buscar" class="caja-texto" />
+                <input type="submit" value="Buscar" class="btn-buscar" />
 
-    </form>
-    <div class="table-responsive">
-        <table class="table">
-            <tr>
-                <th>
-                    Nombre(s)
-                </th>
-                <th>
-                    Apellidos
-                </th>
-                <th>
-                    Email
-                </th>
-                <th>
-                    Tipo de Documento
-                </th>
-                <th>
-                    Numero de Documento
-                </th>
-                <th>
-                    Contraseña
-                </th>
-                <th>
-                    Estado
-                </th>
-                <th>
-                    Identificacion Admin
-                </th>
-                <th>
-                    Ficha
-                </th>
-                <th>Operaciones</th>
-            </tr>
+            </p>
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nombres_Aprenidiz)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Apellidos_Aprendiz)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email_Aprenidiz)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Tipo_Documento)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Numero_Documento)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Contraseña)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.EstadoDescripcion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Ficha.Numero_Ficha)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Editar", "Edit", new { id = item.idAprendiz }, new { @class = "btn-editar" })
-                        @Html.ActionLink("Detalles", "Details", new { id = item.idAprendiz }, new { @class = "btn-detalles" })
-                        @Html.ActionLink("Eliminar", "Delete", new { id = item.idAprendiz }, new { @class = "btn-eliminar" })
-                    </td>
-                </tr>
-            }
-
-        </table>
+        </form>
     </div>
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>
+                        Nombre(s)
+                    </th>
+                    <th>
+                        Apellidos
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Tipo de Documento
+                    </th>
+                    <th>
+                        Numero de Documento
+                    </th>
+                    <th>
+                        Contraseña
+                    </th>
+                    <th>
+                        Estado
+                    </th>
+                    <th>
+                        Identificacion Admin
+                    </th>
+                    <th>
+                        Ficha
+                    </th>
+                    <th>Operaciones</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nombres_Aprenidiz)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Apellidos_Aprendiz)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email_Aprenidiz)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tipo_Documento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Numero_Documento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Contraseña)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EstadoDescripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ficha.Numero_Ficha)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.idAprendiz }, new { @class = "btn-editar" })
+                            @Html.ActionLink("Detalles", "Details", new { id = item.idAprendiz }, new { @class = "btn-detalles" })
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.idAprendiz }, new { @class = "btn-eliminar" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
 </body>
 </html>

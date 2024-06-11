@@ -28,61 +28,63 @@
 <body>
     <br />
     <h2 class="welcome">Programas de Formacion</h2>
-    <p>
-        @Html.ActionLink("Nuevo Programa", "Create", "", new { @class = "btn-nuevo" })
-    </p>
-    <form asp-controller="Programa_Formacion" asp-action="Index" method="get">
+    <div class="action-bar">
         <p>
-            Buscar:<input type="text" name="buscar" class="form-text" />
-            <input type="submit" value="Buscar" class="btn btn-sm btn-dark" />
-
+            @Html.ActionLink("Nuevo Programa", "Create", "", new { @class = "btn-nuevo" })
         </p>
+        <form asp-controller="Programa_Formacion" asp-action="Index" method="get">
+            <p>
+                <input type="text" name="buscar" class="caja-texto" />
+                <input type="submit" value="Buscar" class="btn-buscar" />
 
-    </form>
-    <div class="table-responsive">
+            </p>
 
-
-        <table class="table">
-            <tr>
-                <th>
-                    ID
-                </th>
-                <th>
-                    Nombre
-                </th>
-                <th>
-                    Duracion
-                </th>
-                <th>
-                    Identificacion admin
-                </th>
-                <th>Operaciones</th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.idPrograma)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nombre_Programa)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Duracion_Programa)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Editar", "Edit", new { id = item.idPrograma }, new { @class = "btn-editar" })
-                        @Html.ActionLink("Detalles", "Details", new { id = item.idPrograma }, new { @class = "btn-detalles" })
-                        @Html.ActionLink("Eliminar", "Delete", new { id = item.idPrograma }, new { @class = "btn-eliminar" })
-                    </td>
-                </tr>
-            }
-
-        </table>
+        </form>
     </div>
+        <div class="table-responsive">
+
+
+            <table class="table">
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Duracion
+                    </th>
+                    <th>
+                        Identificacion admin
+                    </th>
+                    <th>Operaciones</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.idPrograma)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nombre_Programa)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Duracion_Programa)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Administrador.idAdministrador)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.idPrograma }, new { @class = "btn-editar" })
+                            @Html.ActionLink("Detalles", "Details", new { id = item.idPrograma }, new { @class = "btn-detalles" })
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.idPrograma }, new { @class = "btn-eliminar" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
 </body>
 </html>
