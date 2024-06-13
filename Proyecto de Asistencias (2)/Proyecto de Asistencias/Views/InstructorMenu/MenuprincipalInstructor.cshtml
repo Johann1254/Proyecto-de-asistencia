@@ -1,7 +1,9 @@
 ﻿
-@{
-    Layout = null;
+@{ Layout = null;
+                var nombreUsuario = Session["NombreUsuario"] as string ?? "Nombre";
+                var apellidoUsuario = Session["ApellidoUsuario"] as string ?? "Apellido"; 
 }
+
 
 <!DOCTYPE html>
 
@@ -20,13 +22,14 @@
 
     <div class="container">
         <div class="header">
-            <h1>Instructor  Jesus Marzal Barboza</h1>
+            <h1>Instructor @nombreUsuario @apellidoUsuario</h1>
             <h2>Menu de Opciones</h2>
         </div>
         <div class="form-container">
 
             <div class="form-field boton-opciones">
                 @*<button class="button" onclick="location.href = 'VistaAsistencias'">Asistencias</button>*@
+                <button class="button" onclick="location.href = ''">Generar reporte</button>
                 <button class="button" onclick="location.href = 'VistaInasistencias'">Inasistencias</button>
                 <button class="button" onclick="location.href = 'VistaAsistencias'">Asistencia</button>
                 <button class="button" onclick="location.href = 'QrAsistencias'">Generar código QR para la Asistencia</button>
@@ -40,7 +43,7 @@
         <div>
             <p>Assist.NET </p>
         </div>
-        
+
     </footer>
 </body>
 </html>

@@ -1,6 +1,7 @@
 ﻿
-@{
-    Layout = null;
+@{ Layout = null;
+    var nombreUsuario = Session["NombreUsuario"] as string ?? "Nombre";
+    var apellidoUsuario = Session["ApellidoUsuario"] as string ?? "Apellido";
 }
 
 <!DOCTYPE html>
@@ -11,7 +12,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>Menu principal</title>
     <link href="~/CSS/cssIndex.css" rel="stylesheet" />
-   
+
 
 </head>
 <body>
@@ -24,7 +25,7 @@
     </div>
     <div class="container">
         <div class="header">
-            <h1>Aprendiz: Jesus Andres Marzal Barboza</h1>
+            <h1>Aprendiz: @nombreUsuario @apellidoUsuario</h1>
             <br />
             <h2>Menu de Opciones</h2>
         </div>
@@ -32,7 +33,7 @@
         <div class="form-container">
 
             <div class="form-field boton-opciones">
-                
+
                 <button class="boton" onclick="redirectTo('Consultarasistencias')">Consultar Asistencias</button>
                 <button class="boton" onclick="redirectTo('Consultarinasistencias')">Consultar Inasistencias</button>
             </div>

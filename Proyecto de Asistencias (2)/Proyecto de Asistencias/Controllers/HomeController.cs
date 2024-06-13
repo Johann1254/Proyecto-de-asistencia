@@ -17,7 +17,7 @@ namespace Proyecto_de_Asistencias.Controllers
             // Inicializa la variable para almacenar el número total de instructores
             int Instructores;
             // Cadena de conexión a la base de datos
-            string Conexion = "data source=JAMB\\SQLEXPRESS;initial catalog=Asistencia;integrated security=True;multipleactiveresultsets=True;";
+            string Conexion = "data source=DESKTOP-LSQ95PM;initial catalog=Asistencia;integrated security=True;multipleactiveresultsets=True;";
 
             // Establece una conexión a la base de datos
             using (SqlConnection connection = new SqlConnection(Conexion))

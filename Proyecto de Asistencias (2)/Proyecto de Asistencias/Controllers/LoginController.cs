@@ -17,7 +17,7 @@ namespace Proyecto_de_Asistencias.Controllers
         AsistenciaEntities Ae = new AsistenciaEntities();
 
         // Cadena de conexión a la base de datos
-        string cadena = "data source = JAMB\\SQLEXPRESS; initial catalog = Asistencia; integrated security = true; multipleactiveresultsets=true;";
+        string cadena = "data source = DESKTOP-LSQ95PM; initial catalog = Asistencia; integrated security = true; multipleactiveresultsets=true;";
 
         // Método para manejar la solicitud POST(enviar datos) para iniciar sesión
         [HttpPost]
@@ -28,6 +28,9 @@ namespace Proyecto_de_Asistencias.Controllers
             string tipoUsuario;
             int idUsuario;
             bool? estado = null;  // Utiliza nullable para estado
+            string nombreUsuario = "";
+            string apellidoUsuario = "";
+
             // Se establece una conexión a la base de datos
             using (SqlConnection cn = new SqlConnection(cadena))
             {
@@ -66,14 +69,22 @@ namespace Proyecto_de_Asistencias.Controllers
                         idUsuario = reader.GetInt32(1);
                         if (tipoUsuario == "Aprendiz")
                         {
+                            nombreUsuario = reader.GetString(3);
+                            apellidoUsuario = reader.GetString(4);
                             estado = reader.GetBoolean(2);  // Lee el estado solo si es Aprendiz
                             if (estado == false)
                             {
                                 ViewData["Mensaje"] = "APRENDIZ RETIRADO";
                                 return View("Login");
                             }
+                            
                         }
-                        
+                        else if (tipoUsuario == "Instructor")
+                        {
+                            nombreUsuario = reader.GetString(3); // Index 3 para nombre
+                            apellidoUsuario = reader.GetString(4); // Index 4 para apellido
+                        }
+
                     }
                     // Si no hay resultados, devuelve a la vista login
                     else
@@ -96,11 +107,15 @@ namespace Proyecto_de_Asistencias.Controllers
                 // Si tipoUsuario es "Aprendiz",
                 case "Aprendiz":
                     Session["Aprendiz"] = idUsuario;
+                    Session["NombreUsuario"] = nombreUsuario;
+                    Session["ApellidoUsuario"] = apellidoUsuario;
                     return RedirectToAction("MenuprincipalAprendiz", "AprendizMenu"); // Redireccionar a la vista de aprendiz
 
                 // Si tipoUsuario es "Instructor",
                 case "Instructor":
                     Session["Instructor"] = idUsuario;
+                    Session["NombreUsuario"] = nombreUsuario;
+                    Session["ApellidoUsuario"] = apellidoUsuario;
                     return RedirectToAction("MenuprincipalInstructor", "InstructorMenu"); // Redireccionar a la vista de instructor
 
                 default:

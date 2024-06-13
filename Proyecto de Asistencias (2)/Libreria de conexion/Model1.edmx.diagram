@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="AsistenciaModel.Competencia" Width="1.5" PointX="5.25" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AsistenciaModel.Ficha" Width="1.5" PointX="8.25" PointY="14.625" IsExpanded="true" />
         <EntityTypeShape EntityType="AsistenciaModel.Instructor" Width="1.5" PointX="10.5" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AsistenciaModel.Programa_Formacion" Width="1.5" PointX="3" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsistenciaModel.Programa_Formacion" Width="1.5" PointX="2.875" PointY="17.125" IsExpanded="true" />
         <EntityTypeShape EntityType="AsistenciaModel.Registro_Asistencias_QR" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="AsistenciaModel.Reporte" Width="1.5" PointX="7.5" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="AsistenciaModel.Soporte_asistencia" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
