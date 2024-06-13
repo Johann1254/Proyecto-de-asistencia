@@ -27,7 +27,7 @@ namespace Proyecto_de_Asistencias.Controllers
             // Variables para almacenar el tipo de usuario y el ID del usuario
             string tipoUsuario;
             int idUsuario;
-
+            bool? estado = null;  // Utiliza nullable para estado
             // Se establece una conexión a la base de datos
             using (SqlConnection cn = new SqlConnection(cadena))
             {
@@ -56,7 +56,24 @@ namespace Proyecto_de_Asistencias.Controllers
                             ViewData["Mensaje"] = "USUARIO NO EXISTENTE";
                             return View("Login");
                         }
+                        // si el correo esta registrado en la BD pero la contraseña no coincide muestre el mensaje de CONTRASEÑA INCORRECTA
+                        if (tipoUsuario == "-1")
+                        {
+                            ViewData["Mensaje"] = "CONTRASEÑA INCORRECTA";
+                            return View("Login");
+                        }
+                        // si el aprendiz su estado esta como 0 que indica retirado no permita acceder a la vista del aprendiz y muestre el mensaje de aprendiz retirado
                         idUsuario = reader.GetInt32(1);
+                        if (tipoUsuario == "Aprendiz")
+                        {
+                            estado = reader.GetBoolean(2);  // Lee el estado solo si es Aprendiz
+                            if (estado == false)
+                            {
+                                ViewData["Mensaje"] = "APRENDIZ RETIRADO";
+                                return View("Login");
+                            }
+                        }
+                        
                     }
                     // Si no hay resultados, devuelve a la vista login
                     else
