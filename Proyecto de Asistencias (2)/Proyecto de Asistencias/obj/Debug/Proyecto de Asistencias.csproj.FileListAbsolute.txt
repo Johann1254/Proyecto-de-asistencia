@@ -649,3 +649,19 @@ C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proy
 C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\obj\Debug\Proyecto de Asistencias.csproj.CopyComplete
 C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\obj\Debug\Proyecto de Asistencias.dll
 C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\obj\Debug\Proyecto de Asistencias.pdb
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\bin\CrystalDecisions.ReportSource.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\bin\CrystalDecisions.Shared.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\jesus\Downloads\Proyecto-de-asistencia\Proyecto de Asistencias (2)\Proyecto de Asistencias\bin\stdole.dll

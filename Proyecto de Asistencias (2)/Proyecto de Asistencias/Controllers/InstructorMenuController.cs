@@ -7,6 +7,10 @@ using Proyecto_de_Asistencias.Sesion;
 using Libreria_de_conexion;
 using System.Data.SqlClient;
 using System.Data;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using System.IO;
+
 namespace Proyecto_de_Asistencias.Controllers
 {
     [Validar_sesion]
@@ -68,9 +72,67 @@ namespace Proyecto_de_Asistencias.Controllers
         {
             return View();
         }
-        public ActionResult reporte()
+        public ActionResult Reporte()
         {
-             return View();
+            
+            return View();
+           
+        }
+        public ActionResult Descargar()
+        {
+            try
+            {
+                // Obtener el ID del instructor desde la sesión
+                int instructorId = (int)Session["Instructor"];
+
+                // Crear una instancia de ReportClass para el reporte de asistencia
+                var rpth = new ReportClass();
+                // Establecer la ruta del archivo del reporte
+                rpth.FileName = Server.MapPath("/Reportes/Reporteasistencia.rpt");
+                // Cargar el archivo del reporte
+                rpth.Load();
+
+                // Configurar la información de conexión a la base de datos
+                var connInfo = new ConnectionInfo
+                {
+                    IntegratedSecurity = true, // Usar seguridad integrada de Windows
+                    ServerName = @"JAMB\SQLEXPRESS", // Nombre del servidor de base de datos
+                    DatabaseName = "Asistencia" // Nombre de la base de datos
+                };
+
+                // Aplicar la configuración de conexión a cada tabla del reporte
+                foreach (Table table in rpth.Database.Tables)
+                {
+                    var logonInfo = table.LogOnInfo;
+                    logonInfo.ConnectionInfo = connInfo;
+                    table.ApplyLogOnInfo(logonInfo);
+                }
+
+                // Establecer el parámetro del ID del instructor en el reporte
+                rpth.SetParameterValue("@InstructorId", instructorId);
+
+                // Preparar la respuesta HTTP
+                Response.Buffer = false; // Desactivar el buffer de respuesta
+                Response.ClearContent(); // Limpiar el contenido de la respuesta
+                Response.ClearHeaders(); // Limpiar las cabeceras de la respuesta
+
+                // Exportar el reporte a un stream en formato PDF
+                Stream stream = rpth.ExportToStream(ExportFormatType.PortableDocFormat);
+                // Liberar los recursos del reporte
+                rpth.Dispose();
+                rpth.Close();
+
+                // Retornar el stream del PDF como un resultado de archivo
+                return new FileStreamResult(stream, "application/pdf");
+
+            }
+            catch (Exception ex)
+            {
+                // En caso de error, retornar un código de estado HTTP 500 con un mensaje de error
+                return new HttpStatusCodeResult(500, "Error al generar el reporte");
+            }
+
+
         }
         public ActionResult QrAsistencias()
         {
@@ -92,7 +154,8 @@ namespace Proyecto_de_Asistencias.Controllers
         public ActionResult FormularioAsistencias()
         {
             return View(); 
-        } 
+        }  
+       
        
         public ActionResult RegistroInasistencia()
         {
