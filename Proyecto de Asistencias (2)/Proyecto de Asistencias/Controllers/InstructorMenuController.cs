@@ -78,7 +78,9 @@ namespace Proyecto_de_Asistencias.Controllers
             return View();
            
         }
-        public ActionResult Descargar()
+
+        // Acción para previsualizar el reporte en un iframe
+        public ActionResult Previsualizar(DateTime fecha)
         {
             try
             {
@@ -88,7 +90,15 @@ namespace Proyecto_de_Asistencias.Controllers
                 // Crear una instancia de ReportClass para el reporte de asistencia
                 var rpth = new ReportClass();
                 // Establecer la ruta del archivo del reporte
-                rpth.FileName = Server.MapPath("/Reportes/Reporteasistencia.rpt");
+                string reportPath = Server.MapPath("/Reportes/Reporteasistencia.rpt");
+                rpth.FileName = reportPath;
+
+                // Verificar si el archivo existe
+                if (!System.IO.File.Exists(reportPath))
+                {
+                    throw new FileNotFoundException("El archivo del reporte no fue encontrado.", reportPath);
+                }
+
                 // Cargar el archivo del reporte
                 rpth.Load();
 
@@ -108,32 +118,88 @@ namespace Proyecto_de_Asistencias.Controllers
                     table.ApplyLogOnInfo(logonInfo);
                 }
 
-                // Establecer el parámetro del ID del instructor en el reporte
+                // Establecer los parámetros del ID del instructor y la fecha en el reporte
                 rpth.SetParameterValue("@InstructorId", instructorId);
-
-                // Preparar la respuesta HTTP
-                Response.Buffer = false; // Desactivar el buffer de respuesta
-                Response.ClearContent(); // Limpiar el contenido de la respuesta
-                Response.ClearHeaders(); // Limpiar las cabeceras de la respuesta
+                rpth.SetParameterValue("@Fecha", fecha);
 
                 // Exportar el reporte a un stream en formato PDF
                 Stream stream = rpth.ExportToStream(ExportFormatType.PortableDocFormat);
-                // Liberar los recursos del reporte
-                rpth.Dispose();
-                rpth.Close();
+                stream.Seek(0, SeekOrigin.Begin);
 
                 // Retornar el stream del PDF como un resultado de archivo
                 return new FileStreamResult(stream, "application/pdf");
-
             }
             catch (Exception ex)
             {
+                // Registrar el error para el diagnóstico
+                System.Diagnostics.Trace.TraceError($"Error al generar el reporte: {ex.Message}\n{ex.StackTrace}");
+
                 // En caso de error, retornar un código de estado HTTP 500 con un mensaje de error
-                return new HttpStatusCodeResult(500, "Error al generar el reporte");
+                return new HttpStatusCodeResult(500, $"Error al generar el reporte: {ex.Message}");
             }
-
-
         }
+
+        // Acción para descargar el reporte en formato PDF
+        public ActionResult Descargar(DateTime fecha)
+        {
+            try
+            {
+                // Obtener el ID del instructor desde la sesión
+                int instructorId = (int)Session["Instructor"];
+
+                // Crear una instancia de ReportClass para el reporte de asistencia
+                var rpth = new ReportClass();
+                // Establecer la ruta del archivo del reporte
+                string reportPath = Server.MapPath("/Reportes/Reporteasistencia.rpt");
+                rpth.FileName = reportPath;
+
+                // Verificar si el archivo existe
+                if (!System.IO.File.Exists(reportPath))
+                {
+                    throw new FileNotFoundException("El archivo del reporte no fue encontrado.", reportPath);
+                }
+
+                // Cargar el archivo del reporte
+                rpth.Load();
+
+                // Configurar la información de conexión a la base de datos
+                var connInfo = new ConnectionInfo
+                {
+                    IntegratedSecurity = true, // Usar seguridad integrada de Windows
+                    ServerName = @"JAMB\SQLEXPRESS", // Nombre del servidor de base de datos
+                    DatabaseName = "Asistencia" // Nombre de la base de datos
+                };
+
+                // Aplicar la configuración de conexión a cada tabla del reporte
+                foreach (Table table in rpth.Database.Tables)
+                {
+                    var logonInfo = table.LogOnInfo;
+                    logonInfo.ConnectionInfo = connInfo;
+                    table.ApplyLogOnInfo(logonInfo);
+                }
+
+                // Establecer los parámetros del ID del instructor y la fecha en el reporte
+                rpth.SetParameterValue("@InstructorId", instructorId);
+                rpth.SetParameterValue("@Fecha", fecha);
+
+                // Exportar el reporte a un stream en formato PDF
+                Stream stream = rpth.ExportToStream(ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+
+                // Retornar el stream del PDF como un resultado de archivo descargable
+                return File(stream, "application/pdf", "ReporteAsistencia.pdf");
+            }
+            catch (Exception ex)
+            {
+                // Registrar el error para el diagnóstico
+                System.Diagnostics.Trace.TraceError($"Error al generar el reporte: {ex.Message}\n{ex.StackTrace}");
+
+                // En caso de error, retornar un código de estado HTTP 500 con un mensaje de error
+                return new HttpStatusCodeResult(500, $"Error al generar el reporte: {ex.Message}");
+            }
+        }
+
+
         public ActionResult QrAsistencias()
         {
             return View();

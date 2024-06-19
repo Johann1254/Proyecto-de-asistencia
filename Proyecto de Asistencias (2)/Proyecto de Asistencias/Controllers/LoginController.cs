@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace Proyecto_de_Asistencias.Controllers
 {
-    // Clase LoginController que hereda de la clase Controller de ASP.NET MVC
+
     public class LoginController : Controller
     {
         // Instancia de AsistenciaEntities para interactuar con la base de datos
@@ -118,9 +118,11 @@ namespace Proyecto_de_Asistencias.Controllers
                     Session["ApellidoUsuario"] = apellidoUsuario;
                     return RedirectToAction("MenuprincipalInstructor", "InstructorMenu"); // Redireccionar a la vista de instructor
 
+
                 default:
                     return View();
             }
+
         }
         // Método para manejar la solicitud GET(obtener datos) para la página de inicio de sesión
         public ActionResult Login()
