@@ -1,6 +1,7 @@
 ﻿
-@{
-    Layout = null;
+@{ Layout = null;
+    var nombreUsuario = Session["NombreUsuario"] as string ?? "Nombre";
+    var apellidoUsuario = Session["ApellidoUsuario"] as string ?? "Apellido";
 }
 
 <!DOCTYPE html>
@@ -10,61 +11,77 @@
     <meta name="viewport" content="width=device-width" />
     <title>Consultar_Asistencia</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="~/CSS/CSSvistasInstructor.css" rel="stylesheet" />
 </head>
 <body>
-    <h1 id="titulo2">Listado de Inasistencias</h1>
-    <div class="container">
-        <div class="header">
-            <h1>Instructor Jesus Marzal Barboza</h1>
-            <h4>Consulta Inasistencia</h4>
-        </div>
-    </div>
-    <div class="form-field">
-        <label for="fecha">Fecha:</label>
-        <input type="date" id="fecha" name="fecha">
+    <header>
+    </header>
+    <section>
 
-    </div>
 
-    <div class="form-container">
-        <div class="form-field">
-            <label for="ficha">Seleccione el número de la Ficha</label>
-            <select id="ficha" class="form-control">
-                <option value="">Seleccione una ficha</option>
-                @foreach (var item in ViewBag.Fichas)
-                {
-                    <option value="@item.Value">@item.Text</option>
-}
-            </select>
+        <div class="container">
+            <div class="header">
+                <h1>Instructor @nombreUsuario @apellidoUsuario</h1>
+                <h1>Listado de Asistencias</h1>
+                <h4>Consulta Asistencia</h4>
+            </div>
+
+            <div class="form-field">
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" name="fecha">
+
+            </div>
+
+            <div class="form-container">
+                <div class="ficha">
+                    <label for="ficha">Seleccione el número de la Ficha</label>
+                    <select id="ficha" class="form-control">
+                        <option value="">Seleccione una ficha</option>
+                        @foreach (var item in ViewBag.Fichas)
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+                    </select>
+                </div>
+                <div class="programa">
+                    <label for="programa_formacion">Seleccione el programa de formación:</label>
+                    <select id="programa_formacion" class="form-control">
+                        <option value="">Seleccione un programa</option>
+                    </select>
+                </div>
+                <div class="competencia">
+                    <label for="competencias">Seleccione la competencia:</label>
+                    <select id="competencias" class="form-control">
+                        <option value="">Seleccione una competencia</option>
+                    </select>
+                </div>
+                <button id="buscar-asistencias" class="btn btn-primary">Mostrar Asistencias</button>
+            </div>
+            <div class="cuadrado">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Fecha</th>
+                            <th>Ficha</th>
+                            <th>Programa de Formación</th>
+                            <th>Competencia</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inasistencias-table-body">
+                        <!-- Filas de inasistencias se llenarán dinámicamente aquí -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="">
+                <button class="button" onclick="location.href = 'MenuprincipalInstructor'">Volver</button>
+            </div>
         </div>
-        <div class="form-field">
-            <label for="programa_formacion">Seleccione el programa de formación:</label>
-            <select id="programa_formacion" class="form-control">
-                <option value="">Seleccione un programa</option>
-            </select>
-        </div>
-        <div class="form-field">
-            <label for="competencias">Seleccione la competencia:</label>
-            <select id="competencias" class="form-control">
-                <option value="">Seleccione una competencia</option>
-            </select>
-        </div>
-        <button id="buscar-inasistencias" class="btn btn-primary">Buscar Inasistencias</button>
-    </div>
-    <div class="table-container">
-        <table class="custom-table">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Fecha</th>
-                    <th>Ficha</th>
-                </tr>
-            </thead>
-            <tbody id="inasistencias-table-body">
-                <!-- Filas de inasistencias se llenarán dinámicamente aquí -->
-            </tbody>
-        </table>
-    </div>
+    </section>
+    <footer>
+        Assist.NET
+    </footer>
 </body>
 </html>
 <script>
@@ -125,7 +142,7 @@
                 }
             });
             // Este bloque de código se ejecuta cuando se hace clic en el elemento HTML con id 'buscar-inasistencias'
-            $('#buscar-inasistencias').click(function () {
+            $('#buscar-asistencias').click(function () {
                  // Aquí se obtienen los valores de los elementos HTML con ids 'ficha', 'programa_formacion' y 'competencias'.
                 var fichaId = $('#ficha').val();
                 var programaId = $('#programa_formacion').val();
@@ -162,3 +179,6 @@
             });
         });
 </script>
+
+
+

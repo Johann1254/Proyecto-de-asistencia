@@ -181,6 +181,7 @@
     <Content Include="Content\LcaLKXQNsoTk1AxY0hGlV-transformed.png" />
     <Content Include="Content\regular.css" />
     <Content Include="Content\regular.min.css" />
+    <Content Include="Content\sena-sofia-plus.jpg" />
     <Content Include="Content\solid.css" />
     <Content Include="Content\solid.min.css" />
     <Content Include="Content\Stilo login.css" />
@@ -199,6 +200,7 @@
     <Content Include="CSS\EstiloArchivo.css" />
     <Content Include="CSS\EstiloConsultarA.css" />
     <Content Include="CSS\EstiloConsultarI.css" />
+    <Content Include="CSS\VistaAprendiz.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -334,6 +336,8 @@
     <Content Include="Views\InstructorMenu\ConsultarInasistencias.cshtml" />
     <Content Include="Views\InstructorMenu\Consultar_Asistencia.cshtml" />
     <Content Include="Views\InstructorMenu\Reporte.cshtml" />
+    <Content Include="Views\AprendizMenu\VistaQR.cshtml" />
+    <Content Include="Views\InstructorMenu\ConsultarArchivo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -15,10 +15,13 @@ namespace Libreria_de_conexion
     public partial class Soporte_asistencia
     {
         public int idSoporte { get; set; }
-        public string Fecha_Soporte { get; set; }
-        public string Hora_Soporte { get; set; }
         public Nullable<int> idAprendiz { get; set; }
+        public byte[] Archivo_soporte { get; set; }
+        public string Extension { get; set; }
+        public Nullable<int> idAsistencia { get; set; }
+        public Nullable<System.DateTime> Fecha_Hora { get; set; }
     
         public virtual Aprendiz Aprendiz { get; set; }
+        public virtual Registro_Asistencias_QR Registro_Asistencias_QR { get; set; }
     }
 }

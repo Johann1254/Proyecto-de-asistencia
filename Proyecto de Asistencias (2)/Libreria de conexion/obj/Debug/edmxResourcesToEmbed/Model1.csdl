@@ -112,6 +112,7 @@
     <NavigationProperty Name="Aprendiz" Relationship="Self.FK__Registro___idApr__37A5467C" FromRole="Registro_Asistencias_QR" ToRole="Aprendiz" />
     <NavigationProperty Name="Instructor" Relationship="Self.FK__Registro___idIns__36B12243" FromRole="Registro_Asistencias_QR" ToRole="Instructor" />
     <NavigationProperty Name="Reporte" Relationship="Self.FK__Reporte__idAsist__3A81B327" FromRole="Registro_Asistencias_QR" ToRole="Reporte" />
+    <NavigationProperty Name="Soporte_asistencia" Relationship="AsistenciaModel.FK__Soporte_a__idAsi__662B2B3B" FromRole="Registro_Asistencias_QR" ToRole="Soporte_asistencia" />
   </EntityType>
   <EntityType Name="Reporte">
     <Key>
@@ -128,10 +129,13 @@
       <PropertyRef Name="idSoporte" />
     </Key>
     <Property Name="idSoporte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Fecha_Soporte" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Hora_Soporte" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="idAprendiz" Type="Int32" />
     <NavigationProperty Name="Aprendiz" Relationship="Self.FK__Soporte_a__idApr__4222D4EF" FromRole="Soporte_asistencia" ToRole="Aprendiz" />
+    <Property Name="Archivo_soporte" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Extension" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idAsistencia" Type="Int32" />
+    <Property Name="Fecha_Hora" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Registro_Asistencias_QR" Relationship="AsistenciaModel.FK__Soporte_a__idAsi__662B2B3B" FromRole="Soporte_asistencia" ToRole="Registro_Asistencias_QR" />
   </EntityType>
   <Association Name="FK__Aprendiz__idAdmi__2F10007B">
     <End Role="Administrador" Type="Self.Administrador" Multiplicity="0..1" />
@@ -371,9 +375,25 @@
       <Parameter Name="Email" Mode="In" Type="String" />
       <Parameter Name="Contraseña" Mode="In" Type="String" />
     </FunctionImport>
+    <AssociationSet Name="FK__Soporte_a__idAsi__662B2B3B" Association="AsistenciaModel.FK__Soporte_a__idAsi__662B2B3B">
+      <End Role="Registro_Asistencias_QR" EntitySet="Registro_Asistencias_QR" />
+      <End Role="Soporte_asistencia" EntitySet="Soporte_asistencia" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_ValidarUsuario_Result">
     <Property Type="String" Name="Column1" Nullable="false" MaxLength="13" />
     <Property Type="Int32" Name="idAdministrador" Nullable="false" />
   </ComplexType>
+  <Association Name="FK__Soporte_a__idAsi__662B2B3B">
+    <End Type="AsistenciaModel.Registro_Asistencias_QR" Role="Registro_Asistencias_QR" Multiplicity="0..1" />
+    <End Type="AsistenciaModel.Soporte_asistencia" Role="Soporte_asistencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Registro_Asistencias_QR">
+        <PropertyRef Name="idAsistencia" />
+      </Principal>
+      <Dependent Role="Soporte_asistencia">
+        <PropertyRef Name="idAsistencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

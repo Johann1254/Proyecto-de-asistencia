@@ -11,46 +11,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SubirArchivo</title>
-    <link href="~/CSS/cssIndex.css" rel="stylesheet" />
+    @*<link href="~/CSS/cssIndex.css" rel="stylesheet" />*@
+    <link href="~/CSS/VistaAprendiz.css" rel="stylesheet" />
 </head>
 <body>
+    <header>
+    </header>
+    <section>
 
-    <div class="container">
-        <div class="header">
-            <h1>Archivo de soporte de inasistencia</h1>
-            <h2>Subir Archivo</h2>
+        <div class="container modal" id="mymodal">
+            <div class="header">
+                <h1>Archivo de soporte de inasistencia</h1>
+                <h2>Subir Archivo</h2>
+            </div>
+            <div class="form-container">
+                <form action="@Url.Action("Cargar", "AprendizMenu")" method="post" enctype="multipart/form-data" id="uploadForm">
+                    <div class="form-field">
+                        <input type="text" name="idAsistencia" id="idAsistencia" placeholder="Ingrese el id de Asistencia" value="" onblur="verificarFecha()" />
+                        <div class="boton-files">
+                            <input type="file" name="file" id="file" accept=".pdf" onchange="AbrirExpliorer(this)" />
+                        </div>
+                    </div>
+                    <div class="form-field modal-buttons">
+                        <button type="submit" value="Subir Archivo" class="button" id="uploadButton">Subir Archivo</button>
+                    </div>
+                    <div class="mensaje-archivo">
+                        <h5>Informacion de la Asistencia</h5>
+                        @if (TempData["AlertMessage"] != null)
+                        {
+                            <div class="alert alert-danger">
+                                @TempData["AlertMessage"]
+                            </div> }
+                        else
+                        {
+                            <div class="correcto">
+                                @TempData["Mensaje"]
+                            </div>}
+                    </div>
+                </form>
+            </div>
+            <div class="volver">
+                <button class="button boton-transicion" onclick="redirectTo('Consultarinasistencias')">Volver</button>
+            </div>
         </div>
-        <div class="form-container">
+    </section>
+    <footer> Proyecto asistencia © </footer>
 
-            <form class="" action="" method="POST" enctype="multipart/form-data">
-                <div class="form-field">
-                    <label for="archivo">Seleccione un archivo:</label>
-                    <input type="file" id="archivo" name="archivo">
-                </div>
-                <div class="form-field">
-                    <input type="submit" value="Subir Archivo" class="button">
-                </div>
-            </form>
-        </div>
+    <script>
+        function AbrirExpliorer(a) {
+            if (a.files && a.files[0]) {
+                var file = a.files[0];
+                if (file.type !== "application/pdf") {
+                    alert("Solo se permiten archivos PDF");
+                    a.value = "";
+                    return;
+                }
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('Archivo').innerHTML = '<p>' + file.name + '<p>';
+                }
+                reader.readAsDataURL(file);
+            }
+        }
 
-        <div class="volver">
-            <button class="button boton-transicion" onclick="redirectTo('Archivosoporte')">Volver</button>
-        </div>
-
-    </div>
-
-
-    @*<footer id="Bot"> Proyecto asistencia © </footer>*@
+        function redirectTo(url) {
+            document.body.classList.add('transicion-salida');
+            setTimeout(function () {
+                window.location.href = url;
+            }, 500);
+        }
+    </script>
 </body>
 </html>
-<script>
-    function redirectTo(url) {
-        // Agrega una clase de transición al cuerpo del documento
-        document.body.classList.add('transicion-salida');
 
-        // Espera un momento antes de redirigir
-        setTimeout(function () {
-            window.location.href = url;
-        }, 500); // Ajusta el tiempo según tu preferencia
-    }
-</script>
+
+

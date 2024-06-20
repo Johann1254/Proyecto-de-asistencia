@@ -18,6 +18,7 @@ namespace Libreria_de_conexion
         public Registro_Asistencias_QR()
         {
             this.Reporte = new HashSet<Reporte>();
+            this.Soporte_asistencia = new HashSet<Soporte_asistencia>();
         }
     
         public int idAsistencia { get; set; }
@@ -37,5 +38,7 @@ namespace Libreria_de_conexion
         public virtual Instructor Instructor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reporte> Reporte { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Soporte_asistencia> Soporte_asistencia { get; set; }
     }
 }

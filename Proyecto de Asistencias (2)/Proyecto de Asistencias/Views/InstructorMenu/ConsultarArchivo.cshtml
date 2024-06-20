@@ -1,0 +1,87 @@
+﻿
+@{ Layout = null;
+    var nombreUsuario = Session["NombreUsuario"] as string ?? "Nombre";
+    var apellidoUsuario = Session["ApellidoUsuario"] as string ?? "Apellido";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Consultar Archivo Soportes</title>
+    <link href="~/CSS/CSSvistasInstructor.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+    </header>
+    <section>
+        <div class="container">
+            <div class="header">
+                <h1>Apendiz @nombreUsuario @apellidoUsuario</h1>
+                <h4>Consultar Archivo Soporte</h4>
+            </div>
+            <div>
+                <div class="cuadrado">
+
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Id de Soporte</th>
+                                <th>Nombre de Aprendiz</th>
+                                <th>Apellidos de Aprendiz</th>
+                                <th>Archivo Soporte</th>
+                                <th>Fecha y Hora</th>
+                                <th>Id de Asistencia</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+
+                            @foreach (var aprendiz in ViewBag.Aprendiz)
+                            {
+                                <tr>
+
+                                    <td>@aprendiz.idSoporte</td>
+                                    <td>@aprendiz.Aprendiz.Nombres_Aprenidiz</td>
+                                    <td>@aprendiz.Aprendiz.Apellidos_Aprendiz</td>
+                                    @if (aprendiz.Archivo_soporte != null)
+                                    {
+                                        <td>  <a href="@Url.Action("Descargars", "InstructorMenu", new { id = aprendiz.idSoporte  })">Ver Archivo</a></td>
+                                    }
+                                    else
+                                    {
+                                        <td>No hay Archivo disponible</td>
+                                    }
+
+
+                                    <td>@aprendiz.Fecha_Hora</td>
+                                    <td>@aprendiz.idAsistencia</td>
+
+                                </tr>
+
+
+                            }
+                        </tbody>
+                        <!-- Puedes añadir más filas según sea necesario -->
+                    </table>
+                </div>
+                <div class="">
+                    <button class="button" onclick="location.href = 'MenuprincipalInstructor'">Volver</button>
+                </div>
+            </div>
+
+           
+        </div>
+    </section>
+
+    <footer>
+        Assist.NET
+    </footer>
+</body>
+</html>
+
+
+

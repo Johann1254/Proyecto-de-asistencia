@@ -7,27 +7,20 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="initial-scale=1, width=device-width">
     <script src="https://kit.fontawesome.com/58ee981eed.js" crossorigin="anonymous"></script>
     <title>Inicio de Sesión</title>
     <link href="~/Content/Stilo login.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="barra-arriba">
-
-    </div>
-    <div class="barra-abajo">
-        Assist.Net ©
-    </div>
+    <header>
+    </header>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <section>
             <div class="contenedor">
                 <div class="formulario">
                     <form action="@Url.Action("Iniciar_sesion", "Login")" method="post">
-                        <div id="img-container">
-                            <img class="img-circle" src="~/Content/LcaLKXQNsoTk1AxY0hGlV-transformed.png" />
 
-                        </div>
                         <h2 class="titulo">Inicio de Sesión</h2>
 
                         <div class="input-contenedor">
@@ -37,31 +30,39 @@
                         </div>
 
                         <div class="input-contenedor">
-                            <i class="fa-solid fa-lock"></i>
+                            <i id="icon-contraseña" class="fa-solid fa-lock"></i>
                             <input type="password" name="Contraseña_Administrador" , dirname="Contraseña" id="contraseña" required>
                             <label for="contraseña">Contraseña</label>
                         </div>
 
-                        <div class="boton">
-                            <button type="submit">Ingresar</button>
 
-                        </div>
                         @if (ViewData["Mensaje"] != null)
                         {
-                            <div class="alert alert-warning mi-clase" role="alert">
+                            <div class="alert alert-warning mi-clase mensaje" role="alert">
                                 @ViewData["Mensaje"]
                             </div>
 
                         }
 
 
+                        <div class="boton">
+                            <button type="submit">Ingresar</button>
+
+                        </div>
+
+
 
                     </form>
 
                 </div>
+
             </div>
         </section>
     </div>
+
+    <footer>
+        Assist.Net ©
+    </footer>
 
 </body>
 </html>

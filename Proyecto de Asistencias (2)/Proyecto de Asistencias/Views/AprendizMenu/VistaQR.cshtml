@@ -1,0 +1,43 @@
+﻿
+@{ Layout = null;
+    var nombreUsuario = Session["NombreUsuario"] as string ?? "Nombre";
+    var apellidoUsuario = Session["ApellidoUsuario"] as string ?? "Apellido";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VistaQR</title>
+    <link href="~/CSS/VistaAprendiz.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+    </header>
+    <section>
+
+
+        <div class="container">
+            <div class="header">
+                <h1>Aprendiz @nombreUsuario @apellidoUsuario</h1>
+                <h4>QR Generado</h4>
+            </div>
+            <div class="form-container">
+
+                <div class="cuadrado">
+
+                </div>
+            </div>
+            <div class="">
+                <button class="button-salir" onclick="location.href = 'MenuprincipalAprendiz'">Volver</button>
+            </div>
+        </div>
+    </section>
+    <footer>
+        Assist.NET
+    </footer>
+</body>
+</html>
+
+
+

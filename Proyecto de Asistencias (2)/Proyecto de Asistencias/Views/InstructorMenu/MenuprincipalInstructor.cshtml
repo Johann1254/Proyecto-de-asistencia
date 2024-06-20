@@ -4,7 +4,6 @@
     var apellidoUsuario = Session["ApellidoUsuario"] as string ?? "Apellido";
 }
 
-
 <!DOCTYPE html>
 
 <html>
@@ -13,39 +12,44 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <title>Menú principal del Instructor</title>
     <link href="~/CSS/CSSvistasInstructor.css" rel="stylesheet" />
-    <link href="~/CSS/cssQRAsistencia.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    @*<link href="~/CSS/cssQRAsistencia.css" rel="stylesheet" />*@
 </head>
 <body>
-    <header class="top">
-        <h1>Sistema de Asistencias: Assist.NET</h1>
+    <header>
     </header>
+    <section>
 
-    <div class="container">
-        <div class="header">
-            <h1>Instructor @nombreUsuario @apellidoUsuario</h1>
-            <h2>Menu de Opciones</h2>
-        </div>
-        <div class="form-container">
 
-            <div class="form-field boton-opciones">
-                <button class="button" onclick="location.href = 'Reporte'">Generar reporte</button>
-                <button class="button" onclick="location.href = 'VistaInasistencias'">Inasistencias</button>
-                <button class="button" onclick="location.href = 'VistaAsistencias'">Asistencia</button>
-                <button class="button" onclick="location.href = 'QrAsistencias'">Generar código QR para la Asistencia</button>
+        <div class="container">
+            <div class="header">
+                <h1>Instructor @nombreUsuario @apellidoUsuario</h1>
+                <h2>Menu de Opciones</h2>
             </div>
-        </div>
+            <div class="form-container">
 
-    </div>
+                <div class="form-field opciones">
+                    @*<button class="button" onclick="location.href = 'VistaAsistencias'">Asistencias</button>*@
+                    <button class="button" onclick="location.href = 'VistaInasistencias'">Inasistencias</button>
+                    <button class="button" onclick="location.href = 'VistaAsistencias'">Asistencia</button>
+                    <button class="button" onclick="location.href = 'QrAsistencias'">Generar código QR para la Asistencia</button>
+                    <button class="button" onclick="location.href = 'ConsultarArchivo'">Consultar Archivo Soporte</button>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div>
+            <button class="boton_salir" onclick="redirectTo('@Url.Action("Login","Login")')">Salir</button>
+        </div>
+    </section>
    
 
-    <footer class="bot">
-        <div>
-            <p>Assist.NET </p>
-        </div>
-
+    <footer>
+        Assist.NET
     </footer>
-  
 </body>
 </html>
+
+
 

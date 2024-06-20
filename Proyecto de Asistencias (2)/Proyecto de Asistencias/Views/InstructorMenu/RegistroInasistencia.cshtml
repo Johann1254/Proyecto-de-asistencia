@@ -1,6 +1,7 @@
 ﻿
-@{
-    Layout = null;
+@{ Layout = null;
+    var nombreUsuario = Session["NombreUsuario"] as string ?? "Nombre";
+    var apellidoUsuario = Session["ApellidoUsuario"] as string ?? "Apellido";
 }
 
 <!DOCTYPE html>
@@ -10,58 +11,62 @@
     <meta name="viewport" content="width=device-width" />
     <title>RegistroInasistencia</title>
     <link href="~/CSS/cssregistroinasistencia.css" rel="stylesheet" />
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Instructor Jesus Marzal Barboza</h1>
-            <h4>Registro Inasistencia</h4>
-        </div>
-        <div class="form-container">
-            <!-- <div class="form-field">
-                <label for="qr-code">QR de Asistencia</label>
-                <input type="text" id="qr-code" placeholder="Ingrese el código de asistencia">
-            </div> -->
-        </div>
-        <div class="form-container">
-            <div class="form-field">
-                <label for="date">Fecha</label>
-                <input type="date" id="date" readonly>
-            </div>
+    <header>
+    </header>
+    <section>
 
-            <div class="form-field">
-                <label for="ficha">Seleccione el número de la Ficha</label>
-                <select id="ficha" class="form-control">
-                    <option value="">Seleccione una ficha</option>
-                    @foreach (var item in ViewBag.Fichas)
-                    {
-                        <option value="@item.Value">@item.Text</option>
-                    }
-                </select>
-            </div>
-            <div class="form-field">
-                <label for="programa_formacion">Seleccione el programa de formación:</label>
-                <select id="programa_formacion" class="form-control">
-                    <option value="">Seleccione un programa</option>
-                </select>
-            </div>
-            <div class="form-field">
-                <label for="competencias">Seleccione la competencia:</label>
-                <select id="competencias" class="form-control">
-                    <option value="">Seleccione una competencia</option>
-                </select>
-            </div>
-            <div class="form-field">
-                <label for="aprendiz">Seleccione el aprendiz:</label>
-                <select id="aprendiz" class="form-control">
-                    <option value="">Seleccione un aprendiz</option>
-                </select>
-            </div>
-            <button id="registrar-inasistencia" class="btn btn-primary">Registrar Inasistencia</button>
 
+        <div class="container">
+            <div class="header">
+                <h1>Instructor @nombreUsuario @apellidoUsuario</h1>
+                <h4>Registro Inasistencia</h4>
+            </div>
+            <div class="form-container">
+                <div class="form-field">
+                    <label for="date">Fecha</label>
+                    <input type="date" id="date" readonly>
+                </div>
+
+                <div class="form-field">
+                    <label for="ficha">Seleccione el número de la Ficha</label>
+                    <select id="ficha" class="form-control">
+                        <option value="">Seleccione una Ficha</option>
+                        @foreach (var item in ViewBag.Fichas)
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-field programa">
+                    <label for="programa_formacion">Seleccione el Programa de formación:</label>
+                    <select id="programa_formacion" class="form-control">
+                        <option value="">Seleccione un programa</option>
+                    </select>
+                </div>
+                <div class="form-field competencia">
+                    <label for="competencias">Seleccione la Competencia:</label>
+                    <select id="competencias" class="form-control">
+                        <option value="">Seleccione una competencia</option>
+                    </select>
+                </div>
+                <div class="form-field aprendiz">
+                    <label for="aprendiz">Seleccione el Aprendiz:</label>
+                    <select id="aprendiz" class="form-control">
+                        <option value="">Seleccione un aprendiz</option>
+                    </select>
+                </div>
+                <button id="registrar-inasistencia">Registrar Inasistencia</button>
+
+            </div>
+            <div class="">
+                <button class="button" onclick="location.href = 'MenuprincipalInstructor'">Volver</button>
+            </div>
         </div>
-    </div>
+    </section>
     <script>
         $(document).ready(function () {
              // Este bloque de código se ejecuta cuando el valor del elemento HTML con id 'ficha' cambia. Este elemento es un menú desplegable.
@@ -200,6 +205,12 @@ $(document).ready(function () {
 
     </script>
 
+    <footer>
+        Assist.NET
+    </footer>
 
 </body>
 </html>
+
+
+

@@ -1,6 +1,7 @@
 ﻿
-@{
-    Layout = null;
+@{ Layout = null;
+    var nombreUsuario = Session["NombreUsuario"] as string ?? "Nombre";
+    var apellidoUsuario = Session["ApellidoUsuario"] as string ?? "Apellido";
 }
 
 <!DOCTYPE html>
@@ -10,53 +11,76 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Consultarinasistencias</title>
-    <link href="~/CSS/EstiloConsultarI.css" rel="stylesheet" />
-    <link href="~/Content/CSSvistasInstructor.css" rel="stylesheet" />
-    <link href="~/CSS/cssQRAsistencia.css" rel="stylesheet" />
-   
+    @*<link href="~/CSS/EstiloConsultarI.css" rel="stylesheet" />
+        <link href="~/Content/CSSvistasInstructor.css" rel="stylesheet" />
+        <link href="~/CSS/cssQRAsistencia.css" rel="stylesheet" />*@
+    <link href="~/CSS/VistaAprendiz.css" rel="stylesheet" />
+
+
 </head>
 <body>
-    <div class="barra-arriba">
-        <h1 id="titulo">Inasistencias</h1>
-    </div>
-    <div class="barra-abajo">
-        <br />
-        <a class="copyright">Assist.Net ©</a>
-    </div>
-    <div class="container">
-        <div class="header">
-            <h4>Consultar Inasistencias</h4>
-        </div>
+    <header>
+    </header>
+    <section>
 
-        <div class="cuadrado">
-            <table>
-                <tr>
-                    <th>Nombre </th>
-                    <th>Apellido</th>
-                    <th>Fecha</th>
-                    <th>Ficha</th>
 
-                </tr>
-                <tr>
-                </tr>
+        <div class="container">
+            <div class="header">
+                <h1>Apendiz @nombreUsuario @apellidoUsuario</h1>
+                <h4>Consultar Inasistencias</h4>
+            </div>
+            <div class="cuadrado">
+                <table>
+                    <tr>
+                        <th>Id de Asistencia</th>
+                        <th>Fecha de Asistencia</th>
+                        <th>Hora de Asistencia</th>
+                        <th>Tipo de Asistencia</th>
+                        <th>Nombre de Aprendiz</th>
+                        <th>Apellidos de Aprendiz</th>
+                        <th>Imagen QR</th>
+                        <th>Competencias</th>
+                        <th>Ficha</th>
+                        <th>Programa de Formacion</th>
 
-                <!-- Puedes añadir más filas según sea necesario -->
-            </table>
+                    </tr>
+                    @foreach (var aprendiz in ViewBag.Aprendiz)
+                    {
+                        <tr>
 
-        </div>
-        <div id="botones">
-            <div class="">
-                <button class="button" onclick="redirectTo('Archivosoporte')">Subir archivo de soporte</button>
+                            <td>@aprendiz.idAsistencia</td>
+                            <td>@aprendiz.Fecha_Asistencia</td>
+                            <td>@aprendiz.Hora_Asistencia</td>
+                            <td>Inasistencia</td>
+                            <td>@aprendiz.Nombres</td>
+                            <td>@aprendiz.Apellidos</td>
+                            <td>@aprendiz.ImagenQR</td>
+                            <td>@aprendiz.Competencias</td>
+                            <td>@aprendiz.Ficha</td>
+                            <td>@aprendiz.Programa</td>
+
+                        </tr>
+                    }
+
+                    <!-- Puedes añadir más filas según sea necesario -->
+                </table>
+
+
             </div>
 
-            <div class="volver">
-                <button class="boton-transicion" onclick="redirectTo('MenuprincipalAprendiz')">Volver</button>
+            <div id="botones">
+                <div class="">
+                    <button class="button" onclick="redirectTo('SubirArchivo')">Subir archivo de soporte</button>
+                </div>
+
+                <div class="volver">
+                    <button class="boton-transicion" onclick="redirectTo('MenuprincipalAprendiz')">Volver</button>
+                </div>
             </div>
         </div>
-    </div>
-    
+    </section>
 
-    @*<footer id="Bot"> Proyecto asistencia © </footer>*@
+    <footer> Proyecto asistencia © </footer>
 </body>
 </html>
 <script>
@@ -70,3 +94,6 @@
         }, 500); // Ajusta el tiempo según tu preferencia
     }
 </script>
+
+
+

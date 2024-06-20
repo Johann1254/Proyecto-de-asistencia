@@ -108,9 +108,11 @@
     <EntitySetMapping Name="Soporte_asistencia">
       <EntityTypeMapping TypeName="AsistenciaModel.Soporte_asistencia">
         <MappingFragment StoreEntitySet="Soporte_asistencia">
+          <ScalarProperty Name="Fecha_Hora" ColumnName="Fecha_Hora" />
+          <ScalarProperty Name="idAsistencia" ColumnName="idAsistencia" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Archivo_soporte" ColumnName="Archivo_soporte" />
           <ScalarProperty Name="idSoporte" ColumnName="idSoporte" />
-          <ScalarProperty Name="Fecha_Soporte" ColumnName="Fecha_Soporte" />
-          <ScalarProperty Name="Hora_Soporte" ColumnName="Hora_Soporte" />
           <ScalarProperty Name="idAprendiz" ColumnName="idAprendiz" />
         </MappingFragment>
       </EntityTypeMapping>

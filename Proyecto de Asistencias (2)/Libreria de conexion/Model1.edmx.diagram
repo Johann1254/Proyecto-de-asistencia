@@ -28,6 +28,7 @@
         <AssociationConnector Association="AsistenciaModel.FK__Instructo__Numer__31EC6D26" ManuallyRouted="false" />
         <AssociationConnector Association="AsistenciaModel.FK__Registro___idIns__36B12243" ManuallyRouted="false" />
         <AssociationConnector Association="AsistenciaModel.FK__Reporte__idAsist__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="AsistenciaModel.FK__Soporte_a__idAsi__662B2B3B" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

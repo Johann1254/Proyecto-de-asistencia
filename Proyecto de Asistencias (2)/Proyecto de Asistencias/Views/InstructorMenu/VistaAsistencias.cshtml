@@ -10,26 +10,39 @@
     <meta name="viewport" content="width=device-width" />
     <title>Asistencias</title>
     <link href="~/CSS/CSSvistasInstructor.css" rel="stylesheet" />
-    <link href="~/CSS/cssQRAsistencia.css" rel="stylesheet" />
+    @*<link href="~/CSS/cssQRAsistencia.css" rel="stylesheet" />*@
 </head>
 <body>
+    <header>
+    </header>
+    <section>
+
+
         <div class="container">
             <div class="header">
                 <h1>Instructor  Jesus Marzal Barboza</h1>
+                <br />
                 <h4>Asistencias</h4>
             </div>
             <div class="form-container">
-                
+
                 <div class="form-field boton-opciones">
-                   
+                    <button class="button" onclick="location.href = 'Reporte'">Generar reporte</button>
                     <button class="button" onclick="location.href ='Consultar_Asistencia'">Consultar Asistencias</button>
                 </div>
             </div>
-            @*<div class="footer">
-                <button class="button salir" onclick="location.href = 'MenuprincipalInstructor'">Regresar</button>
-            </div>*@
+            <div class="footer">
+                <button class="button" onclick="location.href = 'MenuprincipalInstructor'">Volver</button>
+            </div>
         </div>
-   
+    </section>
+
+    <footer>
+        Assist.NET
+    </footer>
 
 </body>
 </html>
+
+
+

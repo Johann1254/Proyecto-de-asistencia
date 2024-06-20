@@ -10,30 +10,48 @@
     <meta name="viewport" content="width=device-width" />
     <title>Qr de Asistencias</title>
     <link href="~/CSS/CSSvistasInstructor.css" rel="stylesheet" />
-    <link href="~/CSS/cssQRAsistencia.css" rel="stylesheet" />
+    
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Instructor Jesus Marzal Barboza</h1>
-            <h4>Detalles de QR</h4>
-        </div>
-        <div class="form-container">
-            <!-- <div class="form-field">
-                <label for="qr-code">QR de Asistencia</label>
-                <input type="text" id="qr-code" placeholder="Ingrese el código de asistencia">
-            </div> -->
-            <div class="form-field">
-                <label for="date">Fecha</label>
-                <input type="date" id="date" value="dd/mm/aaaa">
+    <header></header>
+    <section>
+        <div class="container">
+            <div class="header">
+                <h1>Instructor Jesus Marzal Barboza</h1>
+                <h4>Detalles de QR</h4>
             </div>
-            <div class="form-field">
-                <label for="environment">Ingrese el numero de la Ficha</label>
-                <input type="text" id="environment" placeholder="Ingrese el número de la Ficha">
+            <div class="form-container">
+                <!-- <div class="form-field">
+                    <label for="qr-code">QR de Asistencia</label>
+                    <input type="text" id="qr-code" placeholder="Ingrese el código de asistencia">
+                </div> -->
+                <div class="form-field">
+                    <label for="date">Fecha</label>
+                    <input type="date" id="date" value="dd/mm/aaaa">
+                </div>
+                <div class="form-field">
+                    <label for="environment">Ingrese el numero de la Ficha</label>
+                    <input type="text" id="environment" placeholder="Ingrese el número de la Ficha">
+                </div>
+                <div class="form-field">
+                    <label for="environment">Ingrese la competencia</label>
+                    <input type="text" id="environment" placeholder="Ingrese la competencia">
+                </div>
+                <div class="form-field">
+                    <label for="environment">Ingrese el programa</label>
+                    <input type="text" id="environment" placeholder="Ingrese el programa">
+                </div>
+                @*<button class="btn">Enviar</button>*@
+                <button class="button">Generar QR</button>
             </div>
-            @*<button class="btn">Enviar</button>*@
-            <button class="button">Generar QR</button>
+            <div class="">
+                <button class="button" onclick="location.href = 'MenuprincipalInstructor'">Volver</button>
+            </div>
         </div>
-    </div>
+    </section>
+    <footer>
+        Assist.NET
+    </footer>
 </body>
+
 </html>
